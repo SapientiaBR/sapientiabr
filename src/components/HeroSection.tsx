@@ -1,0 +1,140 @@
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { SplineScene } from '@/components/ui/splite';
+import { Spotlight } from '@/components/ui/spotlight';
+import sapientLogo from '@/assets/sapient-logo.png';
+
+const HeroSection = () => {
+  return (
+    <div className="relative min-h-screen bg-sapient-dark">
+      <div className="absolute inset-0 bg-gradient-radial from-sapient-dark to-transparent opacity-90"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-sapient-dark to-transparent"></div>
+      <div className="container mx-auto px-4 pt-24 pb-20 relative z-10">
+        {/* Split Screen Container */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center min-h-[85vh] mb-16">
+          
+          {/* Left Side - Conteúdo */}
+          <div className="flex-1 animate-fade-in text-center lg:text-left">
+            <img 
+              src={sapientLogo} 
+              alt="Sapient.IA Logo" 
+              className="w-40 mx-auto lg:mx-0 mb-4"
+            />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              <span className="text-gradient-sapient">Automatize</span> Seu Negócio com IA
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 mb-8">
+              Transforme seu negócio com soluções de automação inteligente, rebranding profissional e gestão automatizada de redes sociais.
+              Ganhe tempo, reduza custos e aumente seus resultados.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+              <Button 
+                className="bg-gradient-sapient hover:opacity-90 transition-opacity text-white font-medium px-8 py-6 text-lg"
+                onClick={() => window.open("https://bit.ly/40BtBp2", "_blank")}
+              >
+                Automatize Seu Negócio
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-sapient-purple text-white bg-sapient-purple/20 hover:bg-sapient-purple/30 hover:text-white px-8 py-6 text-lg transition-colors"
+                onClick={() => {
+                  const servicesSection = document.getElementById('services');
+                  servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Conheça Nossos Serviços
+              </Button>
+            </div>
+          </div>
+          
+          {/* Right Side - 3D Scene */}
+          <div className="flex-1 w-full lg:w-auto">
+            <div className="relative h-[400px] lg:h-[550px] rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl">
+              <Spotlight 
+                className="from-sapient-purple via-sapient-blue to-transparent"
+                size={300}
+              />
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+        
+        {/* Sobre Nós Section */}
+        <div className="max-w-5xl mx-auto">
+          <div className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 animate-fade-in">
+            <h2 className="text-3xl font-bold mb-4 text-center">
+              <span className="text-gradient-sapient">Sobre Nós</span>
+            </h2>
+            <p className="text-gray-300 mb-4 text-center">
+              É com grande entusiasmo que apresentamos a <strong className="text-white">Sapient.IA</strong>, 
+              sua parceira em soluções inteligentes, automações inovadoras, rebranding profissional e gestão de redes sociais!
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-4">
+              <div className="bg-white/10 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold mb-2 text-sapient-purple">Por que Sapient.IA?</h3>
+                <p className="text-gray-300">
+                  Nosso nome é inspirado na palavra "Sapientia", que significa sabedoria. 
+                  Combinamos essa essência com a tecnologia de Inteligência Artificial para criar 
+                  uma marca que une o poder do conhecimento com as infinitas possibilidades da automação e design.
+                </p>
+              </div>
+              
+              <div className="bg-white/10 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold mb-2 text-sapient-blue">O que propomos?</h3>
+                <p className="text-gray-300">
+                  Transformamos processos complexos em soluções simples e automatizadas, criamos identidades visuais marcantes e gerenciamos suas redes sociais, 
+                  ajudando empresas a economizar tempo, reduzir custos, aumentar a eficiência e focar no crescimento.
+                </p>
+              </div>
+            </div>
+            
+            <p className="text-gray-300 italic text-center">
+              Combinamos tecnologia de ponta, design profissional e estratégias de marketing digital 
+              para transformar processos e impulsionar resultados.
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-16 text-center">
+          <p className="text-gray-400 mb-4">Confiado por empresas de todos os tamanhos</p>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            <div className="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center p-2">
+              <img 
+                src="/lovable-uploads/270c4ddf-c48c-4607-b418-b55200a9c04d.png" 
+                alt="Construtora Zero" 
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+            <div className="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center p-2">
+              <img 
+                src="/lovable-uploads/5d9f3d4b-19f6-45fd-a7f2-e10f73815946.png" 
+                alt="Dos Bancos" 
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+            <div className="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center p-2">
+              <img 
+                src="/lovable-uploads/5a51bd6e-130f-4365-896b-7066b189ded1.png" 
+                alt="Alline Móveis" 
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+        <a href="#pain-points" className="text-white">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
