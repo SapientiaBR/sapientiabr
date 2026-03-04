@@ -30,7 +30,7 @@ const ContactSection = () => {
                       <MessageCircle className="w-6 h-6 text-white" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
-                      <h4 className="text-xl font-medium text-white mb-1">NoctuaBot</h4>
+                      <h4 className="text-xl font-medium text-white mb-1">Otus</h4>
                       <a 
                         href="https://wa.me/5511920795583" 
                         target="_blank" 
