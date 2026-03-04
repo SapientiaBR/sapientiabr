@@ -53,8 +53,8 @@ const Navbar = () => {
           <a href="#benefits" className="text-white hover:text-sapient-purple transition-colors">
             Benefícios
           </a>
-          <a href="#noctua-bot" className="text-white hover:text-sapient-purple transition-colors">
-            NoctuaBot
+          <a href="#otus" className="text-white hover:text-sapient-purple transition-colors">
+            Otus
           </a>
           <a href="#contact" className="text-white hover:text-sapient-purple transition-colors">
             Contato
@@ -112,11 +112,11 @@ const Navbar = () => {
               Benefícios
             </a>
             <a 
-              href="#noctua-bot" 
+              href="#otus" 
               className="text-white hover:text-sapient-purple transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              NoctuaBot
+              Otus
             </a>
             <a 
               href="#contact" 

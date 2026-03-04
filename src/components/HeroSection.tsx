@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { SplineScene } from '@/components/ui/splite';
 import { Spotlight } from '@/components/ui/spotlight';
 import sapientLogo from '@/assets/sapient-logo.png';
+import redMapleLogo from '@/assets/red-maple-logo.png';
 
 const HeroSection = () => {
   return (
@@ -111,8 +112,8 @@ const HeroSection = () => {
             </div>
             <div className="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center p-2">
               <img 
-                src="/lovable-uploads/5d9f3d4b-19f6-45fd-a7f2-e10f73815946.png" 
-                alt="Dos Bancos" 
+                src={redMapleLogo} 
+                alt="Red Maple"
                 className="max-h-full max-w-full object-contain"
               />
             </div>
