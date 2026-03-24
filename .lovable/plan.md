@@ -1,15 +1,11 @@
 
 
-## Remover o componente 3D Spline do HeroSection
+## Instalar componente `spotlight-card.tsx`
 
-O componente `SplineScene` carrega uma cena 3D pesada que causa lentidão. Vou removê-lo junto com o `Spotlight`.
+Criar o arquivo `src/components/ui/spotlight-card.tsx` com o código do componente `GlowCard` fornecido pelo usuário.
 
-### Alterações
+### Arquivo a criar
+- **`src/components/ui/spotlight-card.tsx`** — Componente de card com efeito de glow que segue o mouse, usando CSS custom properties e pseudo-elements.
 
-**`src/components/HeroSection.tsx`**:
-- Remover imports de `SplineScene` e `Spotlight`
-- Remover o bloco "Right Side - 3D Scene" (div com SplineScene e Spotlight)
-- Ajustar o layout para que o conteúdo textual ocupe toda a largura (remover `flex-row` split e centralizar o conteúdo)
-
-O resultado será um hero mais limpo e significativamente mais rápido.
+Nenhuma outra alteração necessária. O componente ficará disponível para uso via `import { GlowCard } from "@/components/ui/spotlight-card"`.
 
