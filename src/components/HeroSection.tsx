@@ -9,15 +9,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-radial from-sapient-dark to-transparent opacity-90"></div>
       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-sapient-dark to-transparent"></div>
       <div className="container mx-auto px-4 pt-24 pb-20 relative z-10">
-        {/* Split Screen Container */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center min-h-[85vh] mb-16">
-          
-          {/* Left Side - Conteúdo */}
-          <div className="flex-1 animate-fade-in text-center lg:text-left">
+        <div className="flex flex-col items-center justify-center min-h-[85vh] mb-16">
+          <div className="max-w-3xl animate-fade-in text-center">
             <img 
               src={sapientLogo} 
               alt="Sapient.IA Logo" 
-              className="w-40 mx-auto lg:mx-0 mb-4"
+              className="w-40 mx-auto mb-4"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               <span className="text-gradient-sapient">Automatize</span> Seu Negócio com IA
@@ -26,7 +23,7 @@ const HeroSection = () => {
               Transforme seu negócio com soluções de automação inteligente, rebranding profissional e gestão automatizada de redes sociais.
               Ganhe tempo, reduza custos e aumente seus resultados.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button 
                 className="bg-gradient-sapient hover:opacity-90 transition-opacity text-white font-medium px-8 py-6 text-lg"
                 onClick={() => window.open("https://bit.ly/40BtBp2", "_blank")}
@@ -43,20 +40,6 @@ const HeroSection = () => {
               >
                 Conheça Nossos Serviços
               </Button>
-            </div>
-          </div>
-          
-          {/* Right Side - 3D Scene */}
-          <div className="flex-1 w-full lg:w-auto">
-            <div className="relative h-[400px] lg:h-[550px] rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl">
-              <Spotlight 
-                className="from-sapient-purple via-sapient-blue to-transparent"
-                size={300}
-              />
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
             </div>
           </div>
         </div>
