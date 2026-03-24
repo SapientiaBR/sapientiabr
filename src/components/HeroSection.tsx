@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { SplineScene } from '@/components/ui/splite';
-import { Spotlight } from '@/components/ui/spotlight';
 import sapientLogo from '@/assets/sapient-logo.png';
 import redMapleLogo from '@/assets/red-maple-logo.png';
 
