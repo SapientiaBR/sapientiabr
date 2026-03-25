@@ -58,9 +58,9 @@ const PainPointsSection = () => {
               customSize
               className="p-6 group !grid-rows-none !flex !flex-col"
             >
-              <div className="mb-4 bg-gradient-sapient flex items-center justify-center gap-3 px-4 py-3 rounded-xl">
+              <div className="mb-4 flex items-center gap-3">
                 {point.icon}
-                <h3 className="text-xl font-semibold text-white">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-red-400">{point.title}</h3>
               </div>
               <p className="text-gray-400">{point.description}</p>
             </GlowCard>
