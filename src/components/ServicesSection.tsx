@@ -6,49 +6,49 @@ import { GlowCard } from '@/components/ui/spotlight-card';
 const ServicesSection = () => {
   const services = [
     {
-      icon: <MessageCircle className="w-12 h-12 text-sapient-purple" />,
+      icon: <MessageCircle className="w-8 h-8 text-sapient-purple" />,
       title: 'Atendimento 24/7',
       description: 'Atendimento automatizado via WhatsApp, site ou redes sociais que funciona 24 horas por dia, sem descanso.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Calendar className="w-12 h-12 text-sapient-blue" />,
+      icon: <Calendar className="w-8 h-8 text-sapient-blue" />,
       title: 'Agendamentos Automáticos',
       description: 'Sistema inteligente que gerencia sua agenda, confirmações e lembretes para clientes.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     },
     {
-      icon: <FileText className="w-12 h-12 text-sapient-purple" />,
+      icon: <FileText className="w-8 h-8 text-sapient-purple" />,
       title: 'Propostas e Contratos',
       description: 'Geração automática de propostas personalizadas e contratos baseados no perfil do cliente.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Palette className="w-12 h-12 text-sapient-blue" />,
+      icon: <Palette className="w-8 h-8 text-sapient-blue" />,
       title: 'Rebranding (Logos)',
       description: 'Criação e renovação de identidade visual, desenvolvimento de logos modernos e profissionais.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     },
     {
-      icon: <Share2 className="w-12 h-12 text-sapient-purple" />,
+      icon: <Share2 className="w-8 h-8 text-sapient-purple" />,
       title: 'Automação de Posts',
       description: 'Criação e programação automática de posts para Instagram, LinkedIn, Facebook e outras redes sociais.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Bot className="w-12 h-12 text-sapient-blue" />,
+      icon: <Bot className="w-8 h-8 text-sapient-blue" />,
       title: 'CRM Inteligente',
       description: 'CRM com IA que entende o comportamento do cliente e sugere as melhores ações de relacionamento.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     },
     {
-      icon: <TrendingUp className="w-12 h-12 text-sapient-purple" />,
+      icon: <TrendingUp className="w-8 h-8 text-sapient-purple" />,
       title: 'Captação de Leads',
       description: 'Automação completa do funil de vendas, da captação à conversão de novos clientes.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Layers className="w-12 h-12 text-sapient-blue" />,
+      icon: <Layers className="w-8 h-8 text-sapient-blue" />,
       title: 'Gestão de Redes Sociais',
       description: 'Gestão completa das suas redes sociais com estratégias personalizadas e análise de resultados.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
