@@ -1,29 +1,26 @@
 
 
-## Plan: Move title inside the gradient banner in Pain Points cards
+## Plan: Move title inside icon container in Services section
 
-Looking at the uploaded screenshot, the user wants the title (e.g. "Processos Lentos") to be inside the gradient blue/purple banner alongside the icon, rather than below it.
+Same pattern as Pain Points — merge the icon and title into a single gradient banner.
 
-### Change: `src/components/PainPointsSection.tsx`
+### Change: `src/components/ServicesSection.tsx` (lines 78-81)
 
-Restructure the card content so the icon and title share the same gradient banner div:
+Replace the separate icon div and h3 with a single flex container:
 
-- Merge the icon `div` and `h3` title into a single container with `bg-gradient-sapient` styling
-- This container will have `flex items-center gap-3`, rounded corners, and padding
-- The description stays below, outside the banner
+```tsx
+// Before:
+<div className={`p-4 rounded-full bg-gradient-to-br ${service.color} inline-block mb-4`}>
+  {service.icon}
+</div>
+<h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
 
-**Before:**
-```
-[icon in small bg-white/10 box]
-Title (below)
-Description
-```
-
-**After:**
-```
-[icon + Title together inside bg-gradient-sapient banner]
-Description
+// After:
+<div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center gap-3 p-3 rounded-lg`}>
+  {service.icon}
+  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+</div>
 ```
 
-Specifically, lines 61-64 become a single flex row container with the gradient background, containing both the icon and the `h3` title.
+One file, 4 lines changed.
 
