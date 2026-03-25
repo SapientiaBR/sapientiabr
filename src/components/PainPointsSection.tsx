@@ -6,32 +6,32 @@ import { GlowCard } from '@/components/ui/spotlight-card';
 const PainPointsSection = () => {
   const painPoints = [
     {
-      icon: <Clock className="w-8 h-8 text-white" />,
+      icon: <Clock className="w-8 h-8 text-red-400" />,
       title: "Processos Lentos",
       description: "Eliminamos gargalos operacionais que consomem o tempo da sua equipe e atrasam entregas."
     },
     {
-      icon: <DollarSign className="w-8 h-8 text-white" />,
+      icon: <DollarSign className="w-8 h-8 text-red-400" />,
       title: "Custo Elevado",
       description: "Reduzimos desperdícios financeiros através da automação inteligente de tarefas repetitivas."
     },
     {
-      icon: <Users className="w-8 h-8 text-white" />,
+      icon: <Users className="w-8 h-8 text-red-400" />,
       title: "Falta de Leads",
       description: "Implementamos sistemas de aquisição que trazem clientes qualificados constantemente."
     },
     {
-      icon: <TimerOff className="w-8 h-8 text-white" />,
+      icon: <TimerOff className="w-8 h-8 text-red-400" />,
       title: "Baixa Produtividade",
       description: "Otimizamos o fluxo de trabalho para que sua equipe foque no que realmente gera valor."
     },
     {
-      icon: <MessageSquare className="w-8 h-8 text-white" />,
+      icon: <MessageSquare className="w-8 h-8 text-red-400" />,
       title: "Atendimento Ineficiente",
       description: "Automatizamos o suporte para garantir respostas rápidas e satisfação do cliente 24/7."
     },
     {
-      icon: <Briefcase className="w-8 h-8 text-white" />,
+      icon: <Briefcase className="w-8 h-8 text-red-400" />,
       title: "Gestão Desorganizada",
       description: "Centralizamos seus dados e processos em uma estrutura clara e fácil de gerenciar."
     }
@@ -58,9 +58,9 @@ const PainPointsSection = () => {
               customSize
               className="p-6 group !grid-rows-none !flex !flex-col"
             >
-              <div className="mb-4 bg-gradient-sapient flex items-center justify-center gap-3 px-4 py-3 rounded-xl">
+              <div className="mb-4 flex items-center gap-3">
                 {point.icon}
-                <h3 className="text-xl font-semibold text-white">{point.title}</h3>
+                <h3 className="text-xl font-semibold text-red-400">{point.title}</h3>
               </div>
               <p className="text-gray-400">{point.description}</p>
             </GlowCard>
