@@ -75,8 +75,8 @@ const ServicesSection = () => {
               customSize
               className="p-6 !grid-rows-none !flex !flex-col"
             >
-              <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center gap-3 p-3 rounded-lg`}>
-                {service.icon}
+              <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}>
+                {React.cloneElement(service.icon as React.ReactElement, { className: 'w-8 h-8' })}
                 <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               </div>
               <p className="text-gray-400">{service.description}</p>

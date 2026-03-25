@@ -58,7 +58,7 @@ const PainPointsSection = () => {
               customSize
               className="p-6 group !grid-rows-none !flex !flex-col"
             >
-              <div className="mb-4 bg-gradient-sapient flex items-center gap-3 p-3 rounded-lg">
+              <div className="mb-4 bg-gradient-sapient flex items-center justify-center gap-3 px-4 py-3 rounded-xl">
                 {point.icon}
                 <h3 className="text-xl font-semibold text-white">{point.title}</h3>
               </div>
