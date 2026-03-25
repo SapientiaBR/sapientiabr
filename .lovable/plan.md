@@ -1,26 +1,25 @@
 
 
-## Plan: Move title inside icon container in Services section
+## Plan: Refine title banner styling in card sections
 
-Same pattern as Pain Points — merge the icon and title into a single gradient banner.
+### Changes to `src/components/ServicesSection.tsx` and `src/components/PainPointsSection.tsx`
 
-### Change: `src/components/ServicesSection.tsx` (lines 78-81)
+Update the title banner container in both files:
 
-Replace the separate icon div and h3 with a single flex container:
+1. **More rounded corners**: Change `rounded-lg` to `rounded-xl` for softer appearance
+2. **Better centering**: Add `text-center` or `justify-center` to the flex container
+3. **Reduce icon size slightly** so title fits better: icons from `w-12 h-12` to `w-8 h-8` in ServicesSection (PainPoints already uses `w-8 h-8`)
+4. **Adjust padding**: Use `px-4 py-3` for more balanced spacing
 
+### ServicesSection banner div:
 ```tsx
-// Before:
-<div className={`p-4 rounded-full bg-gradient-to-br ${service.color} inline-block mb-4`}>
-  {service.icon}
-</div>
-<h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
-
-// After:
-<div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center gap-3 p-3 rounded-lg`}>
-  {service.icon}
-  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-</div>
+<div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}>
 ```
 
-One file, 4 lines changed.
+### PainPointsSection banner div:
+```tsx
+<div className="mb-4 bg-gradient-sapient flex items-center justify-center gap-3 px-4 py-3 rounded-xl">
+```
+
+Two files, minimal changes each.
 
