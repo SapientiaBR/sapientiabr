@@ -49,8 +49,8 @@ const ServicesSection = () => {
     },
     {
       icon: <Layers className="w-8 h-8 text-sapient-blue" />,
-      title: 'Gestão de Redes Sociais',
-      description: 'Gestão completa das suas redes sociais com estratégias personalizadas e análise de resultados.',
+      title: 'Criação de Sites/Landing Pages',
+      description: 'Desenvolvimento de sites profissionais e landing pages otimizadas para conversão, com design moderno e responsivo.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     }
   ];
