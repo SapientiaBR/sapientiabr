@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { GradientDots } from '@/components/ui/gradient-dots';
 import sapientLogo from '@/assets/sapient-logo.png';
 import redMapleLogo from '@/assets/red-maple-logo.png';
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen bg-sapient-dark">
+    <div className="relative min-h-screen bg-sapient-dark overflow-hidden">
+      <GradientDots backgroundColor="#1A1F2C" className="z-0" />
       <div className="absolute inset-0 bg-gradient-radial from-sapient-dark to-transparent opacity-90"></div>
       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-sapient-dark to-transparent"></div>
       <div className="container mx-auto px-4 pt-24 pb-20 relative z-10">
