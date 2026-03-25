@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Clock, DollarSign, Users, TimerOff, MessageSquare, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { GlowCard } from '@/components/ui/spotlight-card';
 
 const PainPointsSection = () => {
   const painPoints = [
@@ -53,15 +53,18 @@ const PainPointsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {painPoints.map((point, index) => (
-            <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden group hover:border-sapient-purple transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="mb-4 bg-white/10 p-3 rounded-lg inline-block group-hover:bg-gradient-sapient transition-all duration-300">
-                  {point.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">{point.title}</h3>
-                <p className="text-gray-400">{point.description}</p>
-              </CardContent>
-            </Card>
+            <GlowCard
+              key={index}
+              glowColor="red"
+              customSize
+              className="p-6 group"
+            >
+              <div className="mb-4 bg-white/10 p-3 rounded-lg inline-block group-hover:bg-gradient-sapient transition-all duration-300">
+                {point.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-white">{point.title}</h3>
+              <p className="text-gray-400">{point.description}</p>
+            </GlowCard>
           ))}
         </div>
         
