@@ -11,7 +11,7 @@ const PainPointsSection = () => {
       description: "Eliminamos gargalos operacionais que consomem o tempo da sua equipe e atrasam entregas."
     },
     {
-      icon: <DollarSign className="w-8 h-8 text-white" />,
+      icon: <DollarSign className="w-8 h-8 text-red-400" />,
       title: "Custo Elevado",
       description: "Reduzimos desperdícios financeiros através da automação inteligente de tarefas repetitivas."
     },
