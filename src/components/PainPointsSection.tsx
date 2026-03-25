@@ -16,7 +16,7 @@ const PainPointsSection = () => {
       description: "Reduzimos desperdícios financeiros através da automação inteligente de tarefas repetitivas."
     },
     {
-      icon: <Users className="w-8 h-8 text-white" />,
+      icon: <Users className="w-8 h-8 text-red-400" />,
       title: "Falta de Leads",
       description: "Implementamos sistemas de aquisição que trazem clientes qualificados constantemente."
     },
