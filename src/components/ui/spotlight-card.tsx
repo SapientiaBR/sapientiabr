@@ -165,7 +165,6 @@ const GlowCard: React.FC<GlowCardProps> = ({
           ${!customSize ? 'aspect-[3/4]' : ''}
           rounded-2xl 
           relative 
-          overflow-hidden
           grid 
           grid-rows-[1fr_auto] 
           shadow-[0_1rem_2rem_-1rem_black] 
@@ -175,10 +174,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
           ${className}
         `}
       >
-        <div ref={innerRef} data-glow className="absolute inset-0 pointer-events-none"></div>
-        <div className="relative z-10 flex flex-col h-full">
-          {children}
-        </div>
+        <div ref={innerRef} data-glow></div>
+        {children}
       </div>
     </>
   );
