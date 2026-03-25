@@ -33,7 +33,7 @@ const BenefitsSection = () => {
                   key={index}
                   glowColor={index % 2 === 0 ? 'purple' : 'blue'}
                   customSize
-                  className="flex items-start gap-4 p-5"
+                  className="!grid-rows-none !flex items-start gap-4 p-5"
                 >
                   <CheckCircle className="text-sapient-purple mt-1 flex-shrink-0 h-6 w-6" />
                   <p className="text-gray-200 font-medium text-lg">{benefit}</p>

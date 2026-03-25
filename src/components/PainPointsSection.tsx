@@ -56,7 +56,7 @@ const PainPointsSection = () => {
               key={index}
               glowColor="red"
               customSize
-              className="p-6 group"
+              className="p-6 group !grid-rows-none !flex !flex-col"
             >
               <div className="mb-4 bg-white/10 p-3 rounded-lg inline-block group-hover:bg-gradient-sapient transition-all duration-300">
                 {point.icon}
