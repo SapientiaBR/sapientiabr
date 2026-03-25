@@ -1,13 +1,55 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { GradientDots } from '@/components/ui/gradient-dots';
+import { ElegantShape } from '@/components/ui/shape-landing-hero';
 import sapientLogo from '@/assets/sapient-logo.png';
 import redMapleLogo from '@/assets/red-maple-logo.png';
 
 const HeroSection = () => {
   return (
     <div className="relative min-h-screen bg-sapient-dark overflow-hidden">
-      <GradientDots backgroundColor="#1A1F2C" className="z-0" />
+      {/* Floating geometric shapes background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <ElegantShape
+          delay={0.3}
+          width={600}
+          height={140}
+          rotate={12}
+          gradient="from-sapient-purple/[0.12]"
+          className="top-[-10%] left-[-10%]"
+        />
+        <ElegantShape
+          delay={0.5}
+          width={500}
+          height={120}
+          rotate={-15}
+          gradient="from-sapient-blue/[0.12]"
+          className="top-[15%] right-[-5%]"
+        />
+        <ElegantShape
+          delay={0.4}
+          width={300}
+          height={80}
+          rotate={-8}
+          gradient="from-sapient-purple/[0.08]"
+          className="bottom-[5%] left-[5%]"
+        />
+        <ElegantShape
+          delay={0.6}
+          width={200}
+          height={60}
+          rotate={20}
+          gradient="from-sapient-blue/[0.08]"
+          className="top-[60%] right-[15%]"
+        />
+        <ElegantShape
+          delay={0.7}
+          width={150}
+          height={40}
+          rotate={-25}
+          gradient="from-white/[0.06]"
+          className="top-[40%] left-[20%]"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-radial from-sapient-dark to-transparent opacity-90"></div>
       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-sapient-dark to-transparent"></div>
       <div className="container mx-auto px-4 pt-24 pb-20 relative z-10">
