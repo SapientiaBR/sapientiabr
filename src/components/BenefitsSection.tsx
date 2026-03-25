@@ -29,10 +29,15 @@ const BenefitsSection = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start gap-4 bg-white/5 p-5 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
+                <GlowCard
+                  key={index}
+                  glowColor={index % 2 === 0 ? 'purple' : 'blue'}
+                  customSize
+                  className="flex items-start gap-4 p-5"
+                >
                   <CheckCircle className="text-sapient-purple mt-1 flex-shrink-0 h-6 w-6" />
                   <p className="text-gray-200 font-medium text-lg">{benefit}</p>
-                </div>
+                </GlowCard>
               ))}
             </div>
           </div>

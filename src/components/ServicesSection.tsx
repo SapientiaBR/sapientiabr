@@ -69,16 +69,18 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="card-service p-6 rounded-xl border border-white/10"
+            <GlowCard
+              key={index}
+              glowColor={index % 2 === 0 ? 'purple' : 'blue'}
+              customSize
+              className="p-6"
             >
               <div className={`p-4 rounded-full bg-gradient-to-br ${service.color} inline-block mb-4`}>
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
               <p className="text-gray-400">{service.description}</p>
-            </div>
+            </GlowCard>
           ))}
         </div>
       </div>
