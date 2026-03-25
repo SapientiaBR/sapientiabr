@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Clock, DollarSign, Users, TimerOff, MessageSquare, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,34 +6,34 @@ import { GlowCard } from '@/components/ui/spotlight-card';
 const PainPointsSection = () => {
   const painPoints = [
     {
-      icon: <Clock className="w-10 h-10 text-red-400" />,
-      title: 'Processos Manuais',
-      description: 'Tarefas repetitivas e processos manuais que sugam seu tempo e energia, impedindo o foco no crescimento.'
+      icon: <Clock className="w-8 h-8 text-white" />,
+      title: "Processos Lentos",
+      description: "Eliminamos gargalos operacionais que consomem o tempo da sua equipe e atrasam entregas."
     },
     {
-      icon: <Users className="w-10 h-10 text-red-400" />,
-      title: 'Funcionários Problemáticos',
-      description: 'Funcionários preguiçosos que custam o dobro do salário real, faltam constantemente e ainda podem processar a empresa quando saem.'
+      icon: <DollarSign className="w-8 h-8 text-white" />,
+      title: "Custo Elevado",
+      description: "Reduzimos desperdícios financeiros através da automação inteligente de tarefas repetitivas."
     },
     {
-      icon: <Briefcase className="w-10 h-10 text-red-400" />,
-      title: 'Riscos Trabalhistas',
-      description: 'Processos trabalhistas que drenam os recursos financeiros e comprometem a reputação da sua empresa.'
+      icon: <Users className="w-8 h-8 text-white" />,
+      title: "Falta de Leads",
+      description: "Implementamos sistemas de aquisição que trazem clientes qualificados constantemente."
     },
     {
-      icon: <MessageSquare className="w-10 h-10 text-red-400" />,
-      title: 'Atendimento Lento',
-      description: 'Respostas demoradas que fazem clientes desistirem antes mesmo de serem atendidos.'
+      icon: <TimerOff className="w-8 h-8 text-white" />,
+      title: "Baixa Produtividade",
+      description: "Otimizamos o fluxo de trabalho para que sua equipe foque no que realmente gera valor."
     },
     {
-      icon: <DollarSign className="w-10 h-10 text-red-400" />,
-      title: 'Custos Crescentes',
-      description: 'Custos fixos que só aumentam enquanto a margem de lucro do seu negócio encolhe.'
+      icon: <MessageSquare className="w-8 h-8 text-white" />,
+      title: "Atendimento Ineficiente",
+      description: "Automatizamos o suporte para garantir respostas rápidas e satisfação do cliente 24/7."
     },
     {
-      icon: <TimerOff className="w-10 h-10 text-red-400" />,
-      title: 'Falta de Tempo',
-      description: 'Falta tempo até para postar nas redes sociais e atrair novos negócios.'
+      icon: <Briefcase className="w-8 h-8 text-white" />,
+      title: "Gestão Desorganizada",
+      description: "Centralizamos seus dados e processos em uma estrutura clara e fácil de gerenciar."
     }
   ];
 
