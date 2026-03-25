@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Clock, DollarSign, Users, TimerOff, MessageSquare, Briefcase } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { GlowCard } from '@/components/ui/spotlight-card';
 import { Button } from '@/components/ui/button';
 
 const PainPointsSection = () => {
