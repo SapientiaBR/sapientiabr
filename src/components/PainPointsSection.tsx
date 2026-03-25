@@ -21,7 +21,7 @@ const PainPointsSection = () => {
       description: "Implementamos sistemas de aquisição que trazem clientes qualificados constantemente."
     },
     {
-      icon: <TimerOff className="w-8 h-8 text-white" />,
+      icon: <TimerOff className="w-8 h-8 text-red-400" />,
       title: "Baixa Produtividade",
       description: "Otimizamos o fluxo de trabalho para que sua equipe foque no que realmente gera valor."
     },
