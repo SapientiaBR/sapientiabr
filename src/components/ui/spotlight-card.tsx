@@ -174,8 +174,10 @@ const GlowCard: React.FC<GlowCardProps> = ({
           ${className}
         `}
       >
-        <div ref={innerRef} data-glow></div>
-        {children}
+        <div ref={innerRef} data-glow className="absolute inset-0 pointer-events-none"></div>
+        <div className="relative z-10 flex flex-col h-full">
+          {children}
+        </div>
       </div>
     </>
   );
