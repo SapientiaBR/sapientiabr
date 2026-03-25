@@ -165,6 +165,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           ${!customSize ? 'aspect-[3/4]' : ''}
           rounded-2xl 
           relative 
+          overflow-hidden
           grid 
           grid-rows-[1fr_auto] 
           shadow-[0_1rem_2rem_-1rem_black] 
