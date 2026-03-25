@@ -49,7 +49,7 @@ const ServicesSection = () => {
     },
     {
       icon: <Layers className="w-8 h-8 text-sapient-blue" />,
-      title: 'Criação de Sites/Landing Pages',
+      title: 'Criação de Sites',
       description: 'Desenvolvimento de sites profissionais e landing pages otimizadas para conversão, com design moderno e responsivo.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     }
