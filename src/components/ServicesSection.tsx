@@ -73,7 +73,7 @@ const ServicesSection = () => {
               key={index}
               glowColor={index % 2 === 0 ? 'purple' : 'blue'}
               customSize
-              className="p-6"
+              className="p-6 !grid-rows-none !flex !flex-col"
             >
               <div className={`p-4 rounded-full bg-gradient-to-br ${service.color} inline-block mb-4`}>
                 {service.icon}
