@@ -6,7 +6,7 @@ import { GlowCard } from '@/components/ui/spotlight-card';
 const PainPointsSection = () => {
   const painPoints = [
     {
-      icon: <Clock className="w-8 h-8 text-white" />,
+      icon: <Clock className="w-8 h-8 text-red-400" />,
       title: "Processos Lentos",
       description: "Eliminamos gargalos operacionais que consomem o tempo da sua equipe e atrasam entregas."
     },
