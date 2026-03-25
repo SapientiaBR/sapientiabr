@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Button } from '@/components/ui/button';
 import { ElegantShape } from '@/components/ui/shape-landing-hero';
 import sapientLogo from '@/assets/sapient-logo.png';
