@@ -31,7 +31,7 @@ const PainPointsSection = () => {
       description: "Automatizamos o suporte para garantir respostas rápidas e satisfação do cliente 24/7."
     },
     {
-      icon: <Briefcase className="w-8 h-8 text-white" />,
+      icon: <Briefcase className="w-8 h-8 text-red-400" />,
       title: "Gestão Desorganizada",
       description: "Centralizamos seus dados e processos em uma estrutura clara e fácil de gerenciar."
     }
