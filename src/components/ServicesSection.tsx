@@ -75,10 +75,10 @@ const ServicesSection = () => {
               customSize
               className="p-6 !grid-rows-none !flex !flex-col"
             >
-              <div className={`p-4 rounded-full bg-gradient-to-br ${service.color} inline-block mb-4`}>
+              <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center gap-3 p-3 rounded-lg`}>
                 {service.icon}
+                <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
               <p className="text-gray-400">{service.description}</p>
             </GlowCard>
           ))}
