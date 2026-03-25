@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
+import { GlowCard } from '@/components/ui/spotlight-card';
 
 const BenefitsSection = () => {
   const benefits = [
