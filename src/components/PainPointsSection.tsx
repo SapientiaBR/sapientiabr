@@ -26,7 +26,7 @@ const PainPointsSection = () => {
       description: "Otimizamos o fluxo de trabalho para que sua equipe foque no que realmente gera valor."
     },
     {
-      icon: <MessageSquare className="w-8 h-8 text-white" />,
+      icon: <MessageSquare className="w-8 h-8 text-red-400" />,
       title: "Atendimento Ineficiente",
       description: "Automatizamos o suporte para garantir respostas rápidas e satisfação do cliente 24/7."
     },
