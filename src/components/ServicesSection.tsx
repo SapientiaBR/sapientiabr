@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { MessageCircle, Calendar, FileText, Bot, Layers, TrendingUp, Palette, Share2 } from 'lucide-react';
+import { GlowCard } from '@/components/ui/spotlight-card';
 
 const ServicesSection = () => {
   const services = [
