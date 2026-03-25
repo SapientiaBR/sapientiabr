@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { GradientDots } from '@/components/ui/gradient-dots';
+import { ElegantShape } from '@/components/ui/shape-landing-hero';
 import sapientLogo from '@/assets/sapient-logo.png';
 import redMapleLogo from '@/assets/red-maple-logo.png';
 
