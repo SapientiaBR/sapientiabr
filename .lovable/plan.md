@@ -1,11 +1,29 @@
 
 
-## Instalar componente `spotlight-card.tsx`
+## Plan: Move title inside the gradient banner in Pain Points cards
 
-Criar o arquivo `src/components/ui/spotlight-card.tsx` com o código do componente `GlowCard` fornecido pelo usuário.
+Looking at the uploaded screenshot, the user wants the title (e.g. "Processos Lentos") to be inside the gradient blue/purple banner alongside the icon, rather than below it.
 
-### Arquivo a criar
-- **`src/components/ui/spotlight-card.tsx`** — Componente de card com efeito de glow que segue o mouse, usando CSS custom properties e pseudo-elements.
+### Change: `src/components/PainPointsSection.tsx`
 
-Nenhuma outra alteração necessária. O componente ficará disponível para uso via `import { GlowCard } from "@/components/ui/spotlight-card"`.
+Restructure the card content so the icon and title share the same gradient banner div:
+
+- Merge the icon `div` and `h3` title into a single container with `bg-gradient-sapient` styling
+- This container will have `flex items-center gap-3`, rounded corners, and padding
+- The description stays below, outside the banner
+
+**Before:**
+```
+[icon in small bg-white/10 box]
+Title (below)
+Description
+```
+
+**After:**
+```
+[icon + Title together inside bg-gradient-sapient banner]
+Description
+```
+
+Specifically, lines 61-64 become a single flex row container with the gradient background, containing both the icon and the `h3` title.
 
