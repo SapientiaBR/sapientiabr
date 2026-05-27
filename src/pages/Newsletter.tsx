@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { z } from 'zod';
 import { toast } from 'sonner';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import { ArrowLeft, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import expressoLogo from '@/assets/expresso-ia-logo.png';
 
 const emailSchema = z
   .string()
@@ -17,7 +18,7 @@ const Newsletter = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    document.title = 'Newsletter | Sapient.IA';
+    document.title = 'Expresso IA · Newsletter da Sapient.IA';
     const meta =
       document.querySelector('meta[name="description"]') ??
       (() => {
@@ -28,7 +29,7 @@ const Newsletter = () => {
       })();
     meta.setAttribute(
       'content',
-      'Inscreva-se na newsletter da Sapient.IA e receba novidades sobre automação inteligente e IA.'
+      'Assine o Expresso IA: a newsletter da Sapient.IA com automação inteligente e IA aplicada a negócios, direto ao ponto.'
     );
   }, []);
 
@@ -64,18 +65,54 @@ const Newsletter = () => {
     }
   };
 
+  const benefits = [
+    'Cases reais de automação com IA',
+    'Ferramentas testadas pelo nosso time',
+    'Conteúdo direto ao ponto, sem enrolação',
+  ];
+
   return (
-    <div className="bg-sapient-dark min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1 flex items-center justify-center px-4 pt-32 pb-20">
+    <div className="bg-white min-h-screen flex flex-col text-slate-900">
+      <header className="px-6 py-5">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Voltar para Sapient.IA
+        </Link>
+      </header>
+
+      <main className="flex-1 flex items-center justify-center px-6 pb-16">
         <div className="w-full max-w-xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Inscreva-se na nossa <span className="bg-gradient-sapient bg-clip-text text-transparent">Newsletter</span>
-          </h1>
-          <p className="text-gray-300 text-lg mb-10">
-            Receba conteúdos exclusivos sobre automação inteligente, IA e como transformar seu negócio.
+          <h1 className="sr-only">Expresso IA — Newsletter da Sapient.IA</h1>
+
+          <img
+            src={expressoLogo}
+            alt="Expresso IA by Sapient.IA"
+            className="mx-auto w-64 md:w-80 h-auto select-none"
+            draggable={false}
+          />
+
+          <p className="mt-2 text-lg md:text-xl text-slate-600 max-w-md mx-auto">
+            A newsletter rápida e direta sobre automação inteligente e IA aplicada ao seu negócio.
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
+
+          <ul className="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-3 sm:gap-x-6 sm:gap-y-2 text-sm text-slate-700">
+            {benefits.map((b) => (
+              <li key={b} className="flex items-center gap-2 justify-center">
+                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gradient-sapient text-white shrink-0">
+                  <Check className="w-3 h-3" strokeWidth={3} />
+                </span>
+                {b}
+              </li>
+            ))}
+          </ul>
+
+          <form
+            onSubmit={handleSubmit}
+            className="mt-10 flex flex-col sm:flex-row gap-3 w-full"
+          >
             <Input
               type="email"
               required
@@ -83,23 +120,27 @@ const Newsletter = () => {
               placeholder="seu@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 h-12 bg-white/5 border-white/10 text-white placeholder:text-gray-500"
+              className="flex-1 h-12 bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-sapient-purple"
               aria-label="Seu e-mail"
             />
             <Button
               type="submit"
               disabled={loading}
-              className="h-12 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity"
+              className="h-12 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white"
             >
               {loading ? 'Inscrevendo...' : 'Inscrever-se'}
             </Button>
           </form>
-          <p className="text-gray-500 text-xs mt-4">
+
+          <p className="text-slate-500 text-xs mt-4">
             Sem spam. Você pode cancelar a qualquer momento.
           </p>
         </div>
       </main>
-      <Footer />
+
+      <footer className="px-6 py-6 text-center text-xs text-slate-500">
+        © {new Date().getFullYear()} Sapient.IA · Expresso IA
+      </footer>
     </div>
   );
 };
