@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
 import { toast } from 'sonner';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, Check, MailCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import expressoLogo from '@/assets/expresso-ia-logo.png';
@@ -16,6 +16,7 @@ const emailSchema = z
 const Newsletter = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     document.title = 'Expresso IA · Newsletter da Sapient.IA';
@@ -55,7 +56,8 @@ const Newsletter = () => {
         }
       );
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      toast.success('Inscrição confirmada! Em breve você receberá nossas novidades.');
+      toast.success('Inscrição confirmada!');
+      setSuccess(true);
       setEmail('');
     } catch (err) {
       console.error('Newsletter submit error:', err);
@@ -64,12 +66,6 @@ const Newsletter = () => {
       setLoading(false);
     }
   };
-
-  const benefits = [
-    'Cases reais de automação com IA',
-    'Ferramentas testadas pelo nosso time',
-    'Conteúdo direto ao ponto, sem enrolação',
-  ];
 
   return (
     <div className="bg-white min-h-screen flex flex-col text-slate-900">
