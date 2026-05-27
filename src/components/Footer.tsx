@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Instagram, MessageCircle, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import sapientLogo from '@/assets/sapient-logo.png';
 
 const Footer = () => {
@@ -66,11 +67,27 @@ const Footer = () => {
           </div>
         </div>
 
+        <div className="mt-10 p-5 rounded-lg border border-white/10 bg-white/5">
+          <p className="text-gray-300 text-sm md:text-base">
+            Atende clínicas ou consultórios? Conheça também a{' '}
+            <a
+              href="https://secretariainvisivel.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sapient-purple hover:text-white font-semibold underline underline-offset-4 transition-colors"
+            >
+              Secretaria Invisível
+            </a>
+            {' '}— nossa solução dedicada para a área da saúde.
+          </p>
+        </div>
+
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             © {currentYear} Sapient.IA. Todos os direitos reservados.
           </p>
           <div className="flex space-x-6">
+            <Link to="/newsletter" className="text-gray-400 hover:text-white transition-colors text-sm">Newsletter</Link>
             <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Termos de Uso</a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Política de Privacidade</a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Cookies</a>
