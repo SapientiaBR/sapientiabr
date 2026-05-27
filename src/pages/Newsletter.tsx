@@ -32,7 +32,7 @@ const Newsletter = () => {
     );
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = emailSchema.safeParse(email);
     if (!result.success) {
@@ -40,11 +40,28 @@ const Newsletter = () => {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const response = await fetch(
+        'https://n8n.sapientiabr.cloud/webhook/1edba48f-ad29-4ef1-b13d-1fd1af16c5fc',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: result.data,
+            source: 'sapientiabr-newsletter',
+            submitted_at: new Date().toISOString(),
+          }),
+        }
+      );
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       toast.success('Inscrição confirmada! Em breve você receberá nossas novidades.');
       setEmail('');
+    } catch (err) {
+      console.error('Newsletter submit error:', err);
+      toast.error('Não foi possível concluir a inscrição. Tente novamente em instantes.');
+    } finally {
       setLoading(false);
-    }, 400);
+    }
   };
 
   return (
