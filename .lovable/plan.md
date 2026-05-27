@@ -1,47 +1,29 @@
-## Plano
+## Objetivo
+Deixar a página `/newsletter` mobile-first, com copy direta e tudo visível em uma tela de ~390×844 sem rolagem.
 
-### 1. Adicionar link "Secretaria Invisível" no rodapé
+## Mudanças em `src/pages/Newsletter.tsx`
 
-Em `src/components/Footer.tsx`, adicionar uma nova seção acima do copyright (ou dentro do bloco da esquerda) com um destaque chamando atenção para a página irmã focada em clínicas e consultórios:
+### Layout
+- Reduzir paddings verticais: `py-5` → `py-3` no header, `pb-16` → `pb-6` no main, footer `py-6` → `py-3`.
+- Container central com `gap-4` compacto em vez de `mt-8/mt-10`.
+- Logo menor no mobile: `w-64 md:w-80` → `w-44 md:w-72`, com `mb-2`.
+- Form vertical já é bom; reduzir altura do input/botão de `h-12` para `h-11`.
 
-```tsx
-<div className="mt-8 p-4 rounded-lg border border-white/10 bg-white/5">
-  <p className="text-gray-300 text-sm">
-    Atende clínicas ou consultórios? Conheça também a{' '}
-    <a
-      href="https://secretariainvisivel.com.br/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sapient-purple hover:text-white font-semibold underline underline-offset-4"
-    >
-      Secretaria Invisível
-    </a>
-    {' '}— nossa solução dedicada para a área da saúde.
-  </p>
-</div>
-```
+### Copy mais direta
+- Subtítulo: trocar "A newsletter rápida e direta sobre automação inteligente e IA aplicada ao seu negócio." por **"IA e automação que geram resultado. Direto no seu e-mail."**
+- Benefícios: reduzir de 3 para 2 itens curtos:
+  - "Cases reais de automação"
+  - "Ferramentas testadas pelo nosso time"
+  - (remover "Conteúdo direto ao ponto…")
+- Esconder a lista de benefícios no mobile (`hidden sm:flex`) para eliminar rolagem; mantém no desktop.
+- Disclaimer: "Sem spam. Você pode cancelar a qualquer momento." → **"Sem spam. Cancele quando quiser."**
+- Botão: "Inscrever-se" → **"Quero receber"**.
+- Header: "Voltar para Sapient.IA" → **"Voltar"** no mobile (`sm:inline` no resto).
 
-### 2. Criar página `/newsletter`
+### Tela de sucesso
+- Mesma estética compacta: ícone `w-14 h-14`, título menor, descrição mais curta:
+  - "Pronto! Você está inscrito no Expresso IA."
+- Botões empilhados, `h-11`, sem ícones grandes.
 
-**Novo arquivo** `src/pages/Newsletter.tsx`:
-- Layout reutilizando `Navbar` e `Footer` para consistência visual.
-- Hero centralizado com título ("Inscreva-se na nossa Newsletter"), subtítulo explicando o valor (novidades sobre automação e IA).
-- Formulário com:
-  - Campo `email` (input controlado, validado via `zod` + `react-hook-form` já presente no projeto, ou validação simples nativa).
-  - Botão "Inscrever-se" usando `bg-gradient-sapient`.
-  - Feedback de sucesso via `sonner` (toast) após submit.
-- Como ainda não há backend (Lovable Cloud não habilitado), o submit apenas valida o email e exibe toast de confirmação. Posso habilitar Cloud + tabela `newsletter_subscribers` se você quiser persistir — me avise.
-
-**Atualizar** `src/App.tsx`:
-- Importar `Newsletter` e adicionar `<Route path="/newsletter" element={<Newsletter />} />` acima da catch-all.
-
-**Atualizar** `src/components/Footer.tsx`:
-- Adicionar link "Newsletter" → `/newsletter` nos links inferiores (substituindo um dos placeholders "#" ou ao lado deles), usando `react-router-dom` `Link`.
-
-### Detalhes técnicos
-- Sem mudanças em design tokens; usa cores semânticas já existentes (`sapient-dark`, `sapient-purple`, `bg-gradient-sapient`).
-- Sem novas dependências.
-- SEO da nova página: `<title>` e `<meta description>` definidos via tags no topo do componente.
-
-### Pergunta de escopo
-Os emails da newsletter devem ser **apenas validados localmente (toast de sucesso)** ou você quer que eu **habilite o Lovable Cloud** e salve os inscritos numa tabela do banco? Posso seguir com a versão local agora e adicionar persistência depois.
+## Fora de escopo
+- Sem mudanças no webhook, na lógica de submit, no logo, nas cores ou no CTA da home.

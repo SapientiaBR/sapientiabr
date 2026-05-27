@@ -16,7 +16,6 @@ const emailSchema = z
 const benefits = [
   'Cases reais de automação com IA',
   'Ferramentas testadas pelo nosso time',
-  'Conteúdo direto ao ponto, sem enrolação',
 ];
 
 const Newsletter = () => {
@@ -74,51 +73,49 @@ const Newsletter = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col text-slate-900">
-      <header className="px-6 py-5">
+      <header className="px-5 py-3">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          Voltar para Sapient.IA
+          Voltar<span className="hidden sm:inline">&nbsp;para Sapient.IA</span>
         </Link>
       </header>
 
-      <main className="flex-1 flex items-center justify-center px-6 pb-16">
+      <main className="flex-1 flex items-center justify-center px-5 pb-6">
         <div className="w-full max-w-xl text-center">
           <img
             src={expressoLogo}
             alt="Expresso IA by Sapient.IA"
-            className="mx-auto w-64 md:w-80 h-auto select-none"
+            className="mx-auto w-44 md:w-72 h-auto select-none mb-2"
             draggable={false}
           />
 
           {success ? (
-            <div className="mt-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-green-600 mb-4">
-                <MailCheck className="w-8 h-8" />
+            <div className="mt-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-50 text-green-600 mb-3">
+                <MailCheck className="w-7 h-7" />
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
-                E-mail cadastrado com sucesso!
+              <h1 className="text-xl md:text-2xl font-bold text-slate-900">
+                Pronto! Você está inscrito.
               </h1>
-              <p className="mt-3 text-slate-600 max-w-sm mx-auto">
-                Você receberá nossas novidades sobre automação inteligente e IA aplicada ao seu negócio.
+              <p className="mt-2 text-slate-600 max-w-sm mx-auto text-sm">
+                Em breve você receberá o Expresso IA no seu e-mail.
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+              <div className="mt-5 flex flex-col sm:flex-row gap-2 justify-center">
                 <Link to="/">
                   <Button
                     variant="outline"
-                    className="h-11 px-6 border-slate-200 text-slate-700 hover:bg-slate-50"
+                    className="h-11 px-6 border-slate-200 text-slate-700 hover:bg-slate-50 w-full sm:w-auto"
                   >
-                    <ArrowLeft className="w-4 h-4 mr-2" />
                     Voltar para o site
                   </Button>
                 </Link>
                 <Button
                   onClick={() => setSuccess(false)}
-                  className="h-11 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white"
+                  className="h-11 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white w-full sm:w-auto"
                 >
-                  <Zap className="w-4 h-4 mr-2" />
                   Inscrever outro e-mail
                 </Button>
               </div>
@@ -127,11 +124,11 @@ const Newsletter = () => {
             <>
               <h1 className="sr-only">Expresso IA — Newsletter da Sapient.IA</h1>
 
-              <p className="mt-2 text-lg md:text-xl text-slate-600 max-w-md mx-auto">
-                A newsletter rápida e direta sobre automação inteligente e IA aplicada ao seu negócio.
+              <p className="mt-1 text-base md:text-xl text-slate-600 max-w-md mx-auto">
+                IA e automação que geram resultado. Direto no seu e-mail.
               </p>
 
-              <ul className="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-3 sm:gap-x-6 sm:gap-y-2 text-sm text-slate-700">
+              <ul className="mt-5 hidden sm:flex sm:flex-row sm:flex-wrap sm:justify-center gap-3 sm:gap-x-6 sm:gap-y-2 text-sm text-slate-700">
                 {benefits.map((b) => (
                   <li key={b} className="flex items-center gap-2 justify-center">
                     <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gradient-sapient text-white shrink-0">
@@ -144,7 +141,7 @@ const Newsletter = () => {
 
               <form
                 onSubmit={handleSubmit}
-                className="mt-10 flex flex-col sm:flex-row gap-3 w-full"
+                className="mt-5 sm:mt-8 flex flex-col sm:flex-row gap-2 sm:gap-3 w-full"
               >
                 <Input
                   type="email"
@@ -153,27 +150,27 @@ const Newsletter = () => {
                   placeholder="seu@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-sapient-purple"
+                  className="flex-1 h-11 bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-sapient-purple"
                   aria-label="Seu e-mail"
                 />
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="h-12 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white"
+                  className="h-11 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white"
                 >
-                  {loading ? 'Inscrevendo...' : 'Inscrever-se'}
+                  {loading ? 'Enviando...' : 'Quero receber'}
                 </Button>
               </form>
 
-              <p className="text-slate-500 text-xs mt-4">
-                Sem spam. Você pode cancelar a qualquer momento.
+              <p className="text-slate-500 text-xs mt-3">
+                Sem spam. Cancele quando quiser.
               </p>
             </>
           )}
         </div>
       </main>
 
-      <footer className="px-6 py-6 text-center text-xs text-slate-500">
+      <footer className="px-6 py-3 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} Sapient.IA · Expresso IA
       </footer>
     </div>
