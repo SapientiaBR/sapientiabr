@@ -61,30 +61,32 @@ const HeroSection = () => {
               className="w-40 mx-auto mb-4"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              <span className="text-gradient-sapient">Automatize</span> Seu Negócio com IA
+              <span className="text-gradient-sapient">Automatize</span> o Atendimento, as Vendas e a Gestão da Sua Empresa. Tudo com IA, Sem Contratar Ninguém.
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8">
-              Transforme seu negócio com soluções de automação inteligente, rebranding profissional e gestão automatizada de redes sociais.
-              Ganhe tempo, reduza custos e aumente seus resultados.
+              A Sapient.IA implementa tudo para você em 3 a 4 semanas. Do atendimento no WhatsApp às redes sociais, do CRM inteligente ao site profissional.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <Button 
                 className="bg-gradient-sapient hover:opacity-90 transition-opacity text-white font-medium px-8 py-6 text-lg"
                 onClick={() => window.open("https://bit.ly/40BtBp2", "_blank")}
               >
-                Automatize Seu Negócio
+                Quero Automatizar Minha Empresa
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-sapient-purple text-white bg-sapient-purple/20 hover:bg-sapient-purple/30 hover:text-white px-8 py-6 text-lg transition-colors"
+              <button
+                type="button"
                 onClick={() => {
                   const servicesSection = document.getElementById('services');
                   servicesSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
+                className="text-gray-300 hover:text-white underline underline-offset-4 transition-colors text-base"
               >
-                Conheça Nossos Serviços
-              </Button>
+                Ver como funciona
+              </button>
             </div>
+            <p className="mt-6 text-sm text-gray-400">
+              Empresas em 6 setores atendidos <span className="text-sapient-purple mx-2">|</span> 65% de redução nos custos <span className="text-sapient-purple mx-2">|</span> Implementação em 3 a 4 semanas
+            </p>
           </div>
         </div>
         
@@ -126,7 +128,12 @@ const HeroSection = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-gray-400 mb-4">Confiado por empresas de todos os tamanhos</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            Nossa experiência comprova o resultado.
+          </h2>
+          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            Empresas de setores diferentes. Um resultado em comum: mais tempo, menos custo.
+          </p>
           <div className="flex flex-wrap justify-center items-center gap-8">
             <div className="w-32 h-16 bg-white/10 rounded-lg flex items-center justify-center p-2">
               <img 
@@ -149,6 +156,13 @@ const HeroSection = () => {
                 className="max-h-full max-w-full object-contain"
               />
             </div>
+          </div>
+          <div className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-3 max-w-4xl mx-auto">
+            {['Saúde','Construção Civil','Varejo','Imobiliárias','Serviços B2B','Educação'].map((s) => (
+              <div key={s} className="px-3 py-3 rounded-lg border border-white/10 bg-white/5 text-gray-200 text-sm font-medium">
+                {s}
+              </div>
+            ))}
           </div>
         </div>
       </div>

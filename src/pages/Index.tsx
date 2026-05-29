@@ -8,6 +8,9 @@ import ServicesSection from '@/components/ServicesSection';
 import BenefitsSection from '@/components/BenefitsSection';
 import NoctuaBotSection from '@/components/NoctuaBotSection';
 import ContactSection from '@/components/ContactSection';
+import FAQSection from '@/components/FAQSection';
+import GuaranteeSection from '@/components/GuaranteeSection';
+import FinalCTASection from '@/components/FinalCTASection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -20,6 +23,9 @@ const Index = () => {
       <BenefitsSection />
       <NoctuaBotSection />
       <ContactSection />
+      <FAQSection />
+      <GuaranteeSection />
+      <FinalCTASection />
 
       {/* Newsletter CTA */}
       <section className="py-16 border-t border-white/10">
