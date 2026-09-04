@@ -1,44 +1,95 @@
-
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { GlowCard } from '@/components/ui/spotlight-card';
+import { RevealText, useReducedMotion, gsap, ScrollTrigger } from '@/motion';
+
+const BENEFITS = [
+  'Reduza custos operacionais em até 70%',
+  'Atendimento 24/7 sem custos adicionais',
+  'Aumente sua taxa de conversão em até 40%',
+  'Elimine erros humanos e padronize processos',
+  'Libere tempo para focar no crescimento do negócio',
+  'Escale suas operações sem aumentar a equipe',
+];
 
 const BenefitsSection = () => {
-  const benefits = [
-    'Reduza custos operacionais em até 70%',
-    'Atendimento 24/7 sem custos adicionais',
-    'Aumente sua taxa de conversão em até 40%',
-    'Elimine erros humanos e padronize processos',
-    'Libere tempo para focar no crescimento do negócio',
-    'Escale suas operações sem aumentar a equipe'
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const pin = pinRef.current;
+    if (!section || !pin || reduced) return;
+
+    // Pin é caro em tela estreita e rouba altura útil no celular; ali a lista
+    // simplesmente aparece de uma vez.
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 768px)', () => {
+      const items = gsap.utils.toArray<HTMLElement>('[data-benefit]', pin);
+      const marks = gsap.utils.toArray<HTMLElement>('[data-benefit-mark]', pin);
+
+      // A seção trava e o checklist acende item a item conforme o scroll
+      // avança. `scrub` amarra o progresso da animação ao da barra de rolagem,
+      // então o usuário controla o ritmo.
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=110%',
+          pin,
+          scrub: 0.6,
+          anticipatePin: 1,
+        },
+      });
+
+      tl.from(items, { opacity: 0.18, xPercent: -2, stagger: 1, ease: 'none' }, 0)
+        .from(marks, { opacity: 0.2, scale: 0.7, stagger: 1, ease: 'none' }, 0);
+
+      return () => tl.kill();
+    });
+
+    ScrollTrigger.refresh();
+    return () => mm.revert();
+  }, [reduced]);
 
   return (
-    <section id="benefits" className="py-20 bg-sapient-dark">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-sapient-purple/20 to-sapient-blue/20 p-10 rounded-2xl border border-white/10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">
-              Transforme Seu Negócio Com <span className="text-gradient-sapient block mt-2">Automação Inteligente</span>
-            </h2>
-            
-            <p className="text-gray-300 text-lg md:text-xl mb-10 text-center">
-              A Sapient.IA oferece soluções que vão muito além da simples automação. Nossa tecnologia 
-              aprende com seu negócio e se adapta continuamente para maximizar resultados.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => (
-                <GlowCard
-                  key={index}
-                  glowColor={index % 2 === 0 ? 'purple' : 'blue'}
-                  customSize
-                  className="!grid-rows-none !flex items-start gap-4 p-5"
-                >
-                  <CheckCircle className="text-sapient-purple mt-1 flex-shrink-0 h-6 w-6" />
-                  <p className="text-gray-200 font-medium text-lg">{benefit}</p>
-                </GlowCard>
-              ))}
+    <section id="benefits" ref={sectionRef} className="bg-sapient-dark">
+      <div ref={pinRef} className="flex min-h-screen items-center py-24">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-2xl border border-white/10 bg-gradient-subtle p-6 md:p-10">
+              <RevealText
+                as="h2"
+                className="mb-8 text-center text-4xl font-bold leading-[1.1] text-white md:text-5xl"
+              >
+                Transforme Seu Negócio Com <em className="accent">Automação</em> Inteligente
+              </RevealText>
+
+              <p className="mb-10 text-center text-lg text-ink-secondary md:text-xl">
+                A Sapient.IA oferece soluções que vão muito além da simples automação. Nossa
+                tecnologia aprende com seu negócio e se adapta continuamente para maximizar
+                resultados.
+              </p>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {BENEFITS.map((benefit, index) => (
+                  <div key={benefit} data-benefit>
+                    <GlowCard
+                      glowColor={index % 2 === 0 ? 'purple' : 'blue'}
+                      customSize
+                      className="!grid-rows-none !flex h-full items-start gap-4 p-5"
+                    >
+                      <CheckCircle
+                        data-benefit-mark
+                        className="mt-1 h-6 w-6 flex-shrink-0 text-purple-300"
+                      />
+                      <p className="text-lg font-medium text-ink-primary">{benefit}</p>
+                    </GlowCard>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

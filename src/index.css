@@ -1,9 +1,10 @@
-
+/* @import precisa vir antes de qualquer outra regra CSS. */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import './design/tokens.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -99,29 +100,73 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply text-foreground;
+    background-color: var(--bg-deep);
+    font-family: var(--font-body);
+    /* Lenis controla o scroll; a barra nativa continua existindo. */
+    overscroll-behavior-y: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
-  
-  html {
+
+  code, kbd, pre, samp {
+    font-family: var(--font-mono);
+  }
+
+  /* Lenis faz o scroll suave. `scroll-behavior: smooth` do CSS briga com ele. */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  /* Sem Lenis (reduced-motion ou fallback), volta o smooth nativo. */
+  html:not(.lenis) {
     scroll-behavior: smooth;
   }
 }
 
 .bg-gradient-sapient {
-  background: linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%);
+  background: var(--gradient-brand);
+}
+
+.bg-gradient-sapient:hover {
+  background: var(--gradient-brand-hover);
 }
 
 .text-gradient-sapient {
-  background: linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%);
+  background: var(--gradient-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/**
+ * Assinatura visual do guide: 1 heading = 1 palavra em itálico com gradient.
+ * Usar `<em class="accent">` dentro do heading.
+ */
+em.accent,
+.heading-accent {
+  font-style: italic;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Itálico corta a descendente no clip do gradiente sem um respiro à direita. */
+  padding-right: 0.08em;
+}
+
+/* Glassmorphism dos cards premium — blur 20-24px, borda branca 8% (guide). */
+.glass-premium {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card-service {
@@ -133,4 +178,42 @@
 .card-service:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/**
+ * Rede de segurança: se o usuário pede menos movimento, nenhuma transição
+ * ou animação CSS roda, independente do que os componentes façam.
+ * O JS tem a sua própria checagem (useReducedMotion).
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/**
+ * Calha lateral do conteúdo.
+ *
+ * Definir `container.screens` no tailwind.config faz o Tailwind ignorar as
+ * chaves de breakpoint de `container.padding`, então o respiro responsivo é
+ * declarado aqui. A partir de `sm` o conteúdo descola das bordas; a partir de
+ * `xl`, onde o rail de seções aparece, ele ganha uma faixa só dele.
+ */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
 }

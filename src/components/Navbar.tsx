@@ -25,11 +25,11 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-sapient-dark/90 backdrop-blur-md py-2 shadow-lg'
+          ? 'bg-sapient-deep/85 backdrop-blur-xl py-2 shadow-lg border-b border-white/[0.06]'
           : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center">
           <img
             src={sapientLogo}
@@ -38,28 +38,28 @@ const Navbar = () => {
           />
           <div className="ml-2">
             <h1 className="text-white text-xl font-bold">SAPIENT.IA</h1>
-            <p className="text-gray-300 text-xs">AUTOMATION SOLUTIONS</p>
+            <p className="text-ink-secondary text-xs tracking-[0.18em] font-mono">AUTOMATION SOLUTIONS</p>
           </div>
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#services" className="text-white hover:text-sapient-purple transition-colors">
+          <a href="#services" className="text-white/85 hover:text-purple-300 transition-colors">
             Serviços
           </a>
-          <a href="#pain-points" className="text-white hover:text-sapient-purple transition-colors">
+          <a href="#pain-points" className="text-white/85 hover:text-purple-300 transition-colors">
             Soluções
           </a>
-          <a href="#benefits" className="text-white hover:text-sapient-purple transition-colors">
+          <a href="#benefits" className="text-white/85 hover:text-purple-300 transition-colors">
             Benefícios
           </a>
-          <a href="#otus" className="text-white hover:text-sapient-purple transition-colors">
+          <a href="#otus" className="text-white/85 hover:text-purple-300 transition-colors">
             Otus
           </a>
-          <a href="#contact" className="text-white hover:text-sapient-purple transition-colors">
+          <a href="#contact" className="text-white/85 hover:text-purple-300 transition-colors">
             Contato
           </a>
-          <Button 
+          <Button
             className="bg-gradient-sapient hover:opacity-90 transition-opacity"
             onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
           >
@@ -88,44 +88,44 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-sapient-dark/95 backdrop-blur-lg py-4">
-          <div className="container mx-auto px-4 flex flex-col space-y-4">
-            <a 
-              href="#services" 
-              className="text-white hover:text-sapient-purple transition-colors py-2"
+        <div className="md:hidden bg-sapient-deep/95 backdrop-blur-lg py-4">
+          <div className="container mx-auto flex flex-col space-y-4">
+            <a
+              href="#services"
+              className="text-white/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Serviços
             </a>
-            <a 
-              href="#pain-points" 
-              className="text-white hover:text-sapient-purple transition-colors py-2"
+            <a
+              href="#pain-points"
+              className="text-white/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Soluções
             </a>
-            <a 
-              href="#benefits" 
-              className="text-white hover:text-sapient-purple transition-colors py-2"
+            <a
+              href="#benefits"
+              className="text-white/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Benefícios
             </a>
-            <a 
-              href="#otus" 
-              className="text-white hover:text-sapient-purple transition-colors py-2"
+            <a
+              href="#otus"
+              className="text-white/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Otus
             </a>
-            <a 
-              href="#contact" 
-              className="text-white hover:text-sapient-purple transition-colors py-2"
+            <a
+              href="#contact"
+              className="text-white/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contato
             </a>
-            <Button 
+            <Button
               className="bg-gradient-sapient hover:opacity-90 transition-opacity w-full"
               onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
             >

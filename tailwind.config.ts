@@ -13,16 +13,18 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: '1rem',
 			screens: {
 				'2xl': '1400px'
 			}
 		},
 		extend: {
 			fontFamily: {
-				heading: ['Syne', 'sans-serif'],
-				body: ['Plus Jakarta Sans', 'sans-serif'],
-				sans: ['Plus Jakarta Sans', 'sans-serif'],
+				heading: ['Sora', 'system-ui', 'sans-serif'],
+				display: ['Sora', 'system-ui', 'sans-serif'],
+				body: ['DM Sans', 'system-ui', 'sans-serif'],
+				sans: ['DM Sans', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -68,10 +70,60 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				/**
+				 * Brand Guide v2. Os componentes existentes usam sapient-purple /
+				 * sapient-blue / sapient-dark; os nomes continuam, os valores agora
+				 * saem do guide. Isso permite migrar seção por seção sem quebrar tudo.
+				 */
 				sapient: {
-					purple: '#9b87f5',
-					blue: '#33C3F0',
-					dark: '#1A1F2C'
+					purple: 'var(--purple-400)',
+					blue: 'var(--cyan-400)',
+					dark: 'var(--bg-primary)',
+					secondary: 'var(--bg-secondary)',
+					deep: 'var(--bg-deep)',
+					surface: 'var(--bg-surface)',
+					card: 'var(--bg-card)',
+					elevated: 'var(--bg-elevated)'
+				},
+				purple: {
+					50: 'var(--purple-50)',
+					100: 'var(--purple-100)',
+					200: 'var(--purple-200)',
+					300: 'var(--purple-300)',
+					400: 'var(--purple-400)',
+					500: 'var(--purple-500)',
+					600: 'var(--purple-600)',
+					700: 'var(--purple-700)',
+					800: 'var(--purple-800)',
+					900: 'var(--purple-900)'
+				},
+				cyan: {
+					50: 'var(--cyan-50)',
+					100: 'var(--cyan-100)',
+					200: 'var(--cyan-200)',
+					300: 'var(--cyan-300)',
+					400: 'var(--cyan-400)',
+					500: 'var(--cyan-500)',
+					600: 'var(--cyan-600)',
+					700: 'var(--cyan-700)',
+					800: 'var(--cyan-800)',
+					900: 'var(--cyan-900)'
+				},
+				brand: {
+					coral: 'var(--accent-coral)',
+					rose: 'var(--accent-rose)',
+					pink: 'var(--accent-pink)',
+					amber: 'var(--accent-amber)',
+					lime: 'var(--accent-lime)',
+					emerald: 'var(--accent-emerald)',
+					sky: 'var(--accent-sky)',
+					indigo: 'var(--accent-indigo)'
+				},
+				ink: {
+					primary: 'var(--text-primary)',
+					secondary: 'var(--text-secondary)',
+					muted: 'var(--text-muted)',
+					hint: 'var(--text-hint)'
 				}
 			},
 			borderRadius: {
@@ -124,7 +176,9 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(to bottom right, rgba(26, 31, 44, 0.9), rgba(26, 31, 44, 0.95)), url("/lovable-uploads/c31755cd-4460-4a4c-9fee-bf80629fc090.png")'
+				'hero-radial': 'var(--gradient-radial-hero)',
+				'card-purple': 'var(--gradient-card-purple)',
+				'card-cyan': 'var(--gradient-card-cyan)'
 			},
 			textColor: {
 				'gradient-sapient': 'linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%)'
@@ -136,14 +190,14 @@ export default {
 		function({ addUtilities }) {
 			const newUtilities = {
 				'.text-gradient-sapient': {
-					background: 'linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%)',
+					background: 'var(--gradient-text)',
 					'-webkit-background-clip': 'text',
 					'background-clip': 'text',
 					'-webkit-text-fill-color': 'transparent',
 					'color': 'transparent'
 				},
 				'.bg-gradient-sapient': {
-					background: 'linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%)'
+					background: 'var(--gradient-brand)'
 				}
 			}
 			addUtilities(newUtilities)

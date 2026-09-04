@@ -2,6 +2,7 @@
 import React from 'react';
 import { MessageCircle, Calendar, FileText, Bot, Layers, TrendingUp, Palette, Share2 } from 'lucide-react';
 import { GlowCard } from '@/components/ui/spotlight-card';
+import { RevealOnScroll, RevealText } from '@/motion';
 
 const ServicesSection = () => {
   const services = [
@@ -56,33 +57,40 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 px-4 bg-black/40">
+    <section id="services" className="py-24 px-4 bg-sapient-dark">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Nossas <span className="text-gradient-sapient">Soluções</span> de Automação
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Soluções completas de automação com IA, rebranding e gestão de redes sociais para fazer seu negócio crescer enquanto você foca no que realmente importa.
-          </p>
+          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Nossas <em className="accent">Soluções</em> de Automação
+          </RevealText>
+          <RevealOnScroll delay={0.15}>
+            <p className="text-ink-secondary max-w-2xl mx-auto">
+              Soluções completas de automação com IA, rebranding e gestão de redes sociais para fazer seu negócio crescer enquanto você foca no que realmente importa.
+            </p>
+          </RevealOnScroll>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <RevealOnScroll
+          stagger="[data-service]"
+          staggerAmount={0.07}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {services.map((service, index) => (
+            <div key={index} data-service className="h-full">
             <GlowCard
-              key={index}
               glowColor={index % 2 === 0 ? 'purple' : 'blue'}
               customSize
-              className="p-6 !grid-rows-none !flex !flex-col"
+              className="h-full p-6 !grid-rows-none !flex !flex-col transition-transform duration-300 hover:-translate-y-1"
             >
               <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}>
                 {service.icon}
                 <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               </div>
-              <p className="text-gray-400">{service.description}</p>
+              <p className="text-ink-secondary">{service.description}</p>
             </GlowCard>
+            </div>
           ))}
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

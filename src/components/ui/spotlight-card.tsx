@@ -24,6 +24,57 @@ const sizeMap = {
   lg: 'w-80 h-96'
 };
 
+/**
+ * A posição do cursor é a mesma para todos os cards, então vale uma leitura só.
+ *
+ * Antes cada card registrava o seu próprio listener em `document` e escrevia
+ * quatro custom properties em si mesmo. Com vinte cards na página isso virava
+ * vinte listeners e oitenta escritas de estilo a cada movimento do mouse.
+ * Escrevendo no elemento raiz, o valor é herdado por todos os cards de uma vez.
+ */
+let pointerSubscribers = 0;
+let detachPointer: (() => void) | null = null;
+
+function subscribePointer() {
+  pointerSubscribers += 1;
+  if (detachPointer) return;
+
+  let frame = 0;
+  let lastX = 0;
+  let lastY = 0;
+
+  const write = () => {
+    frame = 0;
+    const root = document.documentElement.style;
+    root.setProperty('--x', lastX.toFixed(2));
+    root.setProperty('--xp', (lastX / window.innerWidth).toFixed(2));
+    root.setProperty('--y', lastY.toFixed(2));
+    root.setProperty('--yp', (lastY / window.innerHeight).toFixed(2));
+  };
+
+  const onMove = (e: PointerEvent) => {
+    lastX = e.clientX;
+    lastY = e.clientY;
+    // Uma escrita por frame: o pointermove dispara mais rápido que o repaint.
+    if (!frame) frame = requestAnimationFrame(write);
+  };
+
+  document.addEventListener('pointermove', onMove, { passive: true });
+  detachPointer = () => {
+    document.removeEventListener('pointermove', onMove);
+    if (frame) cancelAnimationFrame(frame);
+  };
+}
+
+function unsubscribePointer() {
+  pointerSubscribers -= 1;
+  if (pointerSubscribers <= 0) {
+    pointerSubscribers = 0;
+    detachPointer?.();
+    detachPointer = null;
+  }
+}
+
 const GlowCard: React.FC<GlowCardProps> = ({ 
   children, 
   className = '', 
@@ -37,19 +88,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
   const innerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const syncPointer = (e: PointerEvent) => {
-      const { clientX: x, clientY: y } = e;
-      
-      if (cardRef.current) {
-        cardRef.current.style.setProperty('--x', x.toFixed(2));
-        cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
-        cardRef.current.style.setProperty('--y', y.toFixed(2));
-        cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
-      }
-    };
-
-    document.addEventListener('pointermove', syncPointer);
-    return () => document.removeEventListener('pointermove', syncPointer);
+    subscribePointer();
+    return unsubscribePointer;
   }, []);
 
   const { base, spread } = glowColorMap[glowColor];
@@ -153,9 +193,18 @@ const GlowCard: React.FC<GlowCardProps> = ({
     }
   `;
 
+  // Regra global e idêntica em todas as instâncias — injetada uma única vez.
+  useEffect(() => {
+    const ID = 'glow-card-styles';
+    if (document.getElementById(ID)) return;
+    const tag = document.createElement('style');
+    tag.id = ID;
+    tag.textContent = beforeAfterStyles;
+    document.head.appendChild(tag);
+  }, [beforeAfterStyles]);
+
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: beforeAfterStyles }} />
       <div
         ref={cardRef}
         data-glow

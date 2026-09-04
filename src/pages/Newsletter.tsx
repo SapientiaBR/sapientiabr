@@ -5,7 +5,7 @@ import { toast } from 'sonner';
 import { ArrowLeft, Check, MailCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import expressoLogo from '@/assets/expresso-ia-logo.png';
+import expressoLogo from '@/assets/expresso-ia-logo.webp';
 
 const emailSchema = z
   .string()

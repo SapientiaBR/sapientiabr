@@ -1,28 +1,31 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Calendar, Linkedin, Instagram } from 'lucide-react';
+import { RevealOnScroll, RevealText } from '@/motion';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 bg-black/40">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 bg-sapient-secondary">
+      <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Pronto para <span className="text-gradient-sapient">Automatizar</span> seu Negócio?
-            </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Entre em contato com nossa equipe para uma demonstração personalizada.
-            </p>
+            <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Pronto para <em className="accent">Automatizar</em> seu Negócio?
+            </RevealText>
+            <RevealOnScroll delay={0.15}>
+              <p className="text-ink-secondary max-w-2xl mx-auto">
+                Entre em contato com nossa equipe para uma demonstração personalizada.
+              </p>
+            </RevealOnScroll>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="flex flex-col justify-center relative overflow-hidden">
+          <RevealOnScroll stagger="[data-contact-col]" staggerAmount={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div data-contact-col className="flex flex-col justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sapient-purple/30 to-sapient-blue/20 rounded-2xl -z-10 blur-lg opacity-50"></div>
-              <div className="bg-black/50 backdrop-blur-md rounded-2xl border border-white/10 p-8 relative z-10 transform transition-all hover:scale-[1.01] duration-300">
+              <div className="bg-sapient-surface/70 backdrop-blur-md rounded-2xl border border-white/10 p-8 relative z-10 transform transition-all hover:scale-[1.01] duration-300">
                 <h3 className="text-2xl font-bold mb-8 text-white inline-flex items-center gap-2">
                   <span className="w-2 h-8 bg-gradient-to-b from-sapient-purple to-sapient-blue rounded-full"></span>
-                  <span className="text-gradient-sapient">Contato</span>
+                  <em className="accent">Contato</em>
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-5 group">
@@ -31,11 +34,11 @@ const ContactSection = () => {
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-white mb-1">Otus</h4>
-                      <a 
-                        href="https://wa.me/5511920795583" 
-                        target="_blank" 
+                      <a
+                        href="https://wa.me/5511920795583"
+                        target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-white transition-colors"
                       >
                         (11) 92079-5583
                       </a>
@@ -48,11 +51,11 @@ const ContactSection = () => {
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-white mb-1">Agendar uma Reunião</h4>
-                      <a 
-                        href="https://bit.ly/40BtBp2" 
-                        target="_blank" 
+                      <a
+                        href="https://bit.ly/40BtBp2"
+                        target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-white transition-colors"
                       >
                         Clique aqui para agendar
                       </a>
@@ -65,11 +68,11 @@ const ContactSection = () => {
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-white mb-1">LinkedIn</h4>
-                      <a 
-                        href="https://www.linkedin.com/in/sapient-ia-automation-solutions-b397b7348/" 
-                        target="_blank" 
+                      <a
+                        href="https://www.linkedin.com/in/sapient-ia-automation-solutions-b397b7348/"
+                        target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-white transition-colors"
                       >
                         Sapient.IA Automation Solutions
                       </a>
@@ -82,11 +85,11 @@ const ContactSection = () => {
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-white mb-1">Instagram</h4>
-                      <a 
-                        href="https://www.instagram.com/sapientia.br" 
-                        target="_blank" 
+                      <a
+                        href="https://www.instagram.com/sapientia.br"
+                        target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-white transition-colors"
                       >
                         @sapientia.br
                       </a>
@@ -96,7 +99,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center">
+            <div data-contact-col className="flex flex-col justify-center">
               <h3 className="text-2xl font-bold mb-6 text-white">
                 Por que escolher a <span className="text-gradient-sapient">Sapient.IA</span>?
               </h3>
@@ -109,7 +112,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium text-white mb-1">Tecnologia Avançada</h4>
-                    <p className="text-gray-400">Utilizamos algoritmos de IA de última geração para oferecer soluções verdadeiramente inteligentes.</p>
+                    <p className="text-ink-secondary">Utilizamos algoritmos de IA de última geração para oferecer soluções verdadeiramente inteligentes.</p>
                   </div>
                 </div>
 
@@ -121,7 +124,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium text-white mb-1">ROI Comprovado</h4>
-                    <p className="text-gray-400">Nossos clientes experimentam em média uma economia de 65% nos custos operacionais após implementação.</p>
+                    <p className="text-ink-secondary">Nossos clientes experimentam em média uma economia de 65% nos custos operacionais após implementação.</p>
                   </div>
                 </div>
 
@@ -133,12 +136,12 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium text-white mb-1">Suporte Personalizado</h4>
-                    <p className="text-gray-400">Nossa equipe de especialistas está sempre disponível para garantir o sucesso da sua implementação.</p>
+                    <p className="text-ink-secondary">Nossa equipe de especialistas está sempre disponível para garantir o sucesso da sua implementação.</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>
