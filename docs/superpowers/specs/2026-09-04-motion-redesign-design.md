@@ -1,0 +1,110 @@
+# Redesign visual e de movimento — sapientiabr.cloud
+
+Data: 2026-09-04
+Branch: `feat/motion-redesign`
+
+## Objetivo
+
+Elevar o acabamento visual do site institucional da Sapient.IA ao nível de um site
+premium com movimento dirigido por scroll e hero em WebGL, **sem alterar o conteúdo
+editorial nem a ordem das seções**. A motivação declarada é estética.
+
+Referência de qualidade: saffron-griflan.netlify.app (técnica de movimento apenas —
+nenhum código, asset ou layout daquele site é reaproveitado).
+
+## Fonte da verdade da identidade
+
+Brand Guide v2 (`Downloads/Branding Guide - Sapient.IA/sapient-ia-brand-guide-v2.html`),
+que substitui a paleta e a tipografia hoje no repositório.
+
+| Token | Valor |
+| --- | --- |
+| Fundo | `#080d1a` → `#111827` (navy profundo, nunca preto puro) |
+| Gradiente brand | `#7c3aed` → `#06b6d4` |
+| Gradiente texto | `#a78bfa` → `#4debff` |
+| Display | Sora |
+| Body | DM Sans |
+| Mono | JetBrains Mono |
+
+Regras do guide que viram restrição de implementação:
+
+- 1 heading = 1 palavra em itálico com gradient text
+- Cards com `border-top: 3px` em accents variados (coral, lime, indigo, sky)
+- Gradiente nunca como fundo de seção inteira — só CTA, texto de destaque, logo e bordas
+- Glassmorphism sutil em cards premium: blur 20–24 px, borda branca 8%
+
+## Stack
+
+Mantém: React 18, Vite, TypeScript, Tailwind, shadcn/ui, react-router.
+
+Entra: `gsap` + ScrollTrigger, `lenis`, `three`.
+Sai: `framer-motion` — seus únicos consumidores (`ui/shape-landing-hero`,
+`ui/spotlight`) são substituídos pelo hero novo.
+
+## Arquitetura
+
+### `src/design/tokens.css`
+
+Escala completa do guide como custom properties. `tailwind.config.ts` passa a derivar
+dessas variáveis. Os nomes antigos (`sapient-purple`, `sapient-blue`, `sapient-dark`)
+permanecem como alias apontando para os valores novos, permitindo migração incremental
+sem quebrar os 11 componentes de uma vez.
+
+### `src/motion/`
+
+| Módulo | Responsabilidade | Depende de |
+| --- | --- | --- |
+| `LenisProvider` | scroll suave global sincronizado ao ScrollTrigger | lenis, gsap |
+| `PageMask` | dissolve de entrada com `feTurbulence` + `feColorMatrix` | gsap |
+| `RevealText` | reveal de heading caractere a caractere | gsap |
+| `RevealOnScroll` | entrada escalonada genérica | gsap |
+| `MagneticButton` | CTA que atrai o cursor | gsap |
+| `SectionRail` | rail lateral com seção ativa | gsap ScrollTrigger |
+| `useReducedMotion` | detecção única de preferência do usuário | — |
+
+Cada componente encapsula seu GSAP em `gsap.context()` e faz `revert()` no unmount.
+
+### `src/three/`
+
+| Módulo | Responsabilidade |
+| --- | --- |
+| `OwlParticles.tsx` | fronteira React: ciclo de vida, resize, lazy, fallback |
+| `owlScene.ts` | cena Three.js imperativa, sem React dentro |
+| `sampleLogo.ts` | PNG → buffer de posições por limiar de alfa |
+| `shaders/owl.vert.glsl` | deriva idle, repulsão do mouse, dissolução por scroll |
+| `shaders/owl.frag.glsl` | gradiente purple→cyan, alfa circular |
+
+Fonte das partículas: `src/assets/sapient-logo.png` (1080×1350, RGBA). ~35 mil
+partículas amostradas acima do limiar de alfa.
+
+## Degradação
+
+Três níveis, avaliados na montagem:
+
+1. Sem contexto WebGL → renderiza o PNG estático
+2. `prefers-reduced-motion: reduce` → PNG estático, Lenis desligado, reveals viram
+   estado final imediato
+3. Viewport móvel ou `hardwareConcurrency <= 4` → contagem de partículas reduzida
+
+`IntersectionObserver` pausa o loop de render quando o hero sai do viewport.
+Three.js entra em chunk separado via `React.lazy`, fora do caminho do first paint.
+
+## Melhoria pontual de performance
+
+`src/assets/otus-logo.png` tem 3,1 MB sem canal alfa — sozinho maior que o resto do
+site somado. Convertido para WebP redimensionado como parte deste trabalho.
+
+## Verificação
+
+- Playwright por rota: zero erro de console, zero 404, `#root` populado, screenshot por seção
+- Build de produção com bundle medido antes e depois
+- Execução com `prefers-reduced-motion` ativo
+- Execução com WebGL desabilitado
+- Contraste dos tokens novos
+
+## Fora de escopo
+
+- Alterações de conteúdo, copy ou ordem de seções
+- Sequência de frames dirigida por scroll (exige produção de 200+ renders)
+- Transições animadas entre rotas
+- Deploy em produção — entrega é local, em branch
