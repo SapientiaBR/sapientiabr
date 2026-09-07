@@ -3,7 +3,6 @@ import React from 'react';
 import { GlowCard } from '@/components/ui/spotlight-card';
 import { Icon3D, type Icon3DName } from '@/components/ui/icon-3d';
 import { RevealOnScroll, RevealText } from '@/motion';
-import { OperationsMindMap } from '@/components/OperationsMindMap';
 
 const ServicesSection = () => {
   /**
@@ -62,23 +61,17 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="relative overflow-hidden py-24 px-4 bg-sapient-deep">
-      <div aria-hidden="true" className="services-aurora" />
+    <section id="services" className="py-24 px-4 bg-sapient-deep">
       <div className="container mx-auto">
-        <div className="relative mb-16 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
-          <div className="text-center lg:text-left">
-            <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white text-balance">
-              Uma operação <em className="accent">conectada</em>, ponta a ponta.
-            </RevealText>
-            <RevealOnScroll delay={0.15}>
-              <p className="text-ink-secondary max-w-2xl mx-auto lg:mx-0">
-                Começamos pelo gargalo da sua equipe e conectamos os sistemas, canais e agentes de IA que o processo pede.
-              </p>
-            </RevealOnScroll>
-          </div>
-          <div className="w-full lg:justify-self-end">
-            <OperationsMindMap />
-          </div>
+        <div className="text-center mb-16">
+          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white text-balance">
+            Uma operação <em className="accent">conectada</em>, ponta a ponta.
+          </RevealText>
+          <RevealOnScroll delay={0.15}>
+            <p className="text-ink-secondary max-w-2xl mx-auto">
+              Começamos pelo gargalo da sua equipe e conectamos os sistemas, canais e agentes de IA que o processo pede.
+            </p>
+          </RevealOnScroll>
         </div>
 
         <RevealOnScroll
