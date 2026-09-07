@@ -5,16 +5,16 @@ import { RevealOnScroll, RevealText } from '@/motion';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 bg-sapient-secondary">
+    <section id="contact" className="py-24 bg-sapient-dark">
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Pronto para <em className="accent">Automatizar</em> seu Negócio?
+              Vamos conectar sua <em className="accent">operação</em>?
             </RevealText>
             <RevealOnScroll delay={0.15}>
               <p className="text-ink-secondary max-w-2xl mx-auto">
-                Entre em contato com nossa equipe para uma demonstração personalizada.
+                Conte como sua equipe atende, vende e acompanha clientes. Nós mapeamos o fluxo e as integrações possíveis.
               </p>
             </RevealOnScroll>
           </div>
@@ -33,7 +33,7 @@ const ContactSection = () => {
                       <MessageCircle className="w-6 h-6 text-white" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
-                      <h4 className="text-xl font-medium text-white mb-1">Otus</h4>
+                      <h4 className="text-xl font-medium text-white mb-1">Falar no WhatsApp</h4>
                       <a
                         href="https://wa.me/5511920795583"
                         target="_blank"
@@ -57,7 +57,7 @@ const ContactSection = () => {
                         rel="noopener noreferrer"
                         className="text-ink-secondary hover:text-white transition-colors"
                       >
-                        Clique aqui para agendar
+                        Escolher um horário
                       </a>
                     </div>
                   </div>
@@ -101,7 +101,7 @@ const ContactSection = () => {
 
             <div data-contact-col className="flex flex-col justify-center">
               <h3 className="text-2xl font-bold mb-6 text-white">
-                Por que escolher a <span className="text-gradient-sapient">Sapient.IA</span>?
+                Por que uma <span className="text-gradient-sapient">operação conectada</span>?
               </h3>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -111,32 +111,34 @@ const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Tecnologia Avançada</h4>
-                    <p className="text-ink-secondary">Utilizamos algoritmos de IA de última geração para oferecer soluções verdadeiramente inteligentes.</p>
+                    <h4 className="text-lg font-medium text-white mb-1">IA no fluxo real</h4>
+                    <p className="text-ink-secondary">Agentes de IA entram onde existem conversas, decisões repetitivas e dados que precisam circular.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="bg-sapient-blue/20 p-3 rounded-full h-min">
                     <svg className="w-6 h-6 text-sapient-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">ROI Comprovado</h4>
-                    <p className="text-ink-secondary">Nossos clientes experimentam em média uma economia de 65% nos custos operacionais após implementação.</p>
+                    <h4 className="text-lg font-medium text-white mb-1">Sistemas que conversam</h4>
+                    <p className="text-ink-secondary">CRM, WhatsApp, agenda, pagamentos e ferramentas internas podem operar como um único fluxo.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <div className="bg-sapient-purple/20 p-3 rounded-full h-min">
                     <svg className="w-6 h-6 text-sapient-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      <circle cx="12" cy="12" r="9" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Suporte Personalizado</h4>
-                    <p className="text-ink-secondary">Nossa equipe de especialistas está sempre disponível para garantir o sucesso da sua implementação.</p>
+                    <h4 className="text-lg font-medium text-white mb-1">Site que faz parte da operação</h4>
+                    <p className="text-ink-secondary">Criamos presença digital com clareza no mobile e caminhos diretos para captar e encaminhar leads.</p>
                   </div>
                 </div>
               </div>

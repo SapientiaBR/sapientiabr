@@ -12,7 +12,12 @@ import dollar from '@/assets/icons3d/dollar.webp';
 import folder from '@/assets/icons3d/folder.webp';
 import setting from '@/assets/icons3d/setting.webp';
 import target from '@/assets/icons3d/target.webp';
+import cube from '@/assets/icons3d/cube.webp';
+import link from '@/assets/icons3d/link.webp';
 import medal from '@/assets/icons3d/medal.webp';
+import notebook from '@/assets/icons3d/notebook.webp';
+import notifyHeart from '@/assets/icons3d/notify-heart.webp';
+import puzzle from '@/assets/icons3d/puzzle.webp';
 import megaphone from '@/assets/icons3d/megaphone.webp';
 
 /**
@@ -36,10 +41,15 @@ const ICONS = {
   'file-text': fileText,
   calender,
   chat,
+  cube,
   dollar,
   folder,
+  link,
   medal,
   megaphone,
+  notebook,
+  'notify-heart': notifyHeart,
+  puzzle,
   setting,
   target,
 } as const;

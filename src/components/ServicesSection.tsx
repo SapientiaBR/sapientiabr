@@ -3,6 +3,7 @@ import React from 'react';
 import { GlowCard } from '@/components/ui/spotlight-card';
 import { Icon3D, type Icon3DName } from '@/components/ui/icon-3d';
 import { RevealOnScroll, RevealText } from '@/motion';
+import { OperationsMindMap } from '@/components/OperationsMindMap';
 
 const ServicesSection = () => {
   /**
@@ -12,66 +13,72 @@ const ServicesSection = () => {
   const services: { icon: Icon3DName; title: string; description: string; color: string }[] = [
     {
       icon: 'chat-bubble',
-      title: 'Atendimento 24/7',
-      description: 'Atendimento automatizado via WhatsApp, site ou redes sociais que funciona 24 horas por dia, sem descanso.',
-      color: 'from-sapient-purple/20 to-sapient-blue/20'
+      title: 'Agentes de IA',
+      description: 'Atendem, tiram dúvidas e coletam informações no WhatsApp, site e redes sociais, dentro das regras do seu negócio.',
+      color: 'from-emerald-400/20 to-cyan-400/10'
     },
     {
       icon: 'calender',
-      title: 'Agendamentos Automáticos',
-      description: 'Sistema inteligente que gerencia sua agenda, confirmações e lembretes para clientes.',
-      color: 'from-sapient-blue/20 to-sapient-purple/20'
+      title: 'Agenda conectada',
+      description: 'Agendamentos, confirmações e lembretes integrados à sua disponibilidade e ao histórico do cliente.',
+      color: 'from-cyan-400/20 to-emerald-400/10'
     },
     {
       icon: 'file-text',
-      title: 'Propostas e Contratos',
-      description: 'Geração automática de propostas personalizadas e contratos baseados no perfil do cliente.',
-      color: 'from-sapient-purple/20 to-sapient-blue/20'
+      title: 'Propostas e contratos',
+      description: 'Acione documentos, aprovações e próximas etapas a partir do que acontece no seu funil.',
+      color: 'from-emerald-400/20 to-cyan-400/10'
     },
     {
-      icon: 'color-palette',
-      title: 'Rebranding (Logos)',
-      description: 'Criação e renovação de identidade visual, desenvolvimento de logos modernos e profissionais.',
-      color: 'from-sapient-blue/20 to-sapient-purple/20'
+      icon: 'cube',
+      title: 'Operação integrada',
+      description: 'Conectamos CRM, formulários, agenda, pagamentos e ferramentas internas em um fluxo que sua equipe acompanha.',
+      color: 'from-cyan-400/20 to-emerald-400/10'
     },
     {
-      icon: 'megaphone',
-      title: 'Automação de Posts',
-      description: 'Criação e programação automática de posts para Instagram, LinkedIn, Facebook e outras redes sociais.',
-      color: 'from-sapient-purple/20 to-sapient-blue/20'
+      icon: 'notify-heart',
+      title: 'Follow-up inteligente',
+      description: 'O próximo contato deixa de depender da memória do SDR: o sistema cria tarefas e mensagens no momento certo.',
+      color: 'from-emerald-400/20 to-cyan-400/10'
     },
     {
       icon: 'computer',
-      title: 'CRM Inteligente',
-      description: 'CRM com IA que entende o comportamento do cliente e sugere as melhores ações de relacionamento.',
-      color: 'from-sapient-blue/20 to-sapient-purple/20'
+      title: 'CRM com contexto',
+      description: 'Centralize conversas, dados do lead e etapas do processo para que atendimento e comercial vejam a mesma história.',
+      color: 'from-cyan-400/20 to-emerald-400/10'
     },
     {
       icon: 'chart',
-      title: 'Captação de Leads',
-      description: 'Automação completa do funil de vendas, da captação à conversão de novos clientes.',
-      color: 'from-sapient-purple/20 to-sapient-blue/20'
+      title: 'Captação de leads',
+      description: 'Cada lead recebido é encaminhado para o CRM, qualificado e direcionado para a próxima ação.',
+      color: 'from-emerald-400/20 to-cyan-400/10'
     },
     {
       icon: 'explorer',
-      title: 'Criação de Sites',
-      description: 'Desenvolvimento de sites profissionais e landing pages otimizadas para conversão, com design moderno e responsivo.',
-      color: 'from-sapient-blue/20 to-sapient-purple/20'
+      title: 'Sites institucionais',
+      description: 'Sites e landing pages pensados para mobile, claros para quem chega e integrados ao seu funil desde o primeiro clique.',
+      color: 'from-cyan-400/20 to-emerald-400/10'
     }
   ];
 
   return (
-    <section id="services" className="py-24 px-4 bg-sapient-dark">
+    <section id="services" className="relative overflow-hidden py-24 px-4 bg-sapient-deep">
+      <div aria-hidden="true" className="services-aurora" />
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Nossas <em className="accent">Soluções</em> de Automação
-          </RevealText>
-          <RevealOnScroll delay={0.15}>
-            <p className="text-ink-secondary max-w-2xl mx-auto">
-              Soluções completas de automação com IA, rebranding e gestão de redes sociais para fazer seu negócio crescer enquanto você foca no que realmente importa.
-            </p>
-          </RevealOnScroll>
+        <div className="relative mb-16 grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+          <div className="text-center lg:text-left">
+            <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white text-balance">
+              Uma operação <em className="accent">conectada</em>, ponta a ponta.
+            </RevealText>
+            <RevealOnScroll delay={0.15}>
+              <p className="text-ink-secondary max-w-2xl mx-auto lg:mx-0">
+                Começamos pelo gargalo da sua equipe e conectamos os sistemas, canais e agentes de IA que o processo pede.
+              </p>
+            </RevealOnScroll>
+          </div>
+          <div className="w-full lg:justify-self-end">
+            <OperationsMindMap />
+          </div>
         </div>
 
         <RevealOnScroll
@@ -82,9 +89,10 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div key={index} data-service className="h-full">
             <GlowCard
-              glowColor={index % 2 === 0 ? 'purple' : 'blue'}
+              glowColor={index % 2 === 0 ? 'green' : 'blue'}
+              tone="success"
               customSize
-              className="h-full p-6 !grid-rows-none !flex !flex-col transition-transform duration-300 hover:-translate-y-1"
+              className="h-full p-6 !grid-rows-none !flex !flex-col transition-transform duration-300 hover:-translate-y-1 shadow-[0_18px_48px_-34px_rgba(52,211,153,0.55)]"
             >
               <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}>
                 <Icon3D name={service.icon} size={40} className="flex-none drop-shadow-lg" />

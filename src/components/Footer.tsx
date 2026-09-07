@@ -23,7 +23,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-ink-secondary mb-6">
-              Transformando negócios através de soluções de automação inteligente baseadas em IA.
+              Sistemas operacionais conectados com IA para atendimento, vendas e operação.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ const Footer = () => {
             >
               Secretaria Invisível
             </a>
-            {' '}— nossa solução dedicada para a área da saúde.
+            {' '}— uma solução dedicada à rotina de atendimento em saúde.
           </p>
         </div>
 

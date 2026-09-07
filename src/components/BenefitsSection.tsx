@@ -4,12 +4,12 @@ import { GlowCard } from '@/components/ui/spotlight-card';
 import { RevealText, useReducedMotion, gsap } from '@/motion';
 
 const BENEFITS = [
-  'Reduza custos operacionais em até 70%',
-  'Atendimento 24/7 sem custos adicionais',
-  'Aumente sua taxa de conversão em até 40%',
-  'Elimine erros humanos e padronize processos',
-  'Libere tempo para focar no crescimento do negócio',
-  'Escale suas operações sem aumentar a equipe',
+  'Menos tarefas repetitivas para SDRs e atendimento',
+  'Conversas e dados do cliente no contexto certo',
+  'Leads encaminhados para o próximo passo do funil',
+  'Processos padronizados, sem depender de memória ou planilhas',
+  'Mais tempo da equipe para decisões e relacionamento',
+  'Uma base operacional preparada para crescer com consistência',
 ];
 
 const BenefitsSection = () => {
@@ -63,13 +63,12 @@ const BenefitsSection = () => {
                 as="h2"
                 className="mb-8 text-center text-4xl font-bold leading-[1.1] text-white md:text-5xl"
               >
-                Transforme Seu Negócio Com <em className="accent">Automação</em> Inteligente
+                O que muda com uma operação <em className="accent">conectada</em>.
               </RevealText>
 
               <p className="mb-10 text-center text-lg text-ink-secondary md:text-xl">
-                A Sapient.IA oferece soluções que vão muito além da simples automação. Nossa
-                tecnologia aprende com seu negócio e se adapta continuamente para maximizar
-                resultados.
+                A automação não substitui o conhecimento da sua equipe. Ela tira o trabalho manual do caminho
+                para que cada pessoa atue com mais contexto, ritmo e controle.
               </p>
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

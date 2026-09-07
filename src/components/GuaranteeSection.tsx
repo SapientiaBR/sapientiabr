@@ -11,10 +11,11 @@ const GuaranteeSection = () => {
             <Icon3D name="medal" size={76} className="drop-shadow-2xl" />
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Garantia <em className="accent">Sapient.IA</em>
+            Clareza antes da <em className="accent">implementação</em>.
           </h2>
           <p className="text-ink-secondary text-base md:text-lg max-w-xl mx-auto">
-            Sua solução funcionando ao final da implementação ou você não paga. Essa é a nossa garantia. Sem condições ocultas.
+            Cada projeto começa com um diagnóstico do seu fluxo atual. Assim, você entende o que será conectado,
+            quais etapas serão automatizadas e como sua equipe participa da operação.
           </p>
         </RevealOnScroll>
       </div>

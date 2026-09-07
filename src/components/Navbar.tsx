@@ -63,7 +63,7 @@ const Navbar = () => {
             className="bg-gradient-sapient hover:opacity-90 transition-opacity"
             onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
           >
-            Teste Grátis
+            Agendar diagnóstico
           </Button>
         </div>
 
@@ -129,7 +129,7 @@ const Navbar = () => {
               className="bg-gradient-sapient hover:opacity-90 transition-opacity w-full"
               onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
             >
-              Teste Grátis
+              Agendar diagnóstico
             </Button>
           </div>
         </div>

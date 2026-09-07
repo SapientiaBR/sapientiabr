@@ -4,35 +4,35 @@ import { RevealOnScroll, RevealText } from '@/motion';
 const faqs = [
   {
     q: 'Quanto custa a implementação da Sapient.IA?',
-    a: 'Cada projeto é personalizado conforme o escopo da solução. Durante a conversa de diagnóstico (gratuita e sem compromisso), apresentamos um valor específico para o seu caso. A maioria dos clientes recupera o investimento em menos de 60 dias.',
+    a: 'Cada projeto é definido conforme os fluxos, sistemas e canais envolvidos. No diagnóstico, entendemos o escopo e apresentamos uma proposta adequada ao seu caso.',
   },
   {
-    q: 'Quanto tempo leva para ter a solução funcionando?',
-    a: 'A implementação padrão leva de 3 a 4 semanas a partir da assinatura do contrato. Você não precisa fazer nada. Nossa equipe cuida de tudo.',
+    q: 'Como funciona a implementação?',
+    a: 'Começamos mapeando a operação atual. Depois definimos os fluxos, conectamos as ferramentas necessárias, testamos e preparamos sua equipe para acompanhar a nova rotina.',
   },
   {
     q: 'Preciso ter conhecimento técnico para usar?',
-    a: 'Zero. Você não precisará configurar, programar ou entender de tecnologia. Entregamos a solução funcionando e treinamos você em menos de 1 hora. O suporte contínuo está incluído.',
+    a: 'Não. A parte técnica é conduzida pela nossa equipe. Você e seu time participam das decisões de processo e aprendem a acompanhar o que foi implementado.',
   },
   {
     q: 'Meus dados e os dados dos meus clientes estão seguros?',
-    a: 'Sim. A Sapient.IA opera em conformidade com a LGPD. Seus dados e os de seus clientes são protegidos por criptografia e nunca são compartilhados com terceiros.',
+    a: 'A segurança e o tratamento de dados são considerados desde o desenho do fluxo. Avaliamos os sistemas envolvidos e as necessidades específicas do seu negócio antes da implementação.',
   },
   {
-    q: 'E se eu não gostar do resultado? Tem garantia?',
-    a: 'Sim. Se a solução não estiver funcionando ao final da implementação, você não paga nada. Essa é a nossa garantia de funcionamento. Sem letras miúdas.',
+    q: 'Vocês fazem só automação?',
+    a: 'Não. Além de agentes de IA e integrações, criamos sites institucionais e landing pages orientados para mobile e conectados à captação de leads.',
   },
   {
     q: 'Funciona para qualquer tipo de negócio?',
-    a: 'Atendemos empresas de varejo, saúde, educação, serviços, construção civil, imobiliárias e outros setores. Se seu negócio usa WhatsApp, e-mail ou redes sociais para se comunicar com clientes, a Sapient.IA funciona para você.',
+    a: 'Trabalhamos bem com operações que usam WhatsApp, e-mail, redes sociais, agenda e CRM: escritórios de advocacia, clínicas, consultórios, agências, empresas de viagens, imobiliárias e serviços B2B, entre outras.',
   },
   {
     q: 'Preciso trocar meu WhatsApp atual?',
-    a: 'Não. A automação funciona no seu número de WhatsApp atual, seja Business ou pessoal. Nenhuma migração necessária.',
+    a: 'Avaliamos como integrar o canal que sua operação já usa. A configuração depende do seu processo atual e das ferramentas que precisam conversar entre si.',
   },
   {
     q: 'Como acompanho os resultados?',
-    a: 'Você terá acesso ao painel do Otus, nosso CRM inteligente, onde visualiza conversas, leads capturados, agendamentos e métricas em tempo real. Acesso via celular ou computador.',
+    a: 'Isso depende do escopo do projeto, mas podemos centralizar conversas, leads, agendamentos e etapas do funil para que você acompanhe a operação pelo celular ou computador.',
   },
 ];
 
@@ -42,7 +42,7 @@ const FAQSection = () => {
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <RevealText as="h2" className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-            Suas dúvidas, respondidas de forma <em className="accent">direta</em>.
+            Perguntas diretas, respostas <em className="accent">claras</em>.
           </RevealText>
           <RevealOnScroll stagger="[data-faq]" staggerAmount={0.06} className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {faqs.map((f) => (

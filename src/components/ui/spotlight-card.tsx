@@ -4,6 +4,7 @@ interface GlowCardProps {
   children: ReactNode;
   className?: string;
   glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange';
+  tone?: 'neutral' | 'danger' | 'success';
   size?: 'sm' | 'md' | 'lg';
   width?: string | number;
   height?: string | number;
@@ -16,6 +17,21 @@ const glowColorMap = {
   green: { base: 120, spread: 200 },
   red: { base: 0, spread: 200 },
   orange: { base: 30, spread: 200 }
+};
+
+const toneMap = {
+  neutral: {
+    backdrop: 'hsl(0 0% 60% / 0.12)',
+    border: 'hsl(0 0% 60% / 0.12)',
+  },
+  danger: {
+    backdrop: 'rgba(127, 29, 29, 0.16)',
+    border: 'rgba(251, 113, 133, 0.28)',
+  },
+  success: {
+    backdrop: 'rgba(6, 95, 70, 0.16)',
+    border: 'rgba(52, 211, 153, 0.28)',
+  },
 };
 
 const sizeMap = {
@@ -79,6 +95,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
   children, 
   className = '', 
   glowColor = 'blue',
+  tone = 'neutral',
   size = 'md',
   width,
   height,
@@ -93,6 +110,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
   }, []);
 
   const { base, spread } = glowColorMap[glowColor];
+  const surface = toneMap[tone];
 
   const getSizeClasses = () => {
     if (customSize) return '';
@@ -105,8 +123,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
       '--spread': spread,
       '--radius': '14',
       '--border': '3',
-      '--backdrop': 'hsl(0 0% 60% / 0.12)',
-      '--backup-border': 'var(--backdrop)',
+      '--backdrop': surface.backdrop,
+      '--backup-border': surface.border,
       '--size': '200',
       '--outer': '1',
       '--border-size': 'calc(var(--border, 2) * 1px)',

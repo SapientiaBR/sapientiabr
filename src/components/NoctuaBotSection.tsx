@@ -11,7 +11,7 @@ const NoctuaBotSection = () => {
   // viewport no celular; o overflow-hidden da seção corta o excesso sem apagar
   // o efeito.
   return (
-    <section id="otus" className="py-24 bg-sapient-secondary overflow-hidden">
+    <section id="otus" className="py-24 bg-sapient-deep overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <RevealOnScroll className="order-2 md:order-1">
@@ -20,11 +20,11 @@ const NoctuaBotSection = () => {
               <h3 className="text-2xl font-semibold text-white font-label tracking-widest">OTUS</h3>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              Atendimento <em className="accent">24/7</em> com IA Personalizada
+              Um agente de IA para o seu <em className="accent">atendimento</em>.
             </h2>
             <p className="text-ink-secondary mb-6">
-              O <strong>Otus</strong> ("Otus" é um gênero de corujas, símbolo de sabedoria) é nosso assistente de IA completamente personalizado
-              que trabalha incansavelmente para o seu negócio, oferecendo:
+              O <strong>Otus</strong> é um agente de IA configurado para a sua operação. Ele conversa com clientes,
+              organiza dados e aciona os próximos passos que você definir.
             </p>
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
@@ -32,8 +32,8 @@ const NoctuaBotSection = () => {
                   <Icon3D name="clock" size={38} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Disponibilidade Total</h4>
-                  <p className="text-ink-secondary">Atendimento automático 24 horas por dia, 7 dias por semana, sem pausas ou férias.</p>
+                  <h4 className="text-white font-medium">Atendimento contínuo</h4>
+                  <p className="text-ink-secondary">Responda contatos mesmo fora do horário da equipe, com limites e encaminhamentos definidos por você.</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -41,8 +41,8 @@ const NoctuaBotSection = () => {
                   <Icon3D name="chat-text" size={38} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Respostas Inteligentes</h4>
-                  <p className="text-ink-secondary">Responde dúvidas, coleta informações e qualifica leads com naturalidade.</p>
+                  <h4 className="text-white font-medium">Conversas com contexto</h4>
+                  <p className="text-ink-secondary">Tira dúvidas, coleta informações e qualifica leads com base no que sua empresa precisa saber.</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -50,8 +50,8 @@ const NoctuaBotSection = () => {
                   <Icon3D name="calender" size={38} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium">Agendamentos Automáticos</h4>
-                  <p className="text-ink-secondary">Integração com sua agenda para marcar reuniões e compromissos sem intervenção humana.</p>
+                  <h4 className="text-white font-medium">Próximos passos acionados</h4>
+                  <p className="text-ink-secondary">Integre agenda, CRM e tarefas para que a conversa certa chegue à pessoa certa.</p>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ const NoctuaBotSection = () => {
                   onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
                 >
                   <Bot className="w-5 h-5 mr-2" />
-                  Fale com o Otus
+                  Conhecer o Otus
                 </Button>
               </Magnetic>
             </div>
