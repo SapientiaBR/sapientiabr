@@ -27,15 +27,22 @@ sem restrição.
 | `computer.webp` | Serviços — CRM Inteligente |
 | `chart.webp` | Serviços — Captação de Leads |
 | `explorer.webp` | Serviços — Criação de Sites |
-| `clock.webp` | Otus — Disponibilidade Total |
+| `clock.webp` | Otus — Disponibilidade Total; Problemas — Processos Lentos |
 | `chat-text.webp` | Otus — Respostas Inteligentes |
 | `medal.webp` | Selo de Garantia |
+| `dollar.webp` | Problemas — Custo Elevado |
+| `target.webp` | Problemas — Falta de Leads |
+| `setting.webp` | Problemas — Baixa Produtividade |
+| `chat.webp` | Problemas — Atendimento Ineficiente |
+| `folder.webp` | Problemas — Gestão Desorganizada |
 
 `calender` mantém a grafia do pacote original.
 
-## Onde não foram usados
+## Nota sobre a paleta
 
-Os cards de "Problemas que Resolvemos" seguem com ícones de traço da lucide.
-O Brand Guide v2 manda o ícone do card ter a mesma cor do accent do border-top,
-e os 3dicons têm cor própria fixa — trocar ali quebraria o sistema de cores que
-diferencia as seis categorias.
+Os cards de "Problemas que Resolvemos" usavam um accent diferente cada
+(coral, âmbar, lima, rosa, céu, índigo), com título e ícone naquela cor,
+conforme o Brand Guide v2. Como os 3dicons têm cor própria e não acompanham
+accent, manter aquele sistema deixaria só o título colorido — meio caminho.
+A pedido do cliente, os cards passaram ao tratamento padrão do site, igual ao
+dos Serviços: faixa roxo→ciano alternada e título branco.

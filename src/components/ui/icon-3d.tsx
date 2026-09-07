@@ -7,6 +7,11 @@ import computer from '@/assets/icons3d/computer.webp';
 import explorer from '@/assets/icons3d/explorer.webp';
 import fileText from '@/assets/icons3d/file-text.webp';
 import calender from '@/assets/icons3d/calender.webp';
+import chat from '@/assets/icons3d/chat.webp';
+import dollar from '@/assets/icons3d/dollar.webp';
+import folder from '@/assets/icons3d/folder.webp';
+import setting from '@/assets/icons3d/setting.webp';
+import target from '@/assets/icons3d/target.webp';
 import medal from '@/assets/icons3d/medal.webp';
 import megaphone from '@/assets/icons3d/megaphone.webp';
 
@@ -30,8 +35,13 @@ const ICONS = {
   explorer,
   'file-text': fileText,
   calender,
+  chat,
+  dollar,
+  folder,
   medal,
   megaphone,
+  setting,
+  target,
 } as const;
 
 export type Icon3DName = keyof typeof ICONS;
