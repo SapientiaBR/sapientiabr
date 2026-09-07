@@ -1,55 +1,59 @@
 
 import React from 'react';
-import { MessageCircle, Calendar, FileText, Bot, Layers, TrendingUp, Palette, Share2 } from 'lucide-react';
 import { GlowCard } from '@/components/ui/spotlight-card';
+import { Icon3D, type Icon3DName } from '@/components/ui/icon-3d';
 import { RevealOnScroll, RevealText } from '@/motion';
 
 const ServicesSection = () => {
-  const services = [
+  /**
+   * Os ícones 3D vêm da biblioteca 3dicons (CC0). Cada card guarda só o nome;
+   * o componente Icon3D resolve o arquivo.
+   */
+  const services: { icon: Icon3DName; title: string; description: string; color: string }[] = [
     {
-      icon: <MessageCircle className="w-8 h-8 text-sapient-purple" />,
+      icon: 'chat-bubble',
       title: 'Atendimento 24/7',
       description: 'Atendimento automatizado via WhatsApp, site ou redes sociais que funciona 24 horas por dia, sem descanso.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Calendar className="w-8 h-8 text-sapient-blue" />,
+      icon: 'calender',
       title: 'Agendamentos Automáticos',
       description: 'Sistema inteligente que gerencia sua agenda, confirmações e lembretes para clientes.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     },
     {
-      icon: <FileText className="w-8 h-8 text-sapient-purple" />,
+      icon: 'file-text',
       title: 'Propostas e Contratos',
       description: 'Geração automática de propostas personalizadas e contratos baseados no perfil do cliente.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Palette className="w-8 h-8 text-sapient-blue" />,
+      icon: 'color-palette',
       title: 'Rebranding (Logos)',
       description: 'Criação e renovação de identidade visual, desenvolvimento de logos modernos e profissionais.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     },
     {
-      icon: <Share2 className="w-8 h-8 text-sapient-purple" />,
+      icon: 'megaphone',
       title: 'Automação de Posts',
       description: 'Criação e programação automática de posts para Instagram, LinkedIn, Facebook e outras redes sociais.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Bot className="w-8 h-8 text-sapient-blue" />,
+      icon: 'computer',
       title: 'CRM Inteligente',
       description: 'CRM com IA que entende o comportamento do cliente e sugere as melhores ações de relacionamento.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
     },
     {
-      icon: <TrendingUp className="w-8 h-8 text-sapient-purple" />,
+      icon: 'chart',
       title: 'Captação de Leads',
       description: 'Automação completa do funil de vendas, da captação à conversão de novos clientes.',
       color: 'from-sapient-purple/20 to-sapient-blue/20'
     },
     {
-      icon: <Layers className="w-8 h-8 text-sapient-blue" />,
+      icon: 'explorer',
       title: 'Criação de Sites',
       description: 'Desenvolvimento de sites profissionais e landing pages otimizadas para conversão, com design moderno e responsivo.',
       color: 'from-sapient-blue/20 to-sapient-purple/20'
@@ -83,7 +87,7 @@ const ServicesSection = () => {
               className="h-full p-6 !grid-rows-none !flex !flex-col transition-transform duration-300 hover:-translate-y-1"
             >
               <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}>
-                {service.icon}
+                <Icon3D name={service.icon} size={40} className="flex-none drop-shadow-lg" />
                 <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               </div>
               <p className="text-ink-secondary">{service.description}</p>

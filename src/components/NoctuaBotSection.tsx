@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Bot, Clock, MessageSquare, Calendar } from 'lucide-react';
+import { Bot } from 'lucide-react';
+import { Icon3D } from '@/components/ui/icon-3d';
 import otusLogo from '@/assets/otus-logo.webp';
 import { RevealOnScroll, RevealText, Magnetic } from '@/motion';
 
@@ -27,8 +28,8 @@ const NoctuaBotSection = () => {
             </p>
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
-                <div className="bg-sapient-purple/20 p-2 rounded-full mt-1 mr-3">
-                  <Clock className="w-5 h-5 text-sapient-purple" />
+                <div className="mt-0.5 mr-3 flex-none">
+                  <Icon3D name="clock" size={38} />
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Disponibilidade Total</h4>
@@ -36,8 +37,8 @@ const NoctuaBotSection = () => {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-sapient-blue/20 p-2 rounded-full mt-1 mr-3">
-                  <MessageSquare className="w-5 h-5 text-sapient-blue" />
+                <div className="mt-0.5 mr-3 flex-none">
+                  <Icon3D name="chat-text" size={38} />
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Respostas Inteligentes</h4>
@@ -45,8 +46,8 @@ const NoctuaBotSection = () => {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-sapient-purple/20 p-2 rounded-full mt-1 mr-3">
-                  <Calendar className="w-5 h-5 text-sapient-purple" />
+                <div className="mt-0.5 mr-3 flex-none">
+                  <Icon3D name="calender" size={38} />
                 </div>
                 <div>
                   <h4 className="text-white font-medium">Agendamentos Automáticos</h4>
