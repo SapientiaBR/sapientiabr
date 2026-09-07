@@ -64,23 +64,34 @@ const PainPointsSection = () => {
 
         <RevealOnScroll
           stagger="[data-pain]"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
         >
           {PAIN_POINTS.map((point, index) => (
-            <div key={point.title} data-pain className="h-full">
+            <div
+              key={point.title}
+              data-pain
+              className="h-full border-b border-white/[0.07] py-5 last:border-b-0 md:border-0 md:py-0"
+            >
               <GlowCard
                 glowColor={index % 2 === 0 ? 'red' : 'orange'}
                 tone="danger"
                 customSize
-                className="h-full p-6 !grid-rows-none !flex !flex-col transition-transform duration-300 hover:-translate-y-1 shadow-[0_18px_48px_-34px_rgba(251,113,133,0.65)]"
+                className="feature-flat h-full !flex !flex-col !grid-rows-none p-0 transition-transform duration-300 md:p-6 md:hover:-translate-y-1 md:shadow-[0_18px_48px_-34px_rgba(251,113,133,0.65)]"
               >
                 <div
-                  className={`mb-4 bg-gradient-to-br ${point.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}
+                  className={`mb-2 flex items-center gap-3 md:mb-4 md:justify-center md:rounded-xl md:bg-gradient-to-br md:px-4 md:py-3 ${point.color}`}
                 >
-                  <Icon3D name={point.icon} size={40} className="flex-none drop-shadow-lg" />
-                  <h3 className="text-xl font-semibold text-white">{point.title}</h3>
+                  {/* O `!` vence o width/height inline que o Icon3D aplica. */}
+                  <Icon3D
+                    name={point.icon}
+                    size={40}
+                    className="!h-9 !w-9 flex-none drop-shadow-lg md:!h-10 md:!w-10"
+                  />
+                  <h3 className="text-lg font-semibold text-white md:text-xl">{point.title}</h3>
                 </div>
-                <p className="text-ink-secondary">{point.description}</p>
+                <p className="pl-12 text-sm text-ink-secondary md:pl-0 md:text-base">
+                  {point.description}
+                </p>
               </GlowCard>
             </div>
           ))}

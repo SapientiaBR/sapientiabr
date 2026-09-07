@@ -77,21 +77,34 @@ const ServicesSection = () => {
         <RevealOnScroll
           stagger="[data-service]"
           staggerAmount={0.07}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 lg:grid-cols-4"
         >
           {services.map((service, index) => (
-            <div key={index} data-service className="h-full">
+            <div
+              key={index}
+              data-service
+              className="h-full border-b border-white/[0.07] py-5 last:border-b-0 md:border-0 md:py-0"
+            >
             <GlowCard
               glowColor={index % 2 === 0 ? 'green' : 'blue'}
               tone="success"
               customSize
-              className="h-full p-6 !grid-rows-none !flex !flex-col transition-transform duration-300 hover:-translate-y-1 shadow-[0_18px_48px_-34px_rgba(52,211,153,0.55)]"
+              className="feature-flat h-full !flex !flex-col !grid-rows-none p-0 transition-transform duration-300 md:p-6 md:hover:-translate-y-1 md:shadow-[0_18px_48px_-34px_rgba(52,211,153,0.55)]"
             >
-              <div className={`mb-4 bg-gradient-to-br ${service.color} flex items-center justify-center gap-3 px-4 py-3 rounded-xl`}>
-                <Icon3D name={service.icon} size={40} className="flex-none drop-shadow-lg" />
-                <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+              <div
+                className={`mb-2 flex items-center gap-3 md:mb-4 md:justify-center md:rounded-xl md:bg-gradient-to-br md:px-4 md:py-3 ${service.color}`}
+              >
+                {/* O `!` vence o width/height inline que o Icon3D aplica. */}
+                <Icon3D
+                  name={service.icon}
+                  size={40}
+                  className="!h-9 !w-9 flex-none drop-shadow-lg md:!h-10 md:!w-10"
+                />
+                <h3 className="text-lg font-semibold text-white md:text-xl">{service.title}</h3>
               </div>
-              <p className="text-ink-secondary">{service.description}</p>
+              <p className="pl-12 text-sm text-ink-secondary md:pl-0 md:text-base">
+                {service.description}
+              </p>
             </GlowCard>
             </div>
           ))}

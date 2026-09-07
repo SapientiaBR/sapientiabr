@@ -235,3 +235,41 @@ em.accent,
   line-height: 1.06;
   letter-spacing: -0.02em;
 }
+
+/**
+ * Cards de recurso: grade no desktop, lista no celular.
+ *
+ * A borda, o brilho e a faixa de gradiente atrás do ícone são linguagem de
+ * desktop, onde três ou quatro cards convivem lado a lado e o contraste entre
+ * eles significa alguma coisa. Numa tela de 358 px cada card vira uma caixa de
+ * largura total empilhada: o enfeite só acrescenta altura e ruído.
+ *
+ * Abaixo de `md`, o cromo do GlowCard é anulado e sobra o conteúdo, separado
+ * por um filete. Como o componente aplica os estilos inline, a anulação precisa
+ * de `!important` — é o único jeito de uma folha de estilo vencer atributo
+ * `style`. O DOM é o mesmo nos dois tamanhos: nada é duplicado nem escondido.
+ */
+@media (max-width: 767px) {
+  .feature-flat[data-glow] {
+    background-image: none !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    gap: 0 !important;
+  }
+
+  /* A camada interna existe só para o halo do brilho. */
+  .feature-flat[data-glow] > [data-glow] {
+    display: none !important;
+  }
+
+  /* A borda luminosa em si é desenhada nos pseudo-elementos, não na borda
+     do elemento — sem isto sobra um arco colorido na lateral de cada item. */
+  .feature-flat[data-glow]::before,
+  .feature-flat[data-glow]::after {
+    display: none !important;
+  }
+}
