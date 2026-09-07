@@ -4,7 +4,7 @@ import { RevealOnScroll } from '@/motion';
 
 const GuaranteeSection = () => {
   return (
-    <section className="py-24 bg-sapient-dark">
+    <section className="py-24 bg-sapient-deep">
       <div className="container mx-auto">
         <RevealOnScroll className="glass-premium max-w-3xl mx-auto text-center p-10 rounded-2xl">
           <div className="mb-6 flex justify-center">

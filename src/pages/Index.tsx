@@ -41,7 +41,7 @@ const Index = () => {
       <FinalCTASection />
 
       {/* Newsletter CTA */}
-      <RevealOnScroll as="section" className="bg-sapient-dark py-16 border-t border-white/10">
+      <RevealOnScroll as="section" className="bg-sapient-deep py-16 border-t border-white/10">
         <div className="container mx-auto text-center">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-sapient mb-6">
             <Mail className="w-5 h-5 text-white" />

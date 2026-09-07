@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Button } from '@/components/ui/button';
 import { OwlParticles } from '@/three/OwlParticles';
 import { RevealText, RevealOnScroll, Magnetic } from '@/motion';
+import { ShaderBackground } from '@/components/ui/neuro-noise';
 import redMapleLogo from '@/assets/red-maple-logo.png';
 
 const SECTORS = ['Advocacia', 'Clínicas', 'Agências', 'Viagens', 'Imobiliárias', 'Serviços B2B'];
@@ -18,6 +19,32 @@ const HeroSection = () => {
 
   return (
     <div id="hero" ref={heroRef} className="relative overflow-hidden bg-sapient-deep">
+      {/* O shader cobre uma tela de altura, não o hero inteiro.
+          `inset-0` fazia o canvas acompanhar a altura da seção — no celular
+          isso dava 3.539 px sendo redesenhados todo quadro, para uma tela que
+          mostra 844. Travado em `h-screen`, ele desenha só o que se vê. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-screen overflow-hidden">
+        <ShaderBackground className="h-full w-full" />
+
+        {/* A coruja em partículas é linha fina; sobre o campo animado ela some.
+            O véu abre um poço escuro no centro, onde ela fica, deixa o shader
+            respirar nas bordas e fecha em cor cheia na base, para o campo não
+            terminar num corte reto. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 62% 52% at 50% 38%, var(--bg-deep) 0%, rgba(8,13,26,0.86) 45%, rgba(8,13,26,0.55) 100%)',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-40"
+          style={{ background: 'linear-gradient(to bottom, transparent, var(--bg-deep))' }}
+        />
+      </div>
+
       {/* Halo do guide: gradiente radial suave no topo, nunca um fundo chapado. */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-radial" />
 

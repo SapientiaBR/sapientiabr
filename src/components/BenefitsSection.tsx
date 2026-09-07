@@ -54,7 +54,7 @@ const BenefitsSection = () => {
   }, [reduced]);
 
   return (
-    <section id="benefits" ref={sectionRef} className="bg-sapient-dark">
+    <section id="benefits" ref={sectionRef} className="bg-sapient-deep">
       <div ref={pinRef} className="flex min-h-screen items-center py-24">
         <div className="container mx-auto">
           <div className="mx-auto max-w-4xl">

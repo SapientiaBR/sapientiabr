@@ -5,7 +5,7 @@ import { RevealOnScroll, RevealText } from '@/motion';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 bg-sapient-dark">
+    <section id="contact" className="py-24 bg-sapient-deep">
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
