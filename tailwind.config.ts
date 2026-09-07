@@ -20,7 +20,6 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				hero: ['Humane', 'Haettenschweiler', 'Arial Narrow', 'sans-serif'],
 				heading: ['Switzer', 'system-ui', 'sans-serif'],
 				display: ['Switzer', 'system-ui', 'sans-serif'],
 				body: ['Switzer', 'system-ui', 'sans-serif'],

@@ -25,14 +25,11 @@ const HeroSection = () => {
         <div className="mb-16 flex min-h-[92vh] flex-col items-center justify-center gap-2">
           <OwlParticles scrollTriggerRef={heroRef} />
 
-          {/* A display condensada pede uma medida mais larga que o corpo do
-              texto: no mesmo max-w-3xl do parágrafo ela quebraria em linhas
-              curtas demais e perderia o efeito de bloco. */}
           <RevealText
             as="h1"
             immediate
             delay={0.15}
-            className="hero-title mb-7 max-w-5xl text-balance text-center text-white"
+            className="hero-title mb-7 max-w-4xl text-balance text-center text-white"
           >
             <em className="accent">Automatize</em> o Atendimento, as Vendas e a Gestão da Sua
             Empresa. Tudo com IA, Sem Contratar Ninguém.

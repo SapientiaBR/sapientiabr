@@ -219,30 +219,19 @@ em.accent,
 }
 
 /**
- * Título do hero em HUMANE.
+ * Título do hero.
  *
- * A fonte tem 0.17 em de largura média e altura de caixa alta de 0.70 em, então
- * precisa de um corpo cerca de três vezes maior que uma sans normal para ter o
- * mesmo peso visual, e de entrelinha bem abaixo de 1 para as linhas não
- * flutuarem soltas. Caixa alta porque é como a fonte foi desenhada para
- * funcionar em display.
+ * Mesma família do resto do site; o que o separa é escala e aperto. Switzer tem
+ * largura média de 0.51 em, três vezes a da condensada que ocupava este lugar
+ * antes, então o corpo é bem menor e a entrelinha volta para perto de 1 —
+ * abaixo disso as linhas se sobrepõem em vez de fechar bloco.
+ *
+ * O tracking negativo é o ajuste padrão de display: em corpo grande o espaço
+ * entre letras parece maior do que é.
  */
 .hero-title {
-  font-family: var(--font-hero);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: clamp(3.25rem, 9vw, 8.5rem);
-  /* 0.84 fecha bonito em caixa alta sem acento, mas em português o til e o
-     agudo das maiúsculas sobem até 0.85 em e encostam na linha de cima. */
-  line-height: 0.9;
-  letter-spacing: 0.006em;
-}
-
-/**
- * HUMANE não tem itálico verdadeiro. O navegador sintetizaria uma inclinação
- * por cisalhamento, que numa condensada extrema entorta as hastes e suja o
- * desenho. No hero, a assinatura da marca fica só no gradiente.
- */
-.hero-title em.accent {
-  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 3.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
 }

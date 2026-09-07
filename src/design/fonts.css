@@ -9,8 +9,6 @@
  *             Uso comercial liberado e self-hosting explicitamente permitido.
  *             A licença trata subsetting e conversão de formato como obra
  *             derivada, então os .woff2 entram exatamente como distribuídos.
- * - HUMANE  — freeware para uso pessoal e comercial (Rajesh Rajput).
- *             Os arquivos não podem ser modificados; usados como vieram.
  */
 
 /**
@@ -35,30 +33,4 @@
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
-}
-
-/**
- * HUMANE — display ultracondensada, só para o título do hero.
- *
- * O pacote não traz um woff2 variável, então entram dois pesos estáticos:
- * os únicos usados. Cada um custa ~15 KB.
- *
- * `font-display: block` aqui, e não `swap`: a fonte de fallback tem largura
- * três vezes maior, então a troca no meio do carregamento causaria um salto
- * de layout grosseiro justo no elemento mais visível da página.
- */
-@font-face {
-  font-family: 'Humane';
-  src: url('../assets/fonts/Humane-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Humane';
-  src: url('../assets/fonts/Humane-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: block;
 }

@@ -19,10 +19,9 @@ export const REVEAL_DURATION = 0.9;
  * O ScrollTrigger guarda início e fim em pixels, medidos na criação de cada
  * gatilho. Duas coisas invalidam essas medidas depois:
  *
- * 1. As fontes. O título do hero usa HUMANE com `font-display: block` — uma
- *    condensada extrema. Enquanto ela não chega, o espaço é reservado com as
- *    métricas da fonte de fallback, muito mais larga; na troca, a altura do
- *    hero muda em centenas de pixels.
+ * 1. As fontes. Enquanto a webfont não chega, o texto é medido com as métricas
+ *    da fonte de fallback; na troca, a altura de cada bloco de texto muda um
+ *    pouco, e o acumulado ao longo da página é grande.
  * 2. O pin da seção de benefícios, que insere ~990 px de espaçador e empurra
  *    tudo que vem depois. Gatilhos criados antes dele foram medidos sem esse
  *    espaço.

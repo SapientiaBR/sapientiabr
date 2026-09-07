@@ -22,7 +22,7 @@ que substitui a paleta e a tipografia hoje no repositório.
 | Fundo | `#080d1a` → `#111827` (navy profundo, nunca preto puro) |
 | Gradiente brand | `#7c3aed` → `#06b6d4` |
 | Gradiente texto | `#a78bfa` → `#4debff` |
-| Hero | HUMANE |
+| Hero | Switzer |
 | Display | Switzer |
 | Body | Switzer |
 | Rótulo | Switzer |
@@ -180,3 +180,22 @@ montagem dos irmãos.
 Correção: um único `refreshScrollTriggersWhenSettled()` em `motion/gsap.ts`,
 chamado uma vez pelo `SmoothScroll` — dois quadros depois da montagem e de novo
 quando `document.fonts.ready` resolve.
+
+
+## Adendo — 2026-09-07 (3): uma fonte só
+
+A pedido do cliente, Switzer passa a ser a única fonte do site. HUMANE sai do
+título do hero e do repositório.
+
+Auditoria feita com `CSS.getPlatformFontsForNode` do Chrome DevTools Protocol,
+que reporta a fonte **efetivamente desenhada** e não a pedida pelo CSS:
+291 nós de texto, 8.059 glifos, uma única família — `Switzer Variable`.
+
+O hero foi reajustado para a nova métrica: Switzer tem 0,51 em de largura média
+contra 0,17 em da HUMANE, então o corpo caiu de `clamp(3.25rem, 9vw, 8.5rem)`
+para `clamp(2rem, 4.2vw, 3.75rem)`, a entrelinha voltou de 0,9 para 1,06 e a
+caixa alta saiu. O `em.accent` do hero voltou a ser itálico de verdade — a
+exceção só existia porque HUMANE não tinha itálico desenhado.
+
+Nota sobre a HUMANE, para registro: o arquivo declara `Family` como
+"Mango Grotesque SemBd" e só o nome tipográfico (nameID 16) é "Humane".
