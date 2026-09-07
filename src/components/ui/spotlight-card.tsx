@@ -142,7 +142,10 @@ const GlowCard: React.FC<GlowCardProps> = ({
       backgroundAttachment: 'fixed',
       border: 'var(--border-size) solid var(--backup-border)',
       position: 'relative' as const,
-      touchAction: 'none' as const,
+      // `touch-action: none` vinha no componente e travava a rolagem: com ele,
+      // um toque que comece em cima do card nunca vira scroll, e no celular a
+      // seção inteira fica presa. O brilho não precisa disso — ele lê o
+      // ponteiro por um listener em document, não por gesto no card.
     };
 
     if (width !== undefined) {

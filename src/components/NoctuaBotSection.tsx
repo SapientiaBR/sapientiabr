@@ -67,21 +67,36 @@ const NoctuaBotSection = () => {
               </Magnetic>
             </div>
           </RevealOnScroll>
+          {/* O painel de vidro ficava dentro de um círculo de tamanho fixo
+              (w-64 h-64), mas era bem mais alto que ele: transbordava mais de
+              200 px para fora da caixa reservada no layout e, no celular,
+              caía por cima do rótulo "OTUS" da coluna de texto.
+              Agora o container cresce com o conteúdo, o halo é uma camada de
+              fundo posicionada atrás, e o mascote transparente fica direto no
+              meio dele — que é onde os anéis finalmente aparecem. */}
           <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-sapient-purple/30 to-sapient-blue/30 rounded-full flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full border-2 border-sapient-purple/50 animate-ping"></div>
-              <div className="absolute inset-2 rounded-full border border-sapient-blue/30"></div>
-              <div className="glass-premium p-8 rounded-2xl shadow-2xl">
-                <img
-                  src={otusLogo}
-                  alt="Otus"
-                  loading="lazy"
-                  className="mx-auto h-64 w-auto object-contain"
-                />
-                <div className="text-center mt-4">
-                  <h4 className="text-white font-semibold">Otus</h4>
-                  <p className="text-xs text-cyan-300 font-label tracking-widest">IA ASSISTANT</p>
-                </div>
+            <div className="relative flex w-full max-w-[300px] flex-col items-center py-6 md:max-w-[340px]">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-[42%] h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-sapient-purple/25 to-sapient-blue/25 md:h-72 md:w-72"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-[42%] h-60 w-60 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full border-2 border-sapient-purple/40 md:h-72 md:w-72"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-sapient-blue/25 md:h-80 md:w-80"
+              />
+              <img
+                src={otusLogo}
+                alt="Otus"
+                loading="lazy"
+                className="relative h-56 w-auto object-contain drop-shadow-2xl md:h-64"
+              />
+              <div className="relative mt-3 text-center">
+                <h4 className="text-white font-semibold">Otus</h4>
+                <p className="text-xs text-cyan-300 font-label tracking-widest">IA ASSISTANT</p>
               </div>
             </div>
           </div>

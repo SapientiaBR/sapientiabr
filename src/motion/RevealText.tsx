@@ -81,9 +81,12 @@ export function RevealText({
       gsap.from(words, {
         yPercent: 115,
         opacity: 0,
-        duration: 0.85,
+        // Mais curto e mais apertado do que era (0.85 s / 0.035 s). No celular
+        // a versão longa não terminava antes do título sair de vista, e o que
+        // se via era um estalo no fim, não uma entrada.
+        duration: 0.6,
         ease: 'power3.out',
-        stagger: 0.035,
+        stagger: 0.025,
         delay,
         onComplete: () => {
           // O transform residual criaria um contexto de empilhamento em cada
@@ -99,7 +102,7 @@ export function RevealText({
         },
         ...(immediate
           ? {}
-          : { scrollTrigger: { trigger: el, start: 'top 85%', once: true } }),
+          : { scrollTrigger: { trigger: el, start: 'top 92%', once: true } }),
       });
     }, el);
 

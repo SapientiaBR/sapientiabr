@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, type ElementType, type ReactNode } from 'react';
-import { gsap, EASE, REVEAL_DURATION } from './gsap';
+import { gsap, ScrollTrigger, EASE } from './gsap';
 import { useReducedMotion } from './useReducedMotion';
 
 interface RevealOnScrollProps {
@@ -14,16 +14,32 @@ interface RevealOnScrollProps {
    * é que anima como um bloco só.
    */
   stagger?: string;
-  /** Intervalo entre filhos, em segundos. */
+  /** Intervalo entre filhos que entram juntos, em segundos. */
   staggerAmount?: number;
   id?: string;
 }
 
 /**
+ * Ponto de disparo: o elemento começa a animar quando o topo dele cruza 92% da
+ * altura da janela, ou seja, assim que encosta na borda de baixo.
+ *
+ * Antes era 85%, e no celular isso chegava tarde demais: o título entrava na
+ * tela ainda invisível e só completava a animação 400 a 500 px de rolagem
+ * depois, já perto de sair por cima. O efeito era o oposto do pretendido — um
+ * buraco onde deveria ter texto, seguido de um estalo.
+ */
+const START = 'top 92%';
+const DURATION = 0.7;
+
+/**
  * Entrada por scroll: sobe e revela quando entra no viewport.
  *
- * Com `stagger`, os filhos que casam com o seletor entram em cascata em vez do
- * container inteiro de uma vez — é o que dá ritmo às grades de card.
+ * Com `stagger`, cada filho ganha o próprio gatilho através do
+ * `ScrollTrigger.batch`: quem entra na tela junto anima em cascata, quem está
+ * longe espera a própria vez. Isso importa no celular, onde a grade vira uma
+ * coluna de 2.500 px — com um gatilho único no container, os últimos cards
+ * animavam a 1.500 px abaixo da dobra e chegavam prontos, sem movimento nenhum
+ * para o usuário ver.
  */
 export function RevealOnScroll({
   children,
@@ -44,23 +60,37 @@ export function RevealOnScroll({
     // gsap.context recolhe tudo que for criado aqui dentro; o revert() no
     // cleanup desfaz inclusive os estilos inline, o que mantém o HMR honesto.
     const ctx = gsap.context(() => {
-      const targets = stagger
-        ? Array.from(el.querySelectorAll<HTMLElement>(stagger))
-        : [el];
+      if (!stagger) {
+        gsap.from(el, {
+          opacity: 0,
+          y: 28,
+          duration: DURATION,
+          ease: EASE,
+          delay,
+          scrollTrigger: { trigger: el, start: START, once: true },
+        });
+        return;
+      }
+
+      const targets = gsap.utils.toArray<HTMLElement>(stagger, el);
       if (targets.length === 0) return;
 
-      gsap.from(targets, {
-        opacity: 0,
-        y: 28,
-        duration: REVEAL_DURATION,
-        ease: EASE,
-        delay,
-        stagger: stagger ? staggerAmount : 0,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          once: true,
-        },
+      // O batch precisa do estado inicial posto à mão: ele dispara `onEnter`
+      // com os elementos que cruzaram a linha juntos, e quem anima é o `to`.
+      gsap.set(targets, { opacity: 0, y: 28 });
+      ScrollTrigger.batch(targets, {
+        start: START,
+        once: true,
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            duration: DURATION,
+            ease: EASE,
+            delay,
+            stagger: staggerAmount,
+            overwrite: true,
+          }),
       });
     }, el);
 
