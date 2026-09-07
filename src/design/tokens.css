@@ -81,10 +81,15 @@
     transparent 80%
   );
 
-  /* === TIPOGRAFIA === */
-  --font-display: 'Sora', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* === TIPOGRAFIA ===
+     `--font-hero` é a display ultracondensada, exclusiva do título do hero.
+     Ela tem 0.17 em de largura média: serve para uma frase gigante e nada mais.
+     A pilha de fallback usa uma condensada de sistema para que a troca, se a
+     fonte falhar, não exploda a largura da linha. */
+  --font-hero: 'Humane', 'Haettenschweiler', 'Arial Narrow', sans-serif;
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
 
   /* === MOVIMENTO ===
      Duração e easing centralizados para o site inteiro ter o mesmo ritmo. */

@@ -25,17 +25,20 @@ const HeroSection = () => {
         <div className="mb-16 flex min-h-[92vh] flex-col items-center justify-center gap-2">
           <OwlParticles scrollTriggerRef={heroRef} />
 
-          <div className="max-w-3xl text-center">
-            <RevealText
-              as="h1"
-              immediate
-              delay={0.15}
-              className="mb-5 text-balance text-3xl font-bold leading-[1.08] text-white sm:text-4xl md:text-5xl"
-            >
-              <em className="accent">Automatize</em> o Atendimento, as Vendas e a Gestão da Sua
-              Empresa. Tudo com IA, Sem Contratar Ninguém.
-            </RevealText>
+          {/* A display condensada pede uma medida mais larga que o corpo do
+              texto: no mesmo max-w-3xl do parágrafo ela quebraria em linhas
+              curtas demais e perderia o efeito de bloco. */}
+          <RevealText
+            as="h1"
+            immediate
+            delay={0.15}
+            className="hero-title mb-7 max-w-5xl text-balance text-center text-white"
+          >
+            <em className="accent">Automatize</em> o Atendimento, as Vendas e a Gestão da Sua
+            Empresa. Tudo com IA, Sem Contratar Ninguém.
+          </RevealText>
 
+          <div className="max-w-3xl text-center">
             <RevealOnScroll delay={0.45}>
               <p className="mb-8 text-lg text-ink-secondary md:text-xl">
                 A Sapient.IA implementa tudo para você em 3 a 4 semanas. Do atendimento no WhatsApp

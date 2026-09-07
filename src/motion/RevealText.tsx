@@ -60,6 +60,12 @@ export function RevealText({
           outer.style.display = 'inline-block';
           outer.style.overflow = 'hidden';
           outer.style.verticalAlign = 'top';
+          // A palavra entra deslizando de baixo, então quem mascara é a borda
+          // inferior. Abrir espaço em cima não vaza nada durante a animação e
+          // evita que a caixa corte os acentos das maiúsculas, que sobem acima
+          // da altura de caixa alta — visível em entrelinha apertada.
+          outer.style.paddingTop = '0.3em';
+          outer.style.marginTop = '-0.3em';
           const inner = document.createElement('span');
           inner.style.display = 'inline-block';
           inner.textContent = part;
@@ -79,10 +85,18 @@ export function RevealText({
         ease: 'power3.out',
         stagger: 0.035,
         delay,
-        // O transform residual criaria um contexto de empilhamento em cada
-        // palavra, e isso descola o `background-clip: text` do heading em
-        // itálico com gradiente. Limpar no fim devolve o texto ao fluxo normal.
-        onComplete: () => gsap.set(words, { clearProps: 'transform,opacity' }),
+        onComplete: () => {
+          // O transform residual criaria um contexto de empilhamento em cada
+          // palavra, e isso descola o `background-clip: text` do heading em
+          // itálico com gradiente.
+          gsap.set(words, { clearProps: 'transform,opacity' });
+          // Terminada a entrada, o recorte não serve mais a nada e só arrisca
+          // cortar descendentes e acentos. Sai.
+          for (const w of words) {
+            const outer = w.parentElement;
+            if (outer) outer.style.overflow = 'visible';
+          }
+        },
         ...(immediate
           ? {}
           : { scrollTrigger: { trigger: el, start: 'top 85%', once: true } }),

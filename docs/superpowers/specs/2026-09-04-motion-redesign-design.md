@@ -22,9 +22,10 @@ que substitui a paleta e a tipografia hoje no repositório.
 | Fundo | `#080d1a` → `#111827` (navy profundo, nunca preto puro) |
 | Gradiente brand | `#7c3aed` → `#06b6d4` |
 | Gradiente texto | `#a78bfa` → `#4debff` |
-| Display | Sora |
-| Body | DM Sans |
-| Mono | JetBrains Mono |
+| Hero | HUMANE |
+| Display | Geist Sans |
+| Body | Geist Sans |
+| Mono | Geist Mono |
 
 Regras do guide que viram restrição de implementação:
 
@@ -108,3 +109,36 @@ site somado. Convertido para WebP redimensionado como parte deste trabalho.
 - Sequência de frames dirigida por scroll (exige produção de 200+ renders)
 - Transições animadas entre rotas
 - Deploy em produção — entrega é local, em branch
+
+
+## Adendo — 2026-09-07: tipografia
+
+O Brand Guide v2 especificava Sora + DM Sans + JetBrains Mono, todas via Google
+Fonts. Três famílias foram avaliadas a pedido do cliente e a pilha mudou.
+
+### Decisão
+
+| Papel | Fonte | Motivo |
+| --- | --- | --- |
+| Hero | HUMANE SemiBold | Display ultracondensada (0,17 em de largura média). Dá ao hero uma identidade que uma sans neutra não dá. Freeware com uso comercial liberado. |
+| Headings e corpo | Geist Sans | 728 glifos, variável 100–900, desenhada para interface. SIL OFL 1.1. |
+| Rótulos e números | Geist Mono | Mesma família do Sans — resolve a incoerência de misturar DM Sans com JetBrains Mono. |
+
+**Arena foi descartada.** 98 glifos: nenhum dígito e nenhum caractere acentuado.
+Num site em português com "70%", "24/7" e "3 a 4 semanas", cada linha cairia
+para a fonte de fallback no meio da frase. A licença também é `Freeware,
+Non-Commercial`, incompatível com um site institucional.
+
+### Consequências
+
+- As fontes passam a ser auto-hospedadas (`src/design/fonts.css`). O site não
+  faz mais nenhuma requisição a `fonts.googleapis.com` ou `fonts.gstatic.com` —
+  havia um `<link>` remanescente no `index.html` carregando Syne e Plus Jakarta
+  Sans, resquício do build anterior.
+- HUMANE não tem itálico. No hero a assinatura da marca fica só no gradiente; o
+  itálico sintético por cisalhamento entorta as hastes numa condensada extrema.
+- `RevealText` envolvia cada palavra num `overflow: hidden`. Com a entrelinha
+  apertada do hero isso cortava o til e o agudo das maiúsculas. O wrapper ganhou
+  respiro no topo e o recorte é removido quando a animação termina.
+- **O Brand Guide v2 precisa ser atualizado** para refletir a nova pilha, senão
+  volta a divergir do site — que foi o problema que motivou este trabalho.

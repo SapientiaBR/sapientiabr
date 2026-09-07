@@ -20,11 +20,12 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				heading: ['Sora', 'system-ui', 'sans-serif'],
-				display: ['Sora', 'system-ui', 'sans-serif'],
-				body: ['DM Sans', 'system-ui', 'sans-serif'],
-				sans: ['DM Sans', 'system-ui', 'sans-serif'],
-				mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+				hero: ['Humane', 'Haettenschweiler', 'Arial Narrow', 'sans-serif'],
+				heading: ['Geist', 'system-ui', 'sans-serif'],
+				display: ['Geist', 'system-ui', 'sans-serif'],
+				body: ['Geist', 'system-ui', 'sans-serif'],
+				sans: ['Geist', 'system-ui', 'sans-serif'],
+				mono: ['Geist Mono', 'ui-monospace', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
