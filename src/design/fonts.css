@@ -1,32 +1,39 @@
 /**
  * Fontes auto-hospedadas.
  *
- * Antes o site puxava Sora, DM Sans e JetBrains Mono do Google Fonts: uma
- * folha de estilo bloqueante mais três buscas em fonts.gstatic.com. Servindo
- * os arquivos do próprio domínio, o texto pinta sem depender de terceiro.
+ * Nenhuma requisição a terceiro no caminho da primeira pintura: os arquivos
+ * saem do próprio domínio.
  *
  * Licenças, mantidas junto dos arquivos em src/assets/fonts/:
- * - Geist  — SIL Open Font License 1.1 (Vercel / basement.studio)
- * - HUMANE — freeware para uso pessoal e comercial (Rajesh Rajput).
- *            Os arquivos não podem ser modificados; são usados como vieram
- *            no pacote do autor, sem conversão nem subsetting.
+ * - Switzer — ITF Free Font License 2.0 (Indian Type Foundry / Fontshare).
+ *             Uso comercial liberado e self-hosting explicitamente permitido.
+ *             A licença trata subsetting e conversão de formato como obra
+ *             derivada, então os .woff2 entram exatamente como distribuídos.
+ * - HUMANE  — freeware para uso pessoal e comercial (Rajesh Rajput).
+ *             Os arquivos não podem ser modificados; usados como vieram.
  */
 
-/* Geist Sans — variável, 100 a 900 num arquivo só. */
+/**
+ * Switzer — a fonte do site.
+ *
+ * Duas variáveis cobrem a família inteira: 100 a 900 na reta e na itálica.
+ * A itálica é desenhada, não inclinada por software — o que importa aqui,
+ * porque a assinatura da marca é uma palavra em itálico com gradiente em cada
+ * heading, e um itálico sintético deforma o desenho da letra.
+ */
 @font-face {
-  font-family: 'Geist';
-  src: url('../assets/fonts/Geist-Variable.woff2') format('woff2-variations');
+  font-family: 'Switzer';
+  src: url('../assets/fonts/Switzer-Variable.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* Geist Mono — rótulos, números e dados. */
 @font-face {
-  font-family: 'Geist Mono';
-  src: url('../assets/fonts/GeistMono-Variable.woff2') format('woff2-variations');
+  font-family: 'Switzer';
+  src: url('../assets/fonts/Switzer-VariableItalic.woff2') format('woff2-variations');
   font-weight: 100 900;
-  font-style: normal;
+  font-style: italic;
   font-display: swap;
 }
 

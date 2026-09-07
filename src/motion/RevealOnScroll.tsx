@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, type ElementType, type ReactNode } from 'react';
-import { gsap, ScrollTrigger, EASE, REVEAL_DURATION } from './gsap';
+import { gsap, EASE, REVEAL_DURATION } from './gsap';
 import { useReducedMotion } from './useReducedMotion';
 
 interface RevealOnScrollProps {
@@ -64,7 +64,6 @@ export function RevealOnScroll({
       });
     }, el);
 
-    ScrollTrigger.refresh();
     return () => ctx.revert();
   }, [reduced, delay, stagger, staggerAmount]);
 

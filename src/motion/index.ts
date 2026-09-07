@@ -5,4 +5,4 @@ export { RevealText } from './RevealText';
 export { Magnetic } from './Magnetic';
 export { SectionRail, type RailSection } from './SectionRail';
 export { useReducedMotion, prefersReducedMotion } from './useReducedMotion';
-export { gsap, ScrollTrigger, EASE, REVEAL_DURATION } from './gsap';
+export { gsap, ScrollTrigger, EASE, REVEAL_DURATION, refreshScrollTriggersWhenSettled } from './gsap';

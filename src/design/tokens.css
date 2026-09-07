@@ -87,9 +87,13 @@
      A pilha de fallback usa uma condensada de sistema para que a troca, se a
      fonte falhar, não exploda a largura da linha. */
   --font-hero: 'Humane', 'Haettenschweiler', 'Arial Narrow', sans-serif;
-  --font-display: 'Geist', system-ui, sans-serif;
-  --font-body: 'Geist', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-display: 'Switzer', system-ui, sans-serif;
+  --font-body: 'Switzer', system-ui, sans-serif;
+  /* Rótulo: caixa alta com tracking largo. É estilo, não fonte monoespaçada —
+     todos os usos no site são eyebrow e legenda, nenhum é código ou tabela. */
+  --font-label: 'Switzer', system-ui, sans-serif;
+  /* Mono de verdade fica só para <code>/<pre>. Pilha do sistema: nada a baixar. */
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
 
   /* === MOVIMENTO ===
      Duração e easing centralizados para o site inteiro ter o mesmo ritmo. */

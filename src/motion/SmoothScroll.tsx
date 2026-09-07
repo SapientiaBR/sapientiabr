@@ -1,6 +1,6 @@
 import { useEffect, type ReactNode } from 'react';
 import Lenis from 'lenis';
-import { gsap, ScrollTrigger } from './gsap';
+import { gsap, ScrollTrigger, refreshScrollTriggersWhenSettled } from './gsap';
 import { useReducedMotion } from './useReducedMotion';
 
 /**
@@ -16,6 +16,12 @@ import { useReducedMotion } from './useReducedMotion';
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();
+
+  // Montado uma única vez na raiz da aplicação — o lugar certo para remedir os
+  // gatilhos depois que todas as seções montaram e as fontes assentaram.
+  useEffect(() => {
+    refreshScrollTriggersWhenSettled();
+  }, []);
 
   useEffect(() => {
     if (reduced) return;

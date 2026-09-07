@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { GlowCard } from '@/components/ui/spotlight-card';
-import { RevealText, useReducedMotion, gsap, ScrollTrigger } from '@/motion';
+import { RevealText, useReducedMotion, gsap } from '@/motion';
 
 const BENEFITS = [
   'Reduza custos operacionais em até 70%',
@@ -50,7 +50,6 @@ const BenefitsSection = () => {
       return () => tl.kill();
     });
 
-    ScrollTrigger.refresh();
     return () => mm.revert();
   }, [reduced]);
 

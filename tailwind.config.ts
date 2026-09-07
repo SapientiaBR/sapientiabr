@@ -21,11 +21,12 @@ export default {
 		extend: {
 			fontFamily: {
 				hero: ['Humane', 'Haettenschweiler', 'Arial Narrow', 'sans-serif'],
-				heading: ['Geist', 'system-ui', 'sans-serif'],
-				display: ['Geist', 'system-ui', 'sans-serif'],
-				body: ['Geist', 'system-ui', 'sans-serif'],
-				sans: ['Geist', 'system-ui', 'sans-serif'],
-				mono: ['Geist Mono', 'ui-monospace', 'monospace'],
+				heading: ['Switzer', 'system-ui', 'sans-serif'],
+				display: ['Switzer', 'system-ui', 'sans-serif'],
+				body: ['Switzer', 'system-ui', 'sans-serif'],
+				sans: ['Switzer', 'system-ui', 'sans-serif'],
+				label: ['Switzer', 'system-ui', 'sans-serif'],
+				mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

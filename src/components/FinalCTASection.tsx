@@ -6,7 +6,7 @@ const FinalCTASection = () => {
   return (
     <section className="py-24 bg-sapient-deep">
       <RevealOnScroll className="container mx-auto text-center">
-        <p className="text-purple-300 font-mono font-semibold text-xs md:text-sm mb-4 uppercase tracking-[0.18em]">
+        <p className="text-purple-300 font-label font-semibold text-xs md:text-sm mb-4 uppercase tracking-[0.18em]">
           Diagnóstico gratuito disponível para novos clientes este mês.
         </p>
         <RevealText as="h2" className="text-3xl md:text-4xl font-bold text-white mb-8 max-w-2xl mx-auto">

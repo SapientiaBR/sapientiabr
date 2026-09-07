@@ -18,7 +18,7 @@ const NotFound = () => {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-radial" />
 
       <div className="relative z-10 text-center">
-        <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-ink-muted">
+        <p className="mb-4 font-label text-xs uppercase tracking-[0.3em] text-ink-muted">
           Erro 404
         </p>
         <h1 className="mb-4 text-6xl font-bold text-white md:text-7xl">

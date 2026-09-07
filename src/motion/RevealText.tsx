@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, type ElementType, type ReactNode } from 'react';
-import { gsap, ScrollTrigger } from './gsap';
+import { gsap } from './gsap';
 import { useReducedMotion } from './useReducedMotion';
 
 interface RevealTextProps {
@@ -103,7 +103,6 @@ export function RevealText({
       });
     }, el);
 
-    ScrollTrigger.refresh();
     return () => ctx.revert();
   }, [reduced, delay, immediate]);
 

@@ -16,7 +16,7 @@ const NoctuaBotSection = () => {
           <RevealOnScroll className="order-2 md:order-1">
             <div className="flex items-center mb-4">
               <Bot className="w-8 h-8 text-sapient-purple mr-2" />
-              <h3 className="text-2xl font-semibold text-white font-mono tracking-widest">OTUS</h3>
+              <h3 className="text-2xl font-semibold text-white font-label tracking-widest">OTUS</h3>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Atendimento <em className="accent">24/7</em> com IA Personalizada
@@ -79,7 +79,7 @@ const NoctuaBotSection = () => {
                 />
                 <div className="text-center mt-4">
                   <h4 className="text-white font-semibold">Otus</h4>
-                  <p className="text-xs text-cyan-300 font-mono tracking-widest">IA ASSISTANT</p>
+                  <p className="text-xs text-cyan-300 font-label tracking-widest">IA ASSISTANT</p>
                 </div>
               </div>
             </div>

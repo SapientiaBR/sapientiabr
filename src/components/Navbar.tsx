@@ -38,7 +38,7 @@ const Navbar = () => {
           />
           <div className="ml-2">
             <h1 className="text-white text-xl font-bold">SAPIENT.IA</h1>
-            <p className="text-ink-secondary text-xs tracking-[0.18em] font-mono">AUTOMATION SOLUTIONS</p>
+            <p className="text-ink-secondary text-xs tracking-[0.18em] font-label">AUTOMATION SOLUTIONS</p>
           </div>
         </a>
 

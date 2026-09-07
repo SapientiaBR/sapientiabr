@@ -23,9 +23,9 @@ que substitui a paleta e a tipografia hoje no repositório.
 | Gradiente brand | `#7c3aed` → `#06b6d4` |
 | Gradiente texto | `#a78bfa` → `#4debff` |
 | Hero | HUMANE |
-| Display | Geist Sans |
-| Body | Geist Sans |
-| Mono | Geist Mono |
+| Display | Switzer |
+| Body | Switzer |
+| Rótulo | Switzer |
 
 Regras do guide que viram restrição de implementação:
 
@@ -142,3 +142,41 @@ Non-Commercial`, incompatível com um site institucional.
   respiro no topo e o recorte é removido quando a animação termina.
 - **O Brand Guide v2 precisa ser atualizado** para refletir a nova pilha, senão
   volta a divergir do site — que foi o problema que motivou este trabalho.
+
+
+## Adendo — 2026-09-07 (2): Switzer substitui Geist
+
+A pedido do cliente, Switzer passa a ser a fonte do site. Geist sai por completo,
+incluindo a dependência npm.
+
+| Papel | Antes | Agora |
+| --- | --- | --- |
+| Hero | HUMANE | HUMANE (mantida) |
+| Headings, corpo, UI | Geist Sans | Switzer |
+| Rótulos em caixa alta | Geist Mono | Switzer (`font-label`) |
+| `<code>`/`<pre>` | Geist Mono | pilha monoespaçada do sistema |
+
+Os seis usos de `font-mono` eram todos eyebrow e legenda em caixa alta com
+tracking largo — nenhum era código ou dado tabular. O papel virou `font-label`,
+que é estilo, não família monoespaçada. Uma mono de verdade continua declarada
+para `<code>`, mas usando a pilha do sistema: nada a baixar.
+
+Ganhos colaterais: as duas variáveis da Switzer somam 74,8 KB contra 141 KB das
+duas da Geist, e a itálica é desenhada. Antes só a variável reta da Geist estava
+carregada, então o itálico da assinatura da marca era sintetizado pelo navegador.
+
+### Bug corrigido junto: gatilhos de scroll com medida velha
+
+Seções inteiras ficavam paradas em opacidade 0 depois de entrarem no viewport.
+
+Causa: `ScrollTrigger` guarda início e fim em pixels, medidos na criação de cada
+gatilho, e duas coisas invalidavam essa medida depois — a troca da HUMANE
+(`font-display: block`, condensada extrema, muda a altura do hero em centenas de
+pixels) e o pin da seção de benefícios, que insere ~990 px de espaçador. Pior,
+cada `RevealOnScroll` chamava `ScrollTrigger.refresh()` no próprio
+`useLayoutEffect`: com quinze instâncias, o refresh media o DOM no meio da
+montagem dos irmãos.
+
+Correção: um único `refreshScrollTriggersWhenSettled()` em `motion/gsap.ts`,
+chamado uma vez pelo `SmoothScroll` — dois quadros depois da montagem e de novo
+quando `document.fonts.ready` resolve.

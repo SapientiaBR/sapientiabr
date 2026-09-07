@@ -66,7 +66,7 @@ const HeroSection = () => {
                 </button>
               </div>
 
-              <p className="mt-6 font-mono text-xs uppercase tracking-widest text-ink-muted">
+              <p className="mt-6 font-label text-xs uppercase tracking-widest text-ink-muted">
                 Empresas em 6 setores atendidos
                 <span className="mx-2 text-purple-300">|</span>
                 65% de redução nos custos
