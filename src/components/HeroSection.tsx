@@ -7,8 +7,15 @@ import redMapleLogo from '@/assets/red-maple-logo.png';
 
 const SECTORS = ['Advocacia', 'Clínicas', 'Agências', 'Viagens', 'Imobiliárias', 'Serviços B2B'];
 
+// `paraFundoEscuro` marca a marca-d'água branca: medida em 225 de luminância
+// média, ela desaparece no tema claro. As outras duas já são escuras (57 e 74)
+// e não precisam de nada.
 const CLIENTS = [
-  { src: '/lovable-uploads/270c4ddf-c48c-4607-b418-b55200a9c04d.png', alt: 'Construtora Zero' },
+  {
+    src: '/lovable-uploads/270c4ddf-c48c-4607-b418-b55200a9c04d.png',
+    alt: 'Construtora Zero',
+    paraFundoEscuro: true,
+  },
   { src: redMapleLogo, alt: 'Red Maple' },
   { src: '/lovable-uploads/5a51bd6e-130f-4365-896b-7066b189ded1.png', alt: 'Alline Móveis' },
 ];
@@ -35,7 +42,7 @@ const HeroSection = () => {
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 62% 52% at 50% 38%, var(--bg-deep) 0%, rgba(8,13,26,0.86) 45%, rgba(8,13,26,0.55) 100%)',
+              'radial-gradient(ellipse 62% 52% at 50% 38%, var(--bg-deep) 0%, rgb(var(--bg-deep-rgb) / 0.86) 45%, rgb(var(--bg-deep-rgb) / 0.55) 100%)',
           }}
         />
         <div
@@ -56,7 +63,7 @@ const HeroSection = () => {
             as="h1"
             immediate
             delay={0.15}
-            className="hero-title mb-7 max-w-4xl text-balance text-center text-white"
+            className="hero-title mb-7 max-w-4xl text-balance text-center text-ink-primary"
           >
             <em className="accent">IA</em> que atende, vende e organiza a sua operação.
           </RevealText>
@@ -71,7 +78,7 @@ const HeroSection = () => {
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Magnetic>
                   <Button
-                    className="bg-gradient-sapient px-8 py-6 text-lg font-medium text-white transition-opacity hover:opacity-90"
+                    className="bg-gradient-sapient px-8 py-6 text-lg font-medium text-ink-on-brand transition-opacity hover:opacity-90"
                     onClick={() => window.open("https://bit.ly/40BtBp2", "_blank")}
                   >
                     Agendar um diagnóstico
@@ -83,7 +90,7 @@ const HeroSection = () => {
                     const servicesSection = document.getElementById('services');
                     servicesSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="text-base text-ink-secondary underline underline-offset-4 transition-colors hover:text-white"
+                  className="text-base text-ink-secondary underline underline-offset-4 transition-colors hover:text-ink-primary"
                 >
                   Ver como funciona
                 </button>
@@ -101,16 +108,16 @@ const HeroSection = () => {
         {/* Sobre Nós */}
         <RevealOnScroll className="mx-auto max-w-5xl">
           <div className="glass-premium rounded-xl p-6 md:p-8">
-            <h2 className="mb-4 text-center text-3xl font-bold text-white">
+            <h2 className="mb-4 text-center text-3xl font-bold text-ink-primary">
               Sobre <em className="accent">Nós</em>
             </h2>
             <p className="mb-6 text-center text-ink-secondary">
-              A <strong className="text-white">Sapient.IA</strong> desenha sistemas operacionais
+              A <strong className="text-ink-primary">Sapient.IA</strong> desenha sistemas operacionais
               conectados para empresas que não podem perder leads, contexto ou tempo em tarefas manuais.
             </p>
 
             <div className="mb-6 grid gap-6 md:grid-cols-2">
-              <div className="rounded-lg border-t-[3px] border-purple-400 bg-white/[0.04] p-5">
+              <div className="rounded-lg border-t-[3px] border-purple-400 bg-ink-primary/[0.04] p-5">
                 <h3 className="mb-2 text-xl font-semibold text-purple-300">Por que Sapient.IA?</h3>
                 <p className="text-ink-secondary">
                   Não encaixamos uma ferramenta nova na sua rotina. Entendemos o fluxo que sua equipe
@@ -118,7 +125,7 @@ const HeroSection = () => {
                 </p>
               </div>
 
-              <div className="rounded-lg border-t-[3px] border-cyan-400 bg-white/[0.04] p-5">
+              <div className="rounded-lg border-t-[3px] border-cyan-400 bg-ink-primary/[0.04] p-5">
                 <h3 className="mb-2 text-xl font-semibold text-cyan-300">O que propomos?</h3>
                 <p className="text-ink-secondary">
                   Criamos agentes de IA, automações e integrações para atendimento, vendas e operação.
@@ -136,7 +143,7 @@ const HeroSection = () => {
         {/* Prova social */}
         <div className="mt-16 text-center">
           <RevealOnScroll>
-            <h2 className="mb-3 text-2xl font-bold text-white md:text-3xl">
+            <h2 className="mb-3 text-2xl font-bold text-ink-primary md:text-3xl">
               Soluções feitas para o seu <em className="accent">contexto</em>.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-ink-secondary">
@@ -152,12 +159,13 @@ const HeroSection = () => {
               <div
                 key={client.alt}
                 data-client
-                className="flex h-16 w-32 items-center justify-center rounded-lg bg-white/[0.06] p-2 transition-colors hover:bg-white/10"
+                className="flex h-16 w-32 items-center justify-center rounded-lg bg-ink-primary/[0.06] p-2 transition-colors hover:bg-ink-primary/10"
               >
                 <img
                   src={client.src}
                   alt={client.alt}
                   loading="lazy"
+                  data-logo-claro={client.paraFundoEscuro ? '' : undefined}
                   className="max-h-full max-w-full object-contain"
                 />
               </div>
@@ -172,7 +180,7 @@ const HeroSection = () => {
               <div
                 key={sector}
                 data-sector
-                className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-3 text-sm font-medium text-ink-primary"
+                className="rounded-lg border border-ink-primary/10 bg-ink-primary/[0.04] px-3 py-3 text-sm font-medium text-ink-primary"
               >
                 {sector}
               </div>
@@ -185,7 +193,7 @@ const HeroSection = () => {
         <a
           href="#pain-points"
           aria-label="Ir para a próxima seção"
-          className="text-white/70 transition-colors hover:text-white"
+          className="text-ink-primary/70 transition-colors hover:text-ink-primary"
         >
           <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />

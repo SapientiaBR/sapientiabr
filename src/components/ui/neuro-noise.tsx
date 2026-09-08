@@ -12,6 +12,7 @@
 // porque este projeto é Vite, não Next, e ali ela só confundiria a leitura.
 
 import { useEffect, useRef } from "react"
+import { useThemeValue } from "@/theme/useTheme"
 
 const VERT = `attribute vec2 a_position;
 void main() {
@@ -293,22 +294,39 @@ void main() {
 }
 `
 
-const UNIFORMS = {
-  // SAPIENT: paleta da marca no lugar da gerada (roxo escuro, magenta, creme).
-  // Vai do navy do fundo do site até o ciano, passando pelos dois roxos — é o
-  // mesmo caminho do gradiente da marca, então o shader lê como continuação da
-  // página e não como um bloco à parte.
+// SAPIENT: paleta da marca no lugar da gerada (roxo escuro, magenta, creme).
+// Cada tema começa no próprio fundo da página e caminha até o ciano passando
+// pelos dois roxos — o mesmo trajeto do gradiente da marca, para o shader ler
+// como continuação da página e não como um bloco à parte.
+//
+// O claro não é o escuro invertido: é o mesmo caminho com os degraus altos da
+// escala. Inverter daria um campo escuro numa página clara, que é exatamente o
+// borrão que se quer evitar atrás de um texto.
+const PALETAS: Record<"dark" | "light", [number, number, number][]> = {
   //   #080d1a bg-deep · #5b21b6 purple-700 · #8b5cf6 purple-400 · #22d3ee cyan-400
-  colors: [
+  dark: [
     [0.0313725490, 0.0509803922, 0.1019607843],
     [0.3568627451, 0.1294117647, 0.7137254902],
     [0.5450980392, 0.3607843137, 0.9647058824],
     [0.1333333333, 0.8274509804, 0.9333333333],
-    [0.1333333333, 0.8274509804, 0.9333333333],
-    [0.1333333333, 0.8274509804, 0.9333333333],
-    [0.1333333333, 0.8274509804, 0.9333333333],
-    [0.1333333333, 0.8274509804, 0.9333333333],
-  ] as [number, number, number][],
+  ],
+  //   #f7f9fd bg-deep · #c4adff purple-200 · #a78bfa purple-300 · #7df8ef cyan-200
+  light: [
+    [0.9686274510, 0.9764705882, 0.9921568627],
+    [0.7686274510, 0.6784313725, 1.0000000000],
+    [0.6549019608, 0.5450980392, 0.9803921569],
+    [0.4901960784, 0.9725490196, 0.9372549020],
+  ],
+}
+
+/** O shader lê oito posições; as sobrando repetem a última cor. */
+function paletaCompleta(tema: "dark" | "light"): [number, number, number][] {
+  const base = PALETAS[tema]
+  const ultima = base[base.length - 1]
+  return [...base, ...Array(8 - base.length).fill(ultima)]
+}
+
+const UNIFORMS = {
   colorCount: 4,
   scale: 1.260,
   intensity: 0.350,
@@ -339,7 +357,11 @@ const pendingContextReleases = new WeakMap<HTMLCanvasElement, number>()
 
 export function ShaderBackground({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const theme = useThemeValue()
 
+  // O tema entra nas dependências: trocar de paleta refaz o programa e o
+  // contexto WebGL. É caro, mas acontece num clique de preferência, não num
+  // quadro de animação — e a limpeza do efeito já devolve o contexto.
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -394,7 +416,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       space: gl.getUniformLocation(program, "u_space"),
       cursor: gl.getUniformLocation(program, "u_cursor"),
     }
-    gl.uniform3fv(uni.colors, new Float32Array(UNIFORMS.colors.flat()))
+    gl.uniform3fv(uni.colors, new Float32Array(paletaCompleta(theme).flat()))
     gl.uniform4f(
       uni.shape,
       UNIFORMS.scale,
@@ -616,7 +638,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       }, 0)
       pendingContextReleases.set(canvas, releaseTimer)
     }
-  }, [])
+  }, [theme])
 
   return (
     <canvas ref={canvasRef} className={className} style={{ display: "block", width: "100%", height: "100%" }} />

@@ -99,9 +99,21 @@
     @apply border-border;
   }
 
+  /* `color-scheme` é o que faz a barra de rolagem, o caret e os controles
+     nativos virarem junto. Sem isso o tema claro fica com uma barra preta na
+     lateral. */
+  :root {
+    color-scheme: dark;
+  }
+
+  [data-theme='light'] {
+    color-scheme: light;
+  }
+
   body {
     @apply text-foreground;
     background-color: var(--bg-deep);
+    color: var(--text-primary);
     font-family: var(--font-body);
     /* Lenis controla o scroll; a barra nativa continua existindo. */
     overscroll-behavior-y: none;
@@ -161,23 +173,24 @@ em.accent,
   padding-right: 0.08em;
 }
 
-/* Glassmorphism dos cards premium — blur 20-24px, borda branca 8% (guide). */
+/* Glassmorphism dos cards premium — blur 20-24px (guide). O véu e o filete
+   saem do tema: luz sobre o escuro, papel sobre o claro. */
 .glass-premium {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface-veil);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--surface-line);
 }
 
 .card-service {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-veil-strong);
   backdrop-filter: blur(20px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-service:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px var(--surface-shadow);
 }
 
 /**
@@ -268,12 +281,12 @@ em.accent,
       hsl(var(--base) 85% 62% / 0.04) 38%,
       transparent 72%
     ) !important;
-    background-color: rgba(255, 255, 255, 0.028) !important;
+    background-color: var(--surface-veil) !important;
     border: 1px solid hsl(var(--base) 70% 62% / 0.16) !important;
     border-radius: 16px !important;
     padding: 0.95rem 1rem !important;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 var(--surface-sheen),
       0 12px 26px -20px hsl(var(--base) 85% 50% / 0.6) !important;
     backdrop-filter: none !important;
     gap: 0 !important;
@@ -472,4 +485,23 @@ em.accent,
   .otus-avatar {
     animation: none;
   }
+}
+
+/**
+ * Partículas da coruja no tema claro.
+ *
+ * As cores das partículas são lidas pixel a pixel da própria logo, então não
+ * há paleta para trocar: são o roxo e o ciano da marca, que sobre #f7f9fd dão
+ * 1,6:1 e praticamente somem. O canvas desenha em blending aditivo sobre preto
+ * transparente e só depois compõe com a página, então um filtro no elemento
+ * escurece o desenho inteiro sem tocar no WebGL nem custar um quadro a mais.
+ */
+[data-theme='light'] .owl-canvas {
+  filter: brightness(0.52) saturate(1.5);
+}
+
+/* Logo de cliente desenhada em branco: invertida vira quase preta e volta a
+   aparecer sobre o fundo claro. Só quem tem o atributo é tocado. */
+[data-theme='light'] [data-logo-claro] {
+  filter: invert(1) brightness(0.45) contrast(1.15);
 }

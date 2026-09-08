@@ -77,58 +77,70 @@ export default {
 				 * saem do guide. Isso permite migrar seção por seção sem quebrar tudo.
 				 */
 				sapient: {
-					purple: 'var(--purple-400)',
-					blue: 'var(--cyan-400)',
-					dark: 'var(--bg-primary)',
-					secondary: 'var(--bg-secondary)',
-					deep: 'var(--bg-deep)',
-					surface: 'var(--bg-surface)',
-					card: 'var(--bg-card)',
-					elevated: 'var(--bg-elevated)'
+					purple: 'rgb(var(--purple-400-rgb) / <alpha-value>)',
+					blue: 'rgb(var(--cyan-400-rgb) / <alpha-value>)',
+					dark: 'rgb(var(--bg-primary-rgb) / <alpha-value>)',
+					secondary: 'rgb(var(--bg-secondary-rgb) / <alpha-value>)',
+					deep: 'rgb(var(--bg-deep-rgb) / <alpha-value>)',
+					surface: 'rgb(var(--bg-surface-rgb) / <alpha-value>)',
+					card: 'rgb(var(--bg-card-rgb) / <alpha-value>)',
+					elevated: 'rgb(var(--bg-elevated-rgb) / <alpha-value>)'
 				},
 				purple: {
-					50: 'var(--purple-50)',
-					100: 'var(--purple-100)',
-					200: 'var(--purple-200)',
-					300: 'var(--purple-300)',
-					400: 'var(--purple-400)',
-					500: 'var(--purple-500)',
-					600: 'var(--purple-600)',
-					700: 'var(--purple-700)',
-					800: 'var(--purple-800)',
-					900: 'var(--purple-900)'
+					50: 'rgb(var(--purple-50-rgb) / <alpha-value>)',
+					100: 'rgb(var(--purple-100-rgb) / <alpha-value>)',
+					200: 'rgb(var(--purple-200-rgb) / <alpha-value>)',
+					300: 'rgb(var(--purple-300-rgb) / <alpha-value>)',
+					400: 'rgb(var(--purple-400-rgb) / <alpha-value>)',
+					500: 'rgb(var(--purple-500-rgb) / <alpha-value>)',
+					600: 'rgb(var(--purple-600-rgb) / <alpha-value>)',
+					700: 'rgb(var(--purple-700-rgb) / <alpha-value>)',
+					800: 'rgb(var(--purple-800-rgb) / <alpha-value>)',
+					900: 'rgb(var(--purple-900-rgb) / <alpha-value>)'
 				},
 				cyan: {
-					50: 'var(--cyan-50)',
-					100: 'var(--cyan-100)',
-					200: 'var(--cyan-200)',
-					300: 'var(--cyan-300)',
-					400: 'var(--cyan-400)',
-					500: 'var(--cyan-500)',
-					600: 'var(--cyan-600)',
-					700: 'var(--cyan-700)',
-					800: 'var(--cyan-800)',
-					900: 'var(--cyan-900)'
+					50: 'rgb(var(--cyan-50-rgb) / <alpha-value>)',
+					100: 'rgb(var(--cyan-100-rgb) / <alpha-value>)',
+					200: 'rgb(var(--cyan-200-rgb) / <alpha-value>)',
+					300: 'rgb(var(--cyan-300-rgb) / <alpha-value>)',
+					400: 'rgb(var(--cyan-400-rgb) / <alpha-value>)',
+					500: 'rgb(var(--cyan-500-rgb) / <alpha-value>)',
+					600: 'rgb(var(--cyan-600-rgb) / <alpha-value>)',
+					700: 'rgb(var(--cyan-700-rgb) / <alpha-value>)',
+					800: 'rgb(var(--cyan-800-rgb) / <alpha-value>)',
+					900: 'rgb(var(--cyan-900-rgb) / <alpha-value>)'
 				},
 				brand: {
-					coral: 'var(--accent-coral)',
-					rose: 'var(--accent-rose)',
-					pink: 'var(--accent-pink)',
-					amber: 'var(--accent-amber)',
-					lime: 'var(--accent-lime)',
-					emerald: 'var(--accent-emerald)',
-					sky: 'var(--accent-sky)',
-					indigo: 'var(--accent-indigo)'
+					coral: 'rgb(var(--accent-coral-rgb) / <alpha-value>)',
+					rose: 'rgb(var(--accent-rose-rgb) / <alpha-value>)',
+					pink: 'rgb(var(--accent-pink-rgb) / <alpha-value>)',
+					amber: 'rgb(var(--accent-amber-rgb) / <alpha-value>)',
+					lime: 'rgb(var(--accent-lime-rgb) / <alpha-value>)',
+					emerald: 'rgb(var(--accent-emerald-rgb) / <alpha-value>)',
+					sky: 'rgb(var(--accent-sky-rgb) / <alpha-value>)',
+					indigo: 'rgb(var(--accent-indigo-rgb) / <alpha-value>)'
 				},
+				/**
+				 * Texto e tudo que herda o contraste do tema.
+				 *
+				 * `ink-primary` ocupa o lugar que `text-white` tinha: no escuro e
+				 * quase branco, no claro e quase preto. Como esta em canais, serve
+				 * tambem para os filetes e veus (`border-ink-primary/10`,
+				 * `bg-ink-primary/5`), que antes eram branco fixo e sumiam no claro.
+				 *
+				 * `on-brand` e o oposto: branco nos dois temas. E a cor do texto por
+				 * cima do gradiente da marca, que nao muda de fundo quando o tema vira.
+				 */
 				ink: {
-					primary: 'var(--text-primary)',
-					secondary: 'var(--text-secondary)',
-					muted: 'var(--text-muted)',
-					hint: 'var(--text-hint)'
+					primary: 'rgb(var(--text-primary-rgb) / <alpha-value>)',
+					secondary: 'rgb(var(--text-secondary-rgb) / <alpha-value>)',
+					muted: 'rgb(var(--text-muted-rgb) / <alpha-value>)',
+					hint: 'rgb(var(--text-hint-rgb) / <alpha-value>)',
+					'on-brand': '#ffffff'
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
+				lg: 'rgb(var(--radius-rgb) / <alpha-value>)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
@@ -138,12 +150,12 @@ export default {
 						height: '0'
 					},
 					to: {
-						height: 'var(--radix-accordion-content-height)'
+						height: 'rgb(var(--radix-accordion-content-height-rgb) / <alpha-value>)'
 					}
 				},
 				'accordion-up': {
 					from: {
-						height: 'var(--radix-accordion-content-height)'
+						height: 'rgb(var(--radix-accordion-content-height-rgb) / <alpha-value>)'
 					},
 					to: {
 						height: '0'
@@ -177,9 +189,9 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-radial': 'var(--gradient-radial-hero)',
-				'card-purple': 'var(--gradient-card-purple)',
-				'card-cyan': 'var(--gradient-card-cyan)'
+				'hero-radial': 'rgb(var(--gradient-radial-hero-rgb) / <alpha-value>)',
+				'card-purple': 'rgb(var(--gradient-card-purple-rgb) / <alpha-value>)',
+				'card-cyan': 'rgb(var(--gradient-card-cyan-rgb) / <alpha-value>)'
 			},
 			textColor: {
 				'gradient-sapient': 'linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%)'
@@ -191,14 +203,14 @@ export default {
 		function({ addUtilities }) {
 			const newUtilities = {
 				'.text-gradient-sapient': {
-					background: 'var(--gradient-text)',
+					background: 'rgb(var(--gradient-text-rgb) / <alpha-value>)',
 					'-webkit-background-clip': 'text',
 					'background-clip': 'text',
 					'-webkit-text-fill-color': 'transparent',
 					'color': 'transparent'
 				},
 				'.bg-gradient-sapient': {
-					background: 'var(--gradient-brand)'
+					background: 'rgb(var(--gradient-brand-rgb) / <alpha-value>)'
 				}
 			}
 			addUtilities(newUtilities)

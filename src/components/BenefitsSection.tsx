@@ -58,10 +58,10 @@ const BenefitsSection = () => {
       <div ref={pinRef} className="flex min-h-screen items-center py-24">
         <div className="container mx-auto">
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-2xl border border-white/10 bg-gradient-subtle p-6 md:p-10">
+            <div className="rounded-2xl border border-ink-primary/10 bg-gradient-subtle p-6 md:p-10">
               <RevealText
                 as="h2"
-                className="mb-8 text-center text-4xl font-bold leading-[1.1] text-white md:text-5xl"
+                className="mb-8 text-center text-4xl font-bold leading-[1.1] text-ink-primary md:text-5xl"
               >
                 O que muda com uma operação <em className="accent">conectada</em>.
               </RevealText>

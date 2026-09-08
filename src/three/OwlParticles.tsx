@@ -120,7 +120,9 @@ export function OwlParticles({ scrollTriggerRef }: OwlParticlesProps) {
 
   return (
     <div ref={wrapRef} className="relative h-[34vh] min-h-[220px] w-full max-w-[520px]">
-      <canvas ref={canvasRef} className="block h-full w-full" />
+      {/* A classe existe para o tema claro escurecer as partículas por CSS —
+          ver `.owl-canvas` no index.css. */}
+      <canvas ref={canvasRef} className="owl-canvas block h-full w-full" />
     </div>
   );
 }

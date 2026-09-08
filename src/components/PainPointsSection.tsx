@@ -52,7 +52,7 @@ const PainPointsSection = () => {
     <section id="pain-points" className="bg-sapient-deep py-24 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-ink-primary">
             Onde a operação <em className="accent">trava</em> hoje.
           </RevealText>
           <RevealOnScroll delay={0.15}>
@@ -87,7 +87,7 @@ const PainPointsSection = () => {
                     size={40}
                     className="!h-9 !w-9 flex-none drop-shadow-lg md:!h-10 md:!w-10"
                   />
-                  <h3 className="text-lg font-semibold text-white md:text-xl">{point.title}</h3>
+                  <h3 className="text-lg font-semibold text-ink-primary md:text-xl">{point.title}</h3>
                 </div>
                 <p className="pl-12 text-sm text-ink-secondary md:pl-0 md:text-base">
                   {point.description}
@@ -97,7 +97,7 @@ const PainPointsSection = () => {
           ))}
         </RevealOnScroll>
 
-        <RevealOnScroll className="mt-20 bg-gradient-sapient rounded-lg p-8 text-white text-center max-w-3xl mx-auto">
+        <RevealOnScroll className="mt-20 bg-gradient-sapient rounded-lg p-8 text-ink-on-brand text-center max-w-3xl mx-auto">
           <h3 className="text-2xl font-bold mb-4">Sua equipe não precisa ser a ponte entre sistemas.</h3>
           <p className="mb-6 text-lg">
             Vamos mapear seu fluxo atual e identificar onde agentes de IA, integrações e um site conectado

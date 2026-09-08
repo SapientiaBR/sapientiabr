@@ -10,7 +10,7 @@ const GuaranteeSection = () => {
           <div className="mb-6 flex justify-center">
             <Icon3D name="medal" size={76} className="drop-shadow-2xl" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-ink-primary mb-4">
             Clareza antes da <em className="accent">implementação</em>.
           </h2>
           <p className="text-ink-secondary text-base md:text-lg max-w-xl mx-auto">

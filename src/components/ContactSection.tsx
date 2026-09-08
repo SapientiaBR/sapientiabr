@@ -9,7 +9,7 @@ const ContactSection = () => {
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-ink-primary">
               Vamos conectar sua <em className="accent">operação</em>?
             </RevealText>
             <RevealOnScroll delay={0.15}>
@@ -22,23 +22,23 @@ const ContactSection = () => {
           <RevealOnScroll stagger="[data-contact-col]" staggerAmount={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div data-contact-col className="flex flex-col justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sapient-purple/30 to-sapient-blue/20 rounded-2xl -z-10 blur-lg opacity-50"></div>
-              <div className="bg-sapient-surface/70 backdrop-blur-md rounded-2xl border border-white/10 p-8 relative z-10 transform transition-all hover:scale-[1.01] duration-300">
-                <h3 className="text-2xl font-bold mb-8 text-white inline-flex items-center gap-2">
+              <div className="bg-sapient-surface/70 backdrop-blur-md rounded-2xl border border-ink-primary/10 p-8 relative z-10 transform transition-all hover:scale-[1.01] duration-300">
+                <h3 className="text-2xl font-bold mb-8 text-ink-primary inline-flex items-center gap-2">
                   <span className="w-2 h-8 bg-gradient-to-b from-sapient-purple to-sapient-blue rounded-full"></span>
                   <em className="accent">Contato</em>
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-5 group">
                     <div className="bg-gradient-to-br from-sapient-purple to-sapient-purple/60 p-4 rounded-full h-min shadow-lg shadow-sapient-purple/20 group-hover:shadow-sapient-purple/40 transition-all duration-300">
-                      <MessageCircle className="w-6 h-6 text-white" />
+                      <MessageCircle className="w-6 h-6 text-ink-primary" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
-                      <h4 className="text-xl font-medium text-white mb-1">Falar no WhatsApp</h4>
+                      <h4 className="text-xl font-medium text-ink-primary mb-1">Falar no WhatsApp</h4>
                       <a
                         href="https://wa.me/5511920795583"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-ink-secondary hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-ink-primary transition-colors"
                       >
                         (11) 92079-5583
                       </a>
@@ -47,15 +47,15 @@ const ContactSection = () => {
 
                   <div className="flex items-center gap-5 group">
                     <div className="bg-gradient-to-br from-sapient-blue to-sapient-blue/60 p-4 rounded-full h-min shadow-lg shadow-sapient-blue/20 group-hover:shadow-sapient-blue/40 transition-all duration-300">
-                      <Calendar className="w-6 h-6 text-white" />
+                      <Calendar className="w-6 h-6 text-ink-primary" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
-                      <h4 className="text-xl font-medium text-white mb-1">Agendar uma Reunião</h4>
+                      <h4 className="text-xl font-medium text-ink-primary mb-1">Agendar uma Reunião</h4>
                       <a
                         href="https://bit.ly/40BtBp2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-ink-secondary hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-ink-primary transition-colors"
                       >
                         Escolher um horário
                       </a>
@@ -64,15 +64,15 @@ const ContactSection = () => {
 
                   <div className="flex items-center gap-5 group">
                     <div className="bg-gradient-to-br from-sapient-purple to-sapient-purple/60 p-4 rounded-full h-min shadow-lg shadow-sapient-purple/20 group-hover:shadow-sapient-purple/40 transition-all duration-300">
-                      <Linkedin className="w-6 h-6 text-white" />
+                      <Linkedin className="w-6 h-6 text-ink-primary" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
-                      <h4 className="text-xl font-medium text-white mb-1">LinkedIn</h4>
+                      <h4 className="text-xl font-medium text-ink-primary mb-1">LinkedIn</h4>
                       <a
                         href="https://www.linkedin.com/in/sapient-ia-automation-solutions-b397b7348/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-ink-secondary hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-ink-primary transition-colors"
                       >
                         Sapient.IA Automation Solutions
                       </a>
@@ -81,15 +81,15 @@ const ContactSection = () => {
 
                   <div className="flex items-center gap-5 group">
                     <div className="bg-gradient-to-br from-sapient-blue to-sapient-blue/60 p-4 rounded-full h-min shadow-lg shadow-sapient-blue/20 group-hover:shadow-sapient-blue/40 transition-all duration-300">
-                      <Instagram className="w-6 h-6 text-white" />
+                      <Instagram className="w-6 h-6 text-ink-primary" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
-                      <h4 className="text-xl font-medium text-white mb-1">Instagram</h4>
+                      <h4 className="text-xl font-medium text-ink-primary mb-1">Instagram</h4>
                       <a
                         href="https://www.instagram.com/sapientia.br"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-ink-secondary hover:text-white transition-colors"
+                        className="text-ink-secondary hover:text-ink-primary transition-colors"
                       >
                         @sapientia.br
                       </a>
@@ -100,7 +100,7 @@ const ContactSection = () => {
             </div>
 
             <div data-contact-col className="flex flex-col justify-center">
-              <h3 className="text-2xl font-bold mb-6 text-white">
+              <h3 className="text-2xl font-bold mb-6 text-ink-primary">
                 Por que uma <span className="text-gradient-sapient">operação conectada</span>?
               </h3>
               <div className="space-y-6">
@@ -111,7 +111,7 @@ const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">IA no fluxo real</h4>
+                    <h4 className="text-lg font-medium text-ink-primary mb-1">IA no fluxo real</h4>
                     <p className="text-ink-secondary">Agentes de IA entram onde existem conversas, decisões repetitivas e dados que precisam circular.</p>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Sistemas que conversam</h4>
+                    <h4 className="text-lg font-medium text-ink-primary mb-1">Sistemas que conversam</h4>
                     <p className="text-ink-secondary">CRM, WhatsApp, agenda, pagamentos e ferramentas internas podem operar como um único fluxo.</p>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Site que faz parte da operação</h4>
+                    <h4 className="text-lg font-medium text-ink-primary mb-1">Site que faz parte da operação</h4>
                     <p className="text-ink-secondary">Criamos presença digital com clareza no mobile e caminhos diretos para captar e encaminhar leads.</p>
                   </div>
                 </div>

@@ -64,7 +64,7 @@ const ServicesSection = () => {
     <section id="services" className="py-24 px-4 bg-sapient-deep">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white text-balance">
+          <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-ink-primary text-balance">
             Uma operação <em className="accent">conectada</em> de ponta a ponta.
           </RevealText>
           <RevealOnScroll delay={0.15}>
@@ -100,7 +100,7 @@ const ServicesSection = () => {
                   size={40}
                   className="!h-9 !w-9 flex-none drop-shadow-lg md:!h-10 md:!w-10"
                 />
-                <h3 className="text-lg font-semibold text-white md:text-xl">{service.title}</h3>
+                <h3 className="text-lg font-semibold text-ink-primary md:text-xl">{service.title}</h3>
               </div>
               <p className="pl-12 text-sm text-ink-secondary md:pl-0 md:text-base">
                 {service.description}

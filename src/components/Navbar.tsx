@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import sapientLogo from '@/assets/sapient-logo.png';
 
 const Navbar = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-sapient-deep/85 backdrop-blur-xl py-2 shadow-lg border-b border-white/[0.06]'
+          ? 'bg-sapient-deep/85 backdrop-blur-xl py-2 shadow-lg border-b border-ink-primary/[0.06]'
           : 'bg-transparent py-4'
       }`}
     >
@@ -37,28 +38,29 @@ const Navbar = () => {
             className="h-10"
           />
           <div className="ml-2">
-            <h1 className="text-white text-xl font-bold">SAPIENT.IA</h1>
+            <h1 className="text-ink-primary text-xl font-bold">SAPIENT.IA</h1>
             <p className="text-ink-secondary text-xs tracking-[0.18em] font-label">AUTOMATION SOLUTIONS</p>
           </div>
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#services" className="text-white/85 hover:text-purple-300 transition-colors">
+          <a href="#services" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Serviços
           </a>
-          <a href="#pain-points" className="text-white/85 hover:text-purple-300 transition-colors">
+          <a href="#pain-points" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Soluções
           </a>
-          <a href="#benefits" className="text-white/85 hover:text-purple-300 transition-colors">
+          <a href="#benefits" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Benefícios
           </a>
-          <a href="#otus" className="text-white/85 hover:text-purple-300 transition-colors">
+          <a href="#otus" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Otus
           </a>
-          <a href="#contact" className="text-white/85 hover:text-purple-300 transition-colors">
+          <a href="#contact" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Contato
           </a>
+          <ThemeToggle />
           <Button
             className="bg-gradient-sapient hover:opacity-90 transition-opacity"
             onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
@@ -67,11 +69,14 @@ const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden">
+        {/* No celular o alternador fica fora do menu sanfona: trocar o tema é
+            uma preferência de leitura, e ter de abrir a navegação para chegar
+            nela faz o usuário perder o lugar da rolagem. */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-white focus:outline-none"
+            className="text-ink-primary focus:outline-none"
           >
             {isMobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -92,35 +97,35 @@ const Navbar = () => {
           <div className="container mx-auto flex flex-col space-y-4">
             <a
               href="#services"
-              className="text-white/85 hover:text-purple-300 transition-colors py-2"
+              className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Serviços
             </a>
             <a
               href="#pain-points"
-              className="text-white/85 hover:text-purple-300 transition-colors py-2"
+              className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Soluções
             </a>
             <a
               href="#benefits"
-              className="text-white/85 hover:text-purple-300 transition-colors py-2"
+              className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Benefícios
             </a>
             <a
               href="#otus"
-              className="text-white/85 hover:text-purple-300 transition-colors py-2"
+              className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Otus
             </a>
             <a
               href="#contact"
-              className="text-white/85 hover:text-purple-300 transition-colors py-2"
+              className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contato

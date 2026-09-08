@@ -19,18 +19,23 @@ const glowColorMap = {
   orange: { base: 30, spread: 200 }
 };
 
+/**
+ * As três superfícies saem dos tokens, não de hex fixo: o mesmo véu que dá peso
+ * a um card sobre o navy some sobre o branco, e o vermelho que sugere problema
+ * no escuro vira um rosa berrante no claro se a opacidade não descer junto.
+ */
 const toneMap = {
   neutral: {
-    backdrop: 'hsl(0 0% 60% / 0.12)',
-    border: 'hsl(0 0% 60% / 0.12)',
+    backdrop: 'var(--tone-neutral-bg)',
+    border: 'var(--tone-neutral-line)',
   },
   danger: {
-    backdrop: 'rgba(127, 29, 29, 0.16)',
-    border: 'rgba(251, 113, 133, 0.28)',
+    backdrop: 'var(--tone-danger-bg)',
+    border: 'var(--tone-danger-line)',
   },
   success: {
-    backdrop: 'rgba(6, 95, 70, 0.16)',
-    border: 'rgba(52, 211, 153, 0.28)',
+    backdrop: 'var(--tone-success-bg)',
+    border: 'var(--tone-success-line)',
   },
 };
 

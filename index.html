@@ -21,6 +21,19 @@
     <!-- As fontes agora são auto-hospedadas (src/design/fonts.css); nada de
          Google Fonts, nenhuma requisição a terceiro no caminho da primeira
          pintura. -->
+
+    <!-- Tema, antes da primeira pintura.
+         Precisa ser inline e síncrono aqui: o React só monta depois do bundle
+         carregar, e até lá a página já pintou. Quem escolheu claro veria um
+         lampejo escuro em cada visita. O `catch` cobre navegação privada, onde
+         ler o localStorage lança exceção em vez de devolver vazio. -->
+    <script>
+      try {
+        if (localStorage.getItem('sapient-theme') === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    </script>
   </head>
 
   <body>
