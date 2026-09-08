@@ -64,13 +64,13 @@ const PainPointsSection = () => {
 
         <RevealOnScroll
           stagger="[data-pain]"
-          className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
         >
           {PAIN_POINTS.map((point, index) => (
             <div
               key={point.title}
               data-pain
-              className="h-full border-b border-white/[0.07] py-5 last:border-b-0 md:border-0 md:py-0"
+              className="h-full"
             >
               <GlowCard
                 glowColor={index % 2 === 0 ? 'red' : 'orange'}

@@ -7,9 +7,8 @@ import otusLogo from '@/assets/otus-logo.webp';
 import { RevealOnScroll, RevealText, Magnetic } from '@/motion';
 
 const NoctuaBotSection = () => {
-  // O anel decorativo com animate-ping escala para 2x e estourava a largura da
-  // viewport no celular; o overflow-hidden da seção corta o excesso sem apagar
-  // o efeito.
+  // Os anéis passam da largura da coluna quando expandem; o overflow-hidden da
+  // seção apara o excesso sem apagar o efeito.
   return (
     <section id="otus" className="py-24 bg-sapient-deep overflow-hidden">
       <div className="container mx-auto">
@@ -67,36 +66,33 @@ const NoctuaBotSection = () => {
               </Magnetic>
             </div>
           </RevealOnScroll>
-          {/* O painel de vidro ficava dentro de um círculo de tamanho fixo
-              (w-64 h-64), mas era bem mais alto que ele: transbordava mais de
-              200 px para fora da caixa reservada no layout e, no celular,
-              caía por cima do rótulo "OTUS" da coluna de texto.
-              Agora o container cresce com o conteúdo, o halo é uma camada de
-              fundo posicionada atrás, e o mascote transparente fica direto no
-              meio dele — que é onde os anéis finalmente aparecem. */}
+          {/* Palco do mascote.
+              É um quadrado de lado fixo com a imagem no meio, e todas as
+              camadas de brilho são filhas absolutas dele — assim o centro do
+              halo é o centro da imagem por construção, e não por um `top: 42%`
+              chutado. As camadas usam `scale` e `rotate` como propriedades
+              próprias, nunca `transform`: a centralização mora no `transform`,
+              e um keyframe que o reescrevesse jogaria o anel para fora do
+              lugar. Era exatamente o que o `animate-ping` do Tailwind fazia. */}
           <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative flex w-full max-w-[300px] flex-col items-center py-6 md:max-w-[340px]">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[42%] h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-sapient-purple/25 to-sapient-blue/25 md:h-72 md:w-72"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[42%] h-60 w-60 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full border-2 border-sapient-purple/40 md:h-72 md:w-72"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full border border-sapient-blue/25 md:h-80 md:w-80"
-              />
-              <img
-                src={otusLogo}
-                alt="Otus"
-                loading="lazy"
-                className="relative h-56 w-auto object-contain drop-shadow-2xl md:h-64"
-              />
-              <div className="relative mt-3 text-center">
-                <h4 className="text-white font-semibold">Otus</h4>
-                <p className="text-xs text-cyan-300 font-label tracking-widest">IA ASSISTANT</p>
+            <div className="relative flex flex-col items-center py-8">
+              <div className="otus-stage relative h-56 w-56 md:h-64 md:w-64">
+                <span aria-hidden="true" className="otus-aura" />
+                <span aria-hidden="true" className="otus-sweep" />
+                <span aria-hidden="true" className="otus-ring otus-ring--inner" />
+                <span aria-hidden="true" className="otus-ring otus-ring--outer" />
+                <span aria-hidden="true" className="otus-pulse" />
+                <span aria-hidden="true" className="otus-pulse otus-pulse--late" />
+                <img
+                  src={otusLogo}
+                  alt="Otus"
+                  loading="lazy"
+                  className="otus-avatar relative z-10 h-full w-full object-contain drop-shadow-2xl"
+                />
+              </div>
+              <div className="relative z-10 mt-4 text-center">
+                <h4 className="font-semibold text-white">Otus</h4>
+                <p className="font-label text-xs tracking-widest text-cyan-300">IA ASSISTANT</p>
               </div>
             </div>
           </div>

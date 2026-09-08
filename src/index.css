@@ -239,24 +239,42 @@ em.accent,
 /**
  * Cards de recurso: grade no desktop, lista no celular.
  *
- * A borda, o brilho e a faixa de gradiente atrás do ícone são linguagem de
- * desktop, onde três ou quatro cards convivem lado a lado e o contraste entre
- * eles significa alguma coisa. Numa tela de 358 px cada card vira uma caixa de
- * largura total empilhada: o enfeite só acrescenta altura e ruído.
+ * O brilho que segue o cursor e a faixa de gradiente atrás do ícone são
+ * linguagem de desktop, onde três ou quatro cards convivem lado a lado e o
+ * contraste entre eles significa alguma coisa. Numa tela de 358 px cada card
+ * vira uma caixa de largura total empilhada: o enfeite só acrescenta altura.
  *
- * Abaixo de `md`, o cromo do GlowCard é anulado e sobra o conteúdo, separado
- * por um filete. Como o componente aplica os estilos inline, a anulação precisa
- * de `!important` — é o único jeito de uma folha de estilo vencer atributo
- * `style`. O DOM é o mesmo nos dois tamanhos: nada é duplicado nem escondido.
+ * Abaixo de `md` sobra uma superfície discreta — um véu claro por cima do fundo
+ * da seção, com um fio de cor própria vindo do canto superior esquerdo. A cor
+ * não é escolhida aqui: `--base` é a matiz que o próprio GlowCard escreve no
+ * elemento (vermelho e laranja nos problemas, verde e azul nas soluções), então
+ * a lista herda a mesma semântica de cor do desktop sem repetir a regra.
+ *
+ * Como o componente aplica tudo inline, cada troca precisa de `!important` — é
+ * o único jeito de uma folha de estilo vencer atributo `style`. O DOM é o mesmo
+ * nos dois tamanhos: nada é duplicado nem escondido.
  */
 @media (max-width: 767px) {
   .feature-flat[data-glow] {
-    background-image: none !important;
-    background-color: transparent !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
+    /* O gradiente inline do brilho é `background-attachment: fixed` e do
+       tamanho da viewport. Sem devolver `scroll` e `auto`, o véu abaixo seria
+       esticado na tela inteira e todos os itens mostrariam o mesmo pedaço. */
+    background-attachment: scroll !important;
+    background-size: auto !important;
+    background-position: 0 0 !important;
+    background-image: linear-gradient(
+      142deg,
+      hsl(var(--base) 85% 62% / 0.13) 0%,
+      hsl(var(--base) 85% 62% / 0.04) 38%,
+      transparent 72%
+    ) !important;
+    background-color: rgba(255, 255, 255, 0.028) !important;
+    border: 1px solid hsl(var(--base) 70% 62% / 0.16) !important;
+    border-radius: 16px !important;
+    padding: 0.95rem 1rem !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 12px 26px -20px hsl(var(--base) 85% 50% / 0.6) !important;
     backdrop-filter: none !important;
     gap: 0 !important;
   }
@@ -271,5 +289,187 @@ em.accent,
   .feature-flat[data-glow]::before,
   .feature-flat[data-glow]::after {
     display: none !important;
+  }
+}
+
+/**
+ * Halo do Otus.
+ *
+ * Cinco camadas concentricas em cima de um quadrado do tamanho da imagem:
+ * a aura difusa que respira, um arco que gira, dois aneis parados que dao
+ * profundidade e dois pulsos que saem de dentro em tempos alternados.
+ *
+ * Quem centraliza e o grid, nao um transform — e isso e o ponto todo.
+ *
+ * O jeito obvio (`left: 50%; top: 50%; transform: translate(-50%, -50%)`)
+ * quebra de duas maneiras aqui. O `animate-ping` do Tailwind escreve
+ * `transform: scale(2)` no keyframe e apaga a centralizacao inteira, que era o
+ * anel deslocado para baixo e para a direita do mascote. E trocar o keyframe
+ * pelas propriedades independentes `scale` e `rotate` tambem nao salva: elas
+ * compoem *depois* do `transform`, entao a rotacao passa a acontecer em torno
+ * da origem antiga do elemento e o anel orbita em vez de girar — medi 239 px
+ * de desvio no arco e 27 px em cada pulso.
+ *
+ * Empilhando tudo na mesma celula de grid, nenhuma camada tem transform: o
+ * `scale` e o `rotate` operam sobre o centro real de cada uma. As tres
+ * propriedades animadas (scale, rotate, opacity) rodam no compositor.
+ */
+.otus-stage {
+  display: grid;
+  /* A celula precisa ser explicita. Com a trilha em `auto` ela cresce ate a
+     altura natural da imagem, o `h-full` do <img> perde a referencia e cai
+     para altura intrinseca: o mascote saia 63 px por baixo do quadrado e
+     descia 31 px em relacao ao centro dos aneis. Com `1fr` a trilha herda a
+     altura fixa do palco e todo mundo mede a mesma coisa. */
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  place-items: center;
+}
+
+.otus-stage > * {
+  grid-area: 1 / 1;
+}
+
+.otus-stage > span {
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+/* Aura: o volume de luz.
+   E uma rosca, nao um disco. O mascote e escuro e ocupa quase todo o quadrado,
+   entao luz no centro fica escondida atras dele; o que se ve e a coroa em volta
+   da silhueta. A faixa mais forte cai por volta de 58% do raio, logo depois da
+   borda da coruja. */
+.otus-aura {
+  width: 152%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(139, 92, 246, 0.14) 0%,
+    rgba(139, 92, 246, 0.18) 40%,
+    rgba(139, 92, 246, 0.5) 57%,
+    rgba(56, 189, 248, 0.28) 69%,
+    rgba(34, 211, 238, 0.1) 76%,
+    transparent 84%
+  );
+  filter: blur(20px);
+  animation: otus-breathe 7s ease-in-out infinite;
+}
+
+/* Arco que gira: um traco de luz percorrendo a circunferencia.
+   O conic-gradient pinta o disco inteiro; a mascara radial recorta so a
+   faixa de 2 px da borda, e o border-radius do container arredonda o resto. */
+.otus-sweep {
+  width: 108%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 190deg,
+    rgba(139, 92, 246, 0.5) 292deg,
+    rgba(34, 211, 238, 0.85) 350deg,
+    transparent 360deg
+  );
+  -webkit-mask: radial-gradient(
+    closest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 2px)
+  );
+  mask: radial-gradient(
+    closest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 2px)
+  );
+  animation: otus-spin 11s linear infinite;
+}
+
+.otus-ring {
+  border: 1px solid transparent;
+}
+
+.otus-ring--inner {
+  width: 100%;
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.otus-ring--outer {
+  width: 128%;
+  border-color: rgba(34, 211, 238, 0.14);
+  animation: otus-breathe 9s ease-in-out infinite reverse;
+}
+
+/* Pulsos: saem do contorno do mascote e se dissolvem. Dois, defasados em
+   metade do ciclo, para a emissao parecer continua sem dobrar a frequencia. */
+.otus-pulse {
+  width: 104%;
+  border: 1px solid rgba(196, 181, 253, 0.75);
+  opacity: 0;
+  box-shadow: 0 0 18px -2px rgba(139, 92, 246, 0.5);
+  animation: otus-pulse 5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.otus-pulse--late {
+  animation-delay: 2.5s;
+  border-color: rgba(103, 232, 249, 0.6);
+  box-shadow: 0 0 18px -2px rgba(34, 211, 238, 0.45);
+}
+
+/* A imagem so flutua. Nao anima `transform` porque o `drop-shadow` seria
+   recalculado a cada quadro; `translate` sozinho fica no compositor.
+   A mascara existe porque o arquivo do mascote e cortado embaixo: 83% da
+   ultima linha de pixels e opaca, e isso desenhava uma aresta reta atravessando
+   o halo. Dissolvendo o pe da imagem, a coruja parece emergir da luz. */
+.otus-avatar {
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 99%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 99%);
+  animation: otus-float 6s ease-in-out infinite;
+}
+
+@keyframes otus-breathe {
+  0%,
+  100% {
+    scale: 1;
+    opacity: 0.72;
+  }
+  50% {
+    scale: 1.07;
+    opacity: 1;
+  }
+}
+
+@keyframes otus-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes otus-pulse {
+  0% {
+    scale: 0.96;
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.85;
+  }
+  100% {
+    scale: 1.46;
+    opacity: 0;
+  }
+}
+
+@keyframes otus-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+/* Quem pediu menos movimento fica com o halo parado, nao sem halo: as
+   camadas continuam desenhadas, so nao se mexem. */
+@media (prefers-reduced-motion: reduce) {
+  .otus-stage > span,
+  .otus-avatar {
+    animation: none;
   }
 }

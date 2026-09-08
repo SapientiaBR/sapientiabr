@@ -50,7 +50,26 @@ export function RevealText({
       const words: HTMLElement[] = [];
       for (const text of textNodes) {
         const frag = document.createDocumentFragment();
-        const parts = text.textContent!.split(/(\s+)/);
+        let content = text.textContent!;
+
+        // Pontuação colada num elemento anterior entra na palavra dele.
+        //
+        // Em "conectada</em>, ponta a ponta" a vírgula é um nó de texto
+        // próprio: viraria uma caixa inline-block sozinha, e o navegador aceita
+        // quebrar a linha ao lado de uma caixa dessas mesmo sem espaço nenhum.
+        // Dava "conectada" numa linha e ", ponta a ponta" na seguinte, com a
+        // vírgula solta na margem. Emendando o sinal no último span criado, os
+        // dois viram uma unidade que não se separa — vale para as oito headings
+        // da página, que terminam em ponto ou interrogação depois do <em>.
+        const glued = /^[.,;:!?%…»”)\]}]+/.exec(content);
+        const previous = words[words.length - 1];
+        if (glued && previous && text.previousSibling instanceof Element &&
+            text.previousSibling.contains(previous)) {
+          previous.textContent += glued[0];
+          content = content.slice(glued[0].length);
+        }
+
+        const parts = content.split(/(\s+)/);
         for (const part of parts) {
           if (!part.trim()) {
             frag.appendChild(document.createTextNode(part));

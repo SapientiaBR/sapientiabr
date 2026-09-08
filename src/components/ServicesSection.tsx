@@ -65,7 +65,7 @@ const ServicesSection = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-white text-balance">
-            Uma operação <em className="accent">conectada</em>, ponta a ponta.
+            Uma operação <em className="accent">conectada</em> de ponta a ponta.
           </RevealText>
           <RevealOnScroll delay={0.15}>
             <p className="text-ink-secondary max-w-2xl mx-auto">
@@ -77,13 +77,13 @@ const ServicesSection = () => {
         <RevealOnScroll
           stagger="[data-service]"
           staggerAmount={0.07}
-          className="grid grid-cols-1 gap-0 md:grid-cols-2 md:gap-8 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-8 lg:grid-cols-4"
         >
           {services.map((service, index) => (
             <div
               key={index}
               data-service
-              className="h-full border-b border-white/[0.07] py-5 last:border-b-0 md:border-0 md:py-0"
+              className="h-full"
             >
             <GlowCard
               glowColor={index % 2 === 0 ? 'green' : 'blue'}
