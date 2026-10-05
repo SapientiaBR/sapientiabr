@@ -65,7 +65,7 @@ const ServicesSection = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <RevealText as="h2" className="text-3xl md:text-4xl font-bold mb-4 text-ink-primary text-balance">
-            Uma operação <em className="accent">conectada</em> de ponta a ponta.
+            Uma operação <em className="accent">conectada</em>, do primeiro contato à entrega.
           </RevealText>
           <RevealOnScroll delay={0.15}>
             <p className="text-ink-secondary max-w-2xl mx-auto">

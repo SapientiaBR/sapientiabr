@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { RevealOnScroll, RevealText, Magnetic } from '@/motion';
 import { ShaderBackground } from '@/components/ui/neuro-noise';
@@ -44,21 +45,19 @@ const FinalCTASection = () => {
           Vamos entender antes de automatizar.
         </p>
         <RevealText as="h2" className="text-3xl md:text-4xl font-bold text-ink-primary mb-8 max-w-2xl mx-auto">
-          Transforme seus sistemas em uma operação <em className="accent">inteligente</em>.
+          Comece pelo gargalo, não pela <em className="accent">ferramenta</em>.
         </RevealText>
         <Magnetic>
-          <a
-            href="https://bit.ly/40BtBp2"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/raio-x"
             className="inline-flex items-center gap-2 h-14 px-8 bg-gradient-sapient hover:opacity-90 transition-opacity text-ink-on-brand rounded-md font-semibold text-lg shadow-lg shadow-purple-500/30"
           >
-            Agendar um diagnóstico
+            Fazer o Raio-X da minha operação
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </Magnetic>
         <p className="text-ink-muted text-sm mt-5">
-          Uma conversa para mapear o fluxo, as integrações e a próxima prioridade.
+          6 perguntas. No fim você vê onde a operação vaza, qual pacote resolve e quanto custa.
         </p>
       </RevealOnScroll>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { GlowCard } from '@/components/ui/spotlight-card';
 import { Icon3D, type Icon3DName } from '@/components/ui/icon-3d';
@@ -24,7 +25,7 @@ const PAIN_POINTS: { icon: Icon3DName; title: string; description: string; color
   {
     icon: 'puzzle',
     title: 'Sistemas desconectados',
-    description: 'Formulários, WhatsApp, CRM, agenda e pagamentos não conversam — e sua equipe precisa fazer essa ponte.',
+    description: 'Formulários, WhatsApp, CRM, agenda e pagamentos não conversam, e sua equipe precisa fazer essa ponte.',
     color: 'from-rose-500/20 to-orange-400/10',
   },
   {
@@ -106,10 +107,10 @@ const PainPointsSection = () => {
           <div className="flex justify-center">
             <Magnetic>
               <Button
+                asChild
                 className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg transition-colors"
-                onClick={() => window.open('https://bit.ly/40BtBp2', '_blank')}
               >
-                Mapear minha operação
+                <Link to="/raio-x">Mapear minha operação</Link>
               </Button>
             </Magnetic>
           </div>

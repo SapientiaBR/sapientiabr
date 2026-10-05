@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { Link } from 'react-router-dom';
 import sapientLogo from '@/assets/sapient-logo.png';
+import { useAncora } from '@/lib/ancora';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { ancora, naHome } = useAncora();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +34,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <a href="#" className="flex items-center">
+        <a href={naHome ? '#' : '/'} className="flex items-center">
           <img
             src={sapientLogo}
             alt="Sapient.IA Logo"
@@ -45,19 +48,22 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#services" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
+          <a href={ancora('services')} className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Serviços
           </a>
-          <a href="#pain-points" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
+          <a href={ancora('pain-points')} className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Soluções
           </a>
-          <a href="#benefits" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
+          <a href={ancora('benefits')} className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Benefícios
           </a>
-          <a href="#otus" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
+          <a href={ancora('otus')} className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Otus
           </a>
-          <a href="#contact" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
+          <Link to="/precos" className="text-ink-primary/85 hover:text-purple-300 transition-colors">
+            Preços
+          </Link>
+          <a href={ancora('contact')} className="text-ink-primary/85 hover:text-purple-300 transition-colors">
             Contato
           </a>
           <ThemeToggle />
@@ -96,35 +102,42 @@ const Navbar = () => {
         <div className="md:hidden bg-sapient-deep/95 backdrop-blur-lg py-4">
           <div className="container mx-auto flex flex-col space-y-4">
             <a
-              href="#services"
+              href={ancora('services')}
               className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Serviços
             </a>
             <a
-              href="#pain-points"
+              href={ancora('pain-points')}
               className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Soluções
             </a>
             <a
-              href="#benefits"
+              href={ancora('benefits')}
               className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Benefícios
             </a>
             <a
-              href="#otus"
+              href={ancora('otus')}
               className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Otus
             </a>
+            <Link
+              to="/precos"
+              className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Preços
+            </Link>
             <a
-              href="#contact"
+              href={ancora('contact')}
               className="text-ink-primary/85 hover:text-purple-300 transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >

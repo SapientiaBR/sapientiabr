@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { OwlParticles } from '@/three/OwlParticles';
 import { RevealText, RevealOnScroll, Magnetic } from '@/motion';
@@ -78,10 +79,10 @@ const HeroSection = () => {
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Magnetic>
                   <Button
+                    asChild
                     className="bg-gradient-sapient px-8 py-6 text-lg font-medium text-ink-on-brand transition-opacity hover:opacity-90"
-                    onClick={() => window.open("https://bit.ly/40BtBp2", "_blank")}
                   >
-                    Agendar um diagnóstico
+                    <Link to="/raio-x">Fazer o Raio-X da minha operação</Link>
                   </Button>
                 </Magnetic>
                 <button
@@ -129,7 +130,7 @@ const HeroSection = () => {
                 <h3 className="mb-2 text-xl font-semibold text-cyan-300">O que propomos?</h3>
                 <p className="text-ink-secondary">
                   Criamos agentes de IA, automações e integrações para atendimento, vendas e operação.
-                  Quando faz sentido, o site institucional também entra no ecossistema.
+                  Quando faz sentido, a landing page entra ligada ao mesmo fluxo: formulário, WhatsApp e CRM no mesmo caminho.
                 </p>
               </div>
             </div>

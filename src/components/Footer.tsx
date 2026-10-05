@@ -78,7 +78,7 @@ const Footer = () => {
             >
               Secretaria Invisível
             </a>
-            {' '}— uma solução dedicada à rotina de atendimento em saúde.
+            , uma solução dedicada à rotina de atendimento em saúde.
           </p>
         </div>
 

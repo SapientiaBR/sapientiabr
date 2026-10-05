@@ -1,10 +1,11 @@
 import React from 'react';
 import { RevealOnScroll, RevealText } from '@/motion';
+import { DEGRAUS, brl } from '@/lib/raio-x';
 
 const faqs = [
   {
     q: 'Quanto custa a implementação da Sapient.IA?',
-    a: 'Cada projeto é definido conforme os fluxos, sistemas e canais envolvidos. No diagnóstico, entendemos o escopo e apresentamos uma proposta adequada ao seu caso.',
+    a: `São quatro pacotes com escopo fechado e preço de tabela, de ${brl(DEGRAUS[1].setup)} a ${brl(DEGRAUS[4].setup)} de implantação, mais a recorrência mensal. O Raio-X indica qual resolve o seu caso antes de qualquer reunião, e a página de preços mostra o que entra e o que não entra em cada um.`,
   },
   {
     q: 'Como funciona a implementação?',
