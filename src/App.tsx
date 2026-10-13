@@ -11,6 +11,13 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// A página /sequencial é um HTML estático em public/sequencial/. Se o host
+// devolver o app em vez do arquivo, esta rota manda para o arquivo direto.
+const Sequencial = () => {
+  window.location.replace("/sequencial/index.html" + window.location.search);
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -22,6 +29,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/sequencial" element={<Sequencial />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
