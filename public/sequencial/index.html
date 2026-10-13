@@ -402,7 +402,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
       <div class="wrap gutter cold">
         <div class="cold-a" data-reveal>
           <h2 class="title sm"><span class="ln">A mensagem</span><span class="ln">chega…</span></h2>
-          <p class="lead">Fica no celular da recepção, alguém copia para uma planilha, talvez chegue ao CRM.</p>
+          <p class="lead">Fica no celular da recepção. Alguém copia para uma planilha e, com sorte, ela chega ao CRM.</p>
         </div>
         <div class="nodes">
           <div class="node" data-reveal>
@@ -477,7 +477,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
         <div class="copy" data-reveal>
           <p class="eyebrow cap">01 · atender</p>
           <h2 class="title sm"><span class="ln">O agente responde</span><span class="ln hi">às 19:02.</span></h2>
-          <p class="lead">No WhatsApp que você já usa, dentro das regras do seu negócio. Caso fora do roteiro vai para uma pessoa.</p>
+          <p class="lead">No WhatsApp do seu negócio, com as regras que você definiu. Quando a conversa sai do roteiro, passa para alguém da equipe.</p>
         </div>
         <div class="card" id="k1" data-reveal>
           <i class="pin top" data-path="b" data-say=""></i><i class="pin bot" data-path="b" data-say="01 · respondido às 19:02"></i>
@@ -536,7 +536,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
             </div>
             <div class="slot"><div class="day"><small>qui</small><b>9:00</b></div><div><b>Avaliação · lead novo</b><small>marcado pelo agente às 19:04</small></div></div>
             <dl class="lines">
-              <div><dt>Confirmação</dt><dd>48h antes, pelo WhatsApp</dd></div>
+              <div><dt>Confirmação</dt><dd>enviada às 19:04, pelo WhatsApp</dd></div>
               <div><dt>Lembrete</dt><dd>2h antes, com endereço</dd></div>
             </dl>
           </div>
@@ -549,7 +549,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
         <div class="copy" data-reveal>
           <p class="eyebrow cap">04 · registrar</p>
           <h2 class="title sm"><span class="ln">No CRM,</span><span class="ln hi">com a conversa.</span></h2>
-          <p class="lead">A recepção chega às 8h e encontra o lead agendado, com origem e histórico. Ninguém precisou lembrar de anotar.</p>
+          <p class="lead">De manhã, o lead já está lá: agendado, com origem e histórico. Ninguém precisou lembrar de anotar.</p>
           <p class="stack-note cap">n8n · Evolution API · Chatwoot · Postgres. O dado é seu.</p>
         </div>
         <div class="card" id="k4" data-reveal>
@@ -571,7 +571,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
     <section id="c-week" data-chap="a semana">
       <div class="wrap gutter">
         <div class="week-t" data-reveal>
-          <p class="eyebrow cap">cada ponto é um horário marcado</p>
+          <p class="eyebrow cap">semana ilustrativa · cada ponto é um horário marcado</p>
           <h2 class="title sm"><span class="ln">A recepção chega às 8h</span><span class="ln hi">com a agenda andando.</span></h2>
         </div>
         <i class="pin lane mob" data-path="b"></i>
@@ -588,7 +588,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
       <div class="more">
         <div data-reveal="section">
           <h2 class="title"><span class="ln">E a próxima</span><span class="ln">mensagem também</span><span class="ln">não espera.</span></h2>
-          <p class="lead">Clique na tela. Cada clique traz mais uma.</p>
+          <p class="lead">Toque ou clique na tela. A cada vez, chega mais uma.</p>
         </div>
       </div>
     </section>
@@ -621,7 +621,7 @@ noscript{position:fixed;inset:0;z-index:9;display:grid;place-items:center;paddin
 
 <header id="top" data-tone="dark">
   <a id="logo" href="#" aria-label="Sapient.IA, voltar ao início"><i></i>Sapient.IA</a>
-  <div id="who" class="cap">mensagem · <b id="who-o">origem: ???</b> · <span id="who-t">00:00</span></div>
+  <div id="who" class="cap">mensagem · <b id="who-o">origem: não informada</b> · <span id="who-t">00:00</span></div>
   <a id="go" href="https://wa.me/5511920795583?text=Oi%2C%20vim%20pela%20p%C3%A1gina%20da%20mensagem%20das%2019h.">WhatsApp</a>
 </header>
 
@@ -986,13 +986,13 @@ if (!origin && document.referrer) {
 }
 const hasOrigin = !!origin;
 origin = origin.slice(0, 60);
-const idleTag = "origem: " + (hasOrigin ? origin : "???");
+const idleTag = "origem: " + (hasOrigin ? origin : "não informada");
 q("#who-o").textContent = idleTag;
 q("#f-orig").textContent = hasOrigin ? origin : "não informada";
 {
   const t = q("#trace"), parts = hasOrigin
     ? ["Origem registrada: ", ["b", origin], ". É o mesmo rastro que o CRM guarda de cada lead quando atendimento e anúncio estão ligados. Fica só no seu navegador."]
-    : ["Esta visita chegou ", ["b", "sem origem"], ". Teste com ?utm_source=linkedin no fim do endereço e veja a ficha mudar. Nada sai do seu navegador."];
+    : ["Esta visita chegou ", ["b", "sem origem"], ". Quem chega por anúncio ou link de campanha traz a origem junto, e o CRM guarda isso em cada lead. Esta página não envia essa ficha para lugar nenhum."];
   parts.forEach(p => { if (Array.isArray(p)) { const b = document.createElement("b"); b.textContent = p[1]; t.appendChild(b); } else t.appendChild(document.createTextNode(p)); });
 }
 const mmss = s => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
