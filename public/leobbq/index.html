@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <title>Leo BBQ | Barbecue americano para eventos e para a sua mesa em São Paulo</title>
-<meta name="description" content="Defumação artesanal de padrão competitivo em São Paulo. Eventos corporativos, aniversários e casamentos com o pit à vista, e brisket, pork ribs, torresmo de rolo e beef ribs prontos para esquentar e servir.">
+<meta name="description" content="Defumação artesanal de padrão competitivo em São Paulo. Eventos corporativos, aniversários e casamentos com o pit à vista, e brisket, pork ribs, torresmo de rolo, beef ribs e cupim prontos para esquentar e servir.">
 <link rel="canonical" href="https://sapientiabr.cloud/leobbq/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Leo BBQ | Tempo é ingrediente.">
@@ -88,10 +88,10 @@ main,footer{position:relative;z-index:2}
 /* ============ HERO ============ */
 .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);background:var(--pit)}
 .hero .copy{grid-column:1/-1;grid-row:1;min-width:0;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(96px,14vh,150px) var(--gut) clamp(48px,8vh,90px)}
-.hero .selo-wrap{position:relative;align-self:flex-start;margin-bottom:clamp(22px,4vh,44px)}
-.hero .selo-wrap::before{content:"";position:absolute;inset:-48%;border-radius:50%;background:radial-gradient(circle,#000 52%,rgba(0,0,0,0) 72%);pointer-events:none}
-.hero .selo{position:relative;display:block;width:clamp(160px,13vw,210px);height:auto;opacity:0;transform:scale(.96);transition:opacity 1.2s .35s,transform 1.6s var(--out) .35s}
-.hero h1{font-size:var(--h1);color:var(--creme);margin-left:-.04em;text-shadow:0 8px 60px rgba(0,0,0,.55)}
+.hero .selo-wrap{position:relative;z-index:0;align-self:flex-start;margin-top:clamp(-40px,-3vh,-12px);margin-bottom:clamp(40px,7vh,76px)}
+.hero .selo-wrap::before{content:"";position:absolute;inset:-22%;border-radius:50%;background:radial-gradient(circle,#000 58%,rgba(0,0,0,0) 72%);pointer-events:none}
+.hero .selo{position:relative;display:block;width:clamp(160px,13vw,210px);height:auto;border-radius:50%;opacity:0;transform:scale(.96);transition:opacity 1.2s .35s,transform 1.6s var(--out) .35s}
+.hero h1{position:relative;z-index:1;font-size:var(--h1);color:var(--creme);margin-left:-.04em;text-shadow:0 8px 60px rgba(0,0,0,.55)}
 .hero h1 .l{display:block;overflow:hidden;padding:.16em 0 .04em;margin-top:-.16em}
 .hero h1 .l>span{display:block;transform:translateY(105%);transition:transform 1.25s var(--out)}
 .hero h1 .l:nth-child(2)>span{transition-delay:.12s}
@@ -321,7 +321,7 @@ html:not(.js) .hora,html:not(.js) .etapa .texto p,html:not(.js) .trilha .fim p{c
     </div>
     <div class="foto">
       <img src="/leobbq/video/hero.jpg" alt="" fetchpriority="high">
-      <video id="hero-v" src="/leobbq/video/hero.mp4" poster="/leobbq/video/hero.jpg" muted loop playsinline autoplay preload="auto" aria-label="Chamas na fornalha, o Léo no pit, o corte do brisket e o anel rosado"></video>
+      <video id="hero-v" src="/leobbq/video/hero.mp4" poster="/leobbq/video/hero.jpg" muted loop playsinline autoplay preload="auto" aria-label="Chamas na fornalha, o Léo no pit, o corte do brisket e o cupim fatiado"></video>
     </div>
     <div class="scroll"><i></i>Role para acender o pit</div>
   </section>
@@ -381,7 +381,7 @@ html:not(.js) .hora,html:not(.js) .etapa .texto p,html:not(.js) .trilha .fim p{c
       <img src="/leobbq/img/rotulos-m.webp" alt="Pacotes a vácuo com o rótulo Leo BBQ, defumado com lenha frutífera" loading="lazy">
       <div>
         <h2 class="display">Smoked Meats</h2>
-        <p>Brisket, pork ribs, torresmo de rolo e beef ribs, embalados a vácuo e entregues em São Paulo.</p>
+        <p>Brisket, pork ribs, torresmo de rolo, beef ribs e cupim, embalados a vácuo e entregues em São Paulo.</p>
         <span class="ir">Ver o cardápio</span>
       </div>
     </a>
@@ -429,7 +429,7 @@ html:not(.js) .hora,html:not(.js) .etapa .texto p,html:not(.js) .trilha .fim p{c
       <p class="lead">Você esquenta. O resto já foi feito.</p>
       <div class="menu">
         <article class="prato">
-          <figure><img src="/leobbq/img/anel-m.webp" alt="Fatias de brisket com o anel rosado de defumação" loading="lazy"></figure>
+          <figure><img src="/leobbq/img/brisket-bone-m.webp" alt="Fatia de brisket com bark e anel rosado, na frente do boné Leo BBQ" loading="lazy"></figure>
           <div><h3>Brisket</h3><p>Peito bovino inteiro, só sal e pimenta, defumado por cerca de 14 horas. Rende de 6 a 8 porções.</p></div>
         </article>
         <article class="prato">
@@ -444,10 +444,14 @@ html:not(.js) .hora,html:not(.js) .etapa .texto p,html:not(.js) .trilha .fim p{c
           <figure><img src="/leobbq/img/beef-ribs-m.webp" alt="Beef ribs com crosta de pimenta, na frente do termômetro do pit" loading="lazy"></figure>
           <div><h3>Beef ribs</h3><p>Costela bovina com crosta de pimenta, horas no fogo baixo.</p></div>
         </article>
+        <article class="prato">
+          <figure><img src="/leobbq/img/anel-m.webp" alt="Fatias de cupim defumado com o anel rosado e a crosta escura" loading="lazy"></figure>
+          <div><h3>Cupim</h3><p>A corcova do boi, gordura entremeada que derrete em horas de fumaça. Sai com crosta escura e anel rosado.</p></div>
+        </article>
       </div>
       <div class="nota">
         <div>
-          <p>Também sai pulled pork, cupim e maminha. Pergunte o que tem no pit esta semana.</p>
+          <p>Também sai pulled pork e maminha. Pergunte o que tem no pit esta semana.</p>
           <ul class="selos-info"><li>Defumado com lenha frutífera</li><li>Embalado a vácuo e congelado</li><li>Entrega em São Paulo</li><li>Pedido pelo WhatsApp</li></ul>
         </div>
         <a class="btn escuro" data-wa="defumados" href="https://wa.me/5511980580878" target="_blank" rel="noopener">Encomendar defumados</a>
@@ -496,7 +500,7 @@ html:not(.js) .hora,html:not(.js) .etapa .texto p,html:not(.js) .trilha .fim p{c
     <div class="trilho" id="trilho">
       <figure class="v"><video src="/leobbq/video/ribs.mp4" poster="/leobbq/video/ribs.jpg" muted loop playsinline preload="none" aria-label="Pork ribs glaceadas na tábua"></video></figure>
       <figure class="p"><img src="/leobbq/img/burnt-m.webp" alt="Burnt ends glaceados" loading="lazy"></figure>
-      <figure class="p"><img src="/leobbq/img/brisket-bone-m.webp" alt="Fatia de brisket com bark e anel rosado, na frente do boné Leo BBQ" loading="lazy"></figure>
+      <figure class="p"><img src="/leobbq/img/anel-m.webp" alt="Fatias de cupim defumado com o anel rosado" loading="lazy"></figure>
       <figure class="v"><video src="/leobbq/video/maciez.mp4" poster="/leobbq/video/maciez.jpg" muted loop playsinline preload="none" aria-label="Fatia de brisket se desfazendo entre os dedos"></video></figure>
       <figure class="l"><img src="/leobbq/img/queijo-m.webp" alt="Corte com crosta de queijo, aberto ao meio" loading="lazy"></figure>
       <figure class="p"><img src="/leobbq/img/fatias-m.webp" alt="Fatias de carne com sal grosso" loading="lazy"></figure>
