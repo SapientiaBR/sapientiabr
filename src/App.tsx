@@ -18,6 +18,12 @@ const Sequencial = () => {
   return null;
 };
 
+// /leobbq também é estático (public/leobbq/), pelo mesmo motivo.
+const LeoBBQ = () => {
+  window.location.replace("/leobbq/index.html" + window.location.search + window.location.hash);
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -30,6 +36,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/newsletter" element={<Newsletter />} />
             <Route path="/sequencial" element={<Sequencial />} />
+            <Route path="/leobbq" element={<LeoBBQ />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
