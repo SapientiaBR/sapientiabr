@@ -1,4 +1,5 @@
 import React from 'react';
+import { waLink } from "@/lib/whatsapp";
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Calendar, Linkedin, Instagram } from 'lucide-react';
 import { RevealOnScroll, RevealText } from '@/motion';
@@ -35,7 +36,7 @@ const ContactSection = () => {
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-ink-primary mb-1">Falar no WhatsApp</h4>
                       <a
-                        href="https://wa.me/5511920795583"
+                        href={waLink()}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-ink-secondary hover:text-ink-primary transition-colors"

@@ -1,4 +1,5 @@
 
+import { waLink } from "@/lib/whatsapp";
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Bot } from 'lucide-react';
@@ -58,7 +59,7 @@ const NoctuaBotSection = () => {
               <Magnetic>
                 <Button
                   className="bg-gradient-sapient hover:opacity-90 text-ink-on-brand font-medium py-6 px-6"
-                  onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
+                  onClick={() => window.open(waLink(), "_blank")}
                 >
                   <Bot className="w-5 h-5 mr-2" />
                   Conhecer o Otus
