@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { waLink } from "@/lib/whatsapp";
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import sapientLogo from '@/assets/sapient-logo.png';
@@ -63,7 +64,7 @@ const Navbar = () => {
           <ThemeToggle />
           <Button
             className="bg-gradient-sapient hover:opacity-90 transition-opacity"
-            onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
+            onClick={() => window.open(waLink(), "_blank")}
           >
             Agendar diagnóstico
           </Button>
@@ -132,7 +133,7 @@ const Navbar = () => {
             </a>
             <Button
               className="bg-gradient-sapient hover:opacity-90 transition-opacity w-full"
-              onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
+              onClick={() => window.open(waLink(), "_blank")}
             >
               Agendar diagnóstico
             </Button>

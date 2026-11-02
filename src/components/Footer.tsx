@@ -1,4 +1,5 @@
 import React from 'react';
+import { waLink } from "@/lib/whatsapp";
 import { Linkedin, Instagram, MessageCircle, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import sapientLogo from '@/assets/sapient-logo.png';
@@ -47,7 +48,7 @@ const Footer = () => {
               <Instagram className="w-6 h-6" />
             </a>
             <a
-              href="https://wa.me/5511920795583"
+              href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="text-ink-secondary hover:text-ink-primary transition-colors"
