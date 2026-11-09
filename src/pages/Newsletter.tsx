@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
 import { toast } from 'sonner';
 import { ArrowLeft, Check, MailCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Seo } from '@/seo/Seo';
+import { ROUTES } from '@/seo/site';
+import { newsletterJsonLd } from '@/seo/schema';
 import expressoLogo from '@/assets/expresso-ia-logo.webp';
 
 const emailSchema = z
@@ -22,22 +25,6 @@ const Newsletter = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    document.title = 'Expresso IA · Newsletter da Sapient.IA';
-    const meta =
-      document.querySelector('meta[name="description"]') ??
-      (() => {
-        const m = document.createElement('meta');
-        m.setAttribute('name', 'description');
-        document.head.appendChild(m);
-        return m;
-      })();
-    meta.setAttribute(
-      'content',
-      'Assine o Expresso IA: a newsletter da Sapient.IA com automação inteligente e IA aplicada a negócios, direto ao ponto.'
-    );
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,6 +60,12 @@ const Newsletter = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col text-slate-900">
+      <Seo
+        title={ROUTES.newsletter.title}
+        description={ROUTES.newsletter.description}
+        path={ROUTES.newsletter.path}
+        jsonLd={newsletterJsonLd()}
+      />
       <header className="px-5 py-3">
         <Link
           to="/"

@@ -1,14 +1,61 @@
+# Sapient.IA - https://sapientiabr.cloud
+# Buscadores e assistentes de IA são bem-vindos. As regras abaixo são explícitas
+# para que nenhuma ferramenta precise adivinhar.
+
+User-agent: *
+Allow: /
+
+# Buscadores
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+# OpenAI: OAI-SearchBot e ChatGPT-User cuidam da busca e das respostas do ChatGPT;
+# GPTBot coleta para treino de modelos.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini e AI Overviews; Google-Extended controla só o uso para treino)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Redes sociais (pré-visualização de link)
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Sitemap: https://sapientiabr.cloud/sitemap.xml

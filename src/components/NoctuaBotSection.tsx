@@ -85,7 +85,7 @@ const NoctuaBotSection = () => {
                 <span aria-hidden="true" className="otus-pulse otus-pulse--late" />
                 <img
                   src={otusLogo}
-                  alt="Otus"
+                  alt="Otus, agente de IA da Sapient.IA"
                   loading="lazy"
                   className="otus-avatar relative z-10 h-full w-full object-contain drop-shadow-2xl"
                 />

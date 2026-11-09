@@ -4,19 +4,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sapient.IA | Soluções de Automação Inteligente</title>
-    <meta name="description" content="Automatize seu negócio com IA. Atendimento 24/7, agendamentos automáticos, gestão de redes sociais e muito mais. Reduza custos e aumente seus resultados." />
-    <meta name="author" content="Sapient.IA" />
+    <!-- Título, description, canonical, og:* e JSON-LD saem por rota:
+         src/seo/Seo.tsx no navegador, plugins/prerender.ts no HTML estático.
+         O bloco entre os marcadores é substituído no build; não coloque
+         meta de página aqui, ou ela aparece duplicada. -->
+    <!--seo-head-start--><title>Sapient.IA</title><!--seo-head-end-->
 
-    <meta property="og:title" content="Sapient.IA | Soluções de Automação Inteligente" />
-    <meta property="og:description" content="Automatize seu negócio com IA. Atendimento 24/7, agendamentos automáticos, gestão de redes sociais e muito mais." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/lovable-uploads/c31755cd-4460-4a4c-9fee-bf80629fc090.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@sapient_ia" />
-    <meta name="twitter:image" content="/lovable-uploads/c31755cd-4460-4a4c-9fee-bf80629fc090.png" />
-    
     <link rel="icon" type="image/png" href="/lovable-uploads/c31755cd-4460-4a4c-9fee-bf80629fc090.png" />
     <!-- As fontes agora são auto-hospedadas (src/design/fonts.css); nada de
          Google Fonts, nenhuma requisição a terceiro no caminho da primeira
@@ -37,7 +30,7 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
