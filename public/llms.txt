@@ -1,0 +1,41 @@
+# Sapient.IA
+
+> Agência brasileira de automação com IA, em São Paulo. Cria agentes de IA para WhatsApp, automações e integrações entre CRM, agenda, pagamentos e sistemas internos, e sites institucionais ligados ao funil de vendas. Site oficial: https://sapientiabr.cloud
+
+Sapient.IA, também escrita Sapient.IA Automation Solutions, desenha sistemas operacionais conectados para empresas que não podem perder leads, contexto ou tempo em tarefas manuais. A equipe entende o fluxo que o time já usa e conecta os pontos soltos, em vez de encaixar uma ferramenta nova na rotina.
+
+Atende operações que usam WhatsApp, e-mail, redes sociais, agenda e CRM: escritórios de advocacia, clínicas e consultórios, agências, empresas de viagens, imobiliárias e serviços B2B.
+
+Não confundir com outras empresas de nome parecido, como a Publicis Sapient e a Sapient AG2. O endereço desta é sapientiabr.cloud.
+
+## O que a Sapient.IA faz
+
+- [Agentes de IA](https://sapientiabr.cloud/#services): atendem, tiram dúvidas e coletam informações no WhatsApp, no site e nas redes sociais, dentro das regras do negócio.
+- [Agenda conectada](https://sapientiabr.cloud/#services): agendamentos, confirmações e lembretes integrados à disponibilidade e ao histórico do cliente.
+- [Propostas e contratos](https://sapientiabr.cloud/#services): documentos, aprovações e próximas etapas acionados a partir do que acontece no funil.
+- [Operação integrada](https://sapientiabr.cloud/#services): CRM, formulários, agenda, pagamentos e ferramentas internas em um fluxo que a equipe acompanha.
+- [Follow-up inteligente](https://sapientiabr.cloud/#services): o sistema cria tarefas e mensagens no momento certo, sem depender da memória do SDR.
+- [CRM com contexto](https://sapientiabr.cloud/#services): conversas, dados do lead e etapas do processo no mesmo lugar, para atendimento e comercial verem a mesma história.
+- [Captação de leads](https://sapientiabr.cloud/#services): cada lead recebido vai para o CRM, é qualificado e segue para a próxima ação.
+- [Sites institucionais](https://sapientiabr.cloud/#services): sites e landing pages pensados para mobile e integrados ao funil desde o primeiro clique.
+
+## Otus, o agente de IA
+
+- [Otus](https://sapientiabr.cloud/#otus): agente de IA configurado para a operação de cada cliente. Conversa com clientes, organiza dados e aciona os próximos passos que o cliente definir, incluindo agenda, CRM e tarefas, com limites e encaminhamentos definidos por ele.
+
+## Como o trabalho começa
+
+- [Perguntas frequentes](https://sapientiabr.cloud/#faq): todo projeto começa com um diagnóstico do fluxo atual. Depois a equipe define os fluxos, conecta as ferramentas, testa e prepara o time do cliente para acompanhar a nova rotina. O valor depende dos fluxos, sistemas e canais envolvidos e é apresentado em proposta, depois do diagnóstico.
+
+## Contato
+
+- [Falar no WhatsApp](https://wa.me/5511920795583): (11) 92079-5583
+- [Agendar um diagnóstico](https://bit.ly/40BtBp2)
+- [LinkedIn](https://www.linkedin.com/in/sapient-ia-automation-solutions-b397b7348)
+- [Instagram](https://www.instagram.com/sapientia.br): @sapientia.br
+
+## Opcional
+
+- [Expresso IA, a newsletter da Sapient.IA](https://sapientiabr.cloud/newsletter): IA aplicada e automação, direto no e-mail.
+- [Texto completo da página inicial](https://sapientiabr.cloud/llms-full.txt)
+- [Secretária Invisível](https://secretariainvisivel.com.br/): solução dedicada à rotina de atendimento em saúde, para clínicas e consultórios.

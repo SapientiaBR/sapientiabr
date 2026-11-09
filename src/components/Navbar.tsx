@@ -34,11 +34,11 @@ const Navbar = () => {
         <a href="#" className="flex items-center">
           <img
             src={sapientLogo}
-            alt="Sapient.IA Logo"
+            alt=""
             className="h-10"
           />
           <div className="ml-2">
-            <h1 className="text-ink-primary text-xl font-bold">SAPIENT.IA</h1>
+            <p className="text-ink-primary text-xl font-bold">SAPIENT.IA</p>
             <p className="text-ink-secondary text-xs tracking-[0.18em] font-label">AUTOMATION SOLUTIONS</p>
           </div>
         </a>

@@ -12,6 +12,9 @@ import FAQSection from '@/components/FAQSection';
 import GuaranteeSection from '@/components/GuaranteeSection';
 import FinalCTASection from '@/components/FinalCTASection';
 import Footer from '@/components/Footer';
+import { Seo } from '@/seo/Seo';
+import { ROUTES } from '@/seo/site';
+import { homeJsonLd } from '@/seo/schema';
 import { SectionRail, RevealOnScroll, Magnetic, type RailSection } from '@/motion';
 
 /** Âncoras do rail lateral. A ordem espelha a da página. */
@@ -28,6 +31,12 @@ const RAIL: RailSection[] = [
 const Index = () => {
   return (
     <div className="bg-sapient-deep min-h-screen">
+      <Seo
+        title={ROUTES.home.title}
+        description={ROUTES.home.description}
+        path={ROUTES.home.path}
+        jsonLd={homeJsonLd()}
+      />
       <Navbar />
       <SectionRail sections={RAIL} />
       <HeroSection />

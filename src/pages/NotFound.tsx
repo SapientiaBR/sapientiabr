@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Magnetic } from "@/motion";
+import { NotFoundSeo } from "@/seo/Seo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,6 +16,7 @@ const NotFound = () => {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-sapient-deep px-4">
+      <NotFoundSeo />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-hero-radial" />
 
       <div className="relative z-10 text-center">
