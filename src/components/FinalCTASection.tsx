@@ -51,7 +51,7 @@ const FinalCTASection = () => {
             href="https://bit.ly/40BtBp2"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 h-14 px-8 bg-gradient-sapient hover:opacity-90 transition-opacity text-ink-on-brand rounded-md font-semibold text-lg shadow-lg shadow-purple-500/30"
+            className="inline-flex items-center gap-2 h-14 px-8 bg-gradient-sapient transition-colors text-ink-on-brand rounded-md font-semibold text-lg"
           >
             Agendar um diagnóstico
             <ArrowRight className="w-5 h-5" />

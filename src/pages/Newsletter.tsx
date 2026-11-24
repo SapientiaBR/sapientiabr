@@ -87,7 +87,7 @@ const Newsletter = () => {
 
           {success ? (
             <div className="mt-4">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-50 text-green-600 mb-3">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#2E8063]/10 text-[#2E8063] mb-3">
                 <MailCheck className="w-7 h-7" />
               </div>
               <h1 className="text-xl md:text-2xl font-bold text-slate-900">
@@ -107,7 +107,7 @@ const Newsletter = () => {
                 </Link>
                 <Button
                   onClick={() => setSuccess(false)}
-                  className="h-11 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white w-full sm:w-auto"
+                  className="h-11 px-6 bg-gradient-sapient transition-colors text-ink-on-brand w-full sm:w-auto"
                 >
                   Inscrever outro e-mail
                 </Button>
@@ -124,7 +124,7 @@ const Newsletter = () => {
               <ul className="mt-5 hidden sm:flex sm:flex-row sm:flex-wrap sm:justify-center gap-3 sm:gap-x-6 sm:gap-y-2 text-sm text-slate-700">
                 {benefits.map((b) => (
                   <li key={b} className="flex items-center gap-2 justify-center">
-                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gradient-sapient text-white shrink-0">
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gradient-sapient text-ink-on-brand shrink-0">
                       <Check className="w-3 h-3" strokeWidth={3} />
                     </span>
                     {b}
@@ -149,7 +149,7 @@ const Newsletter = () => {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="h-11 px-6 bg-gradient-sapient hover:opacity-90 transition-opacity text-white"
+                  className="h-11 px-6 bg-gradient-sapient transition-colors text-ink-on-brand"
                 >
                   {loading ? 'Enviando...' : 'Quero receber'}
                 </Button>

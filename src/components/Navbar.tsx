@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import sapientLogo from '@/assets/sapient-logo.png';
+import owlEscuro from '@/assets/sapient-owl.webp';
+import owlClaro from '@/assets/sapient-owl-claro.webp';
+import { useThemeValue } from '@/theme/useTheme';
 
 const Navbar = () => {
+  // Símbolo prata no escuro, Azul Sideral no claro (ouro nos detalhes nos dois).
+  const owl = useThemeValue() === 'light' ? owlClaro : owlEscuro;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -33,12 +37,14 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center">
           <img
-            src={sapientLogo}
+            src={owl}
             alt=""
-            className="h-10"
+            width={30}
+            height={40}
+            className="h-10 w-auto"
           />
           <div className="ml-2">
-            <p className="text-ink-primary text-xl font-bold">SAPIENT.IA</p>
+            <p className="text-ink-primary text-xl font-bold">SAPIENT<span className="text-purple-300">.IA</span></p>
             <p className="text-ink-secondary text-xs tracking-[0.18em] font-label">AUTOMATION SOLUTIONS</p>
           </div>
         </a>
@@ -62,7 +68,7 @@ const Navbar = () => {
           </a>
           <ThemeToggle />
           <Button
-            className="bg-gradient-sapient hover:opacity-90 transition-opacity"
+            className="bg-gradient-sapient text-ink-on-brand transition-colors"
             onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
           >
             Agendar diagnóstico
@@ -131,7 +137,7 @@ const Navbar = () => {
               Contato
             </a>
             <Button
-              className="bg-gradient-sapient hover:opacity-90 transition-opacity w-full"
+              className="bg-gradient-sapient text-ink-on-brand transition-colors w-full"
               onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
             >
               Agendar diagnóstico

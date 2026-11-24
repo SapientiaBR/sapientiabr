@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { ScrollTrigger } from '@/motion/gsap';
 import { prefersReducedMotion } from '@/motion/useReducedMotion';
-import sapientLogo from '@/assets/sapient-logo.png';
+import logoEscuro from '@/assets/sapient-logo.png';
+import logoClaro from '@/assets/sapient-logo-claro.png';
+import { useThemeValue } from '@/theme/useTheme';
 import type { OwlSceneHandle } from './owlScene';
 
 /** WebGL disponível de fato? Alguns ambientes expõem a API sem contexto real. */
@@ -24,10 +26,10 @@ function isLowPower(): boolean {
 }
 
 /** Fallback: a própria logo, estática. */
-function StaticLogo({ className }: { className?: string }) {
+function StaticLogo({ className, src }: { className?: string; src: string }) {
   return (
     <img
-      src={sapientLogo}
+      src={src}
       alt="Sapient.IA"
       className={className}
       style={{ width: 'min(280px, 60vw)', height: 'auto' }}
@@ -47,6 +49,8 @@ interface OwlParticlesProps {
  * estática quando não há WebGL ou quando o usuário pediu menos movimento.
  */
 export function OwlParticles({ scrollTriggerRef }: OwlParticlesProps) {
+  // Prata e ouro no escuro; coruja Azul Sideral (ouro nos detalhes) no claro.
+  const sapientLogo = useThemeValue() === 'light' ? logoClaro : logoEscuro;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [fallback, setFallback] = useState(
@@ -108,12 +112,12 @@ export function OwlParticles({ scrollTriggerRef }: OwlParticlesProps) {
       trigger?.kill();
       handle?.dispose();
     };
-  }, [fallback, scrollTriggerRef]);
+  }, [fallback, scrollTriggerRef, sapientLogo]);
 
   if (fallback) {
     return (
       <div ref={wrapRef} className="flex items-center justify-center">
-        <StaticLogo />
+        <StaticLogo src={sapientLogo} />
       </div>
     );
   }

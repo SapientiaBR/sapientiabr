@@ -128,15 +128,16 @@ export default {
 				 * tambem para os filetes e veus (`border-ink-primary/10`,
 				 * `bg-ink-primary/5`), que antes eram branco fixo e sumiam no claro.
 				 *
-				 * `on-brand` e o oposto: branco nos dois temas. E a cor do texto por
-				 * cima do gradiente da marca, que nao muda de fundo quando o tema vira.
+				 * `on-brand` e Azul Sideral nos dois temas: e a cor do texto por cima do
+				 * botao ouro, que nao muda de fundo quando o tema vira (branco sobre ouro
+				 * nao passa contraste).
 				 */
 				ink: {
 					primary: 'rgb(var(--text-primary-rgb) / <alpha-value>)',
 					secondary: 'rgb(var(--text-secondary-rgb) / <alpha-value>)',
 					muted: 'rgb(var(--text-muted-rgb) / <alpha-value>)',
 					hint: 'rgb(var(--text-hint-rgb) / <alpha-value>)',
-					'on-brand': '#ffffff'
+					'on-brand': 'rgb(var(--on-brand-rgb) / <alpha-value>)'
 				}
 			},
 			borderRadius: {
@@ -194,7 +195,7 @@ export default {
 				'card-cyan': 'rgb(var(--gradient-card-cyan-rgb) / <alpha-value>)'
 			},
 			textColor: {
-				'gradient-sapient': 'linear-gradient(90deg, #9b87f5 0%, #33C3F0 100%)'
+				'gradient-sapient': '#D6A83E'
 			}
 		}
 	},

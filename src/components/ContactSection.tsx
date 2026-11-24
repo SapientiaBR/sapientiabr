@@ -21,16 +21,16 @@ const ContactSection = () => {
 
           <RevealOnScroll stagger="[data-contact-col]" staggerAmount={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div data-contact-col className="flex flex-col justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-sapient-purple/30 to-sapient-blue/20 rounded-2xl -z-10 blur-lg opacity-50"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-ink-primary/10 to-ink-primary/5 rounded-2xl -z-10 blur-lg opacity-50"></div>
               <div className="bg-sapient-surface/70 backdrop-blur-md rounded-2xl border border-ink-primary/10 p-8 relative z-10 transform transition-all hover:scale-[1.01] duration-300">
                 <h3 className="text-2xl font-bold mb-8 text-ink-primary inline-flex items-center gap-2">
-                  <span className="w-2 h-8 bg-gradient-to-b from-sapient-purple to-sapient-blue rounded-full"></span>
+                  <span className="w-2 h-8 bg-sapient-purple rounded-full"></span>
                   <em className="accent">Contato</em>
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-5 group">
-                    <div className="bg-gradient-to-br from-sapient-purple to-sapient-purple/60 p-4 rounded-full h-min shadow-lg shadow-sapient-purple/20 group-hover:shadow-sapient-purple/40 transition-all duration-300">
-                      <MessageCircle className="w-6 h-6 text-ink-primary" />
+                    <div className="bg-gradient-to-br from-sapient-purple to-sapient-purple/60 p-4 rounded-full h-min shadow-lg shadow-black/20 group-hover:shadow-black/30 transition-all duration-300">
+                      <MessageCircle className="w-6 h-6 text-ink-on-brand" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-ink-primary mb-1">Falar no WhatsApp</h4>
@@ -46,8 +46,8 @@ const ContactSection = () => {
                   </div>
 
                   <div className="flex items-center gap-5 group">
-                    <div className="bg-gradient-to-br from-sapient-blue to-sapient-blue/60 p-4 rounded-full h-min shadow-lg shadow-sapient-blue/20 group-hover:shadow-sapient-blue/40 transition-all duration-300">
-                      <Calendar className="w-6 h-6 text-ink-primary" />
+                    <div className="bg-gradient-to-br from-sapient-blue to-sapient-blue/60 p-4 rounded-full h-min shadow-lg shadow-black/20 group-hover:shadow-black/30 transition-all duration-300">
+                      <Calendar className="w-6 h-6 text-ink-on-brand" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-ink-primary mb-1">Agendar uma Reunião</h4>
@@ -63,8 +63,8 @@ const ContactSection = () => {
                   </div>
 
                   <div className="flex items-center gap-5 group">
-                    <div className="bg-gradient-to-br from-sapient-purple to-sapient-purple/60 p-4 rounded-full h-min shadow-lg shadow-sapient-purple/20 group-hover:shadow-sapient-purple/40 transition-all duration-300">
-                      <Linkedin className="w-6 h-6 text-ink-primary" />
+                    <div className="bg-gradient-to-br from-sapient-purple to-sapient-purple/60 p-4 rounded-full h-min shadow-lg shadow-black/20 group-hover:shadow-black/30 transition-all duration-300">
+                      <Linkedin className="w-6 h-6 text-ink-on-brand" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-ink-primary mb-1">LinkedIn</h4>
@@ -80,8 +80,8 @@ const ContactSection = () => {
                   </div>
 
                   <div className="flex items-center gap-5 group">
-                    <div className="bg-gradient-to-br from-sapient-blue to-sapient-blue/60 p-4 rounded-full h-min shadow-lg shadow-sapient-blue/20 group-hover:shadow-sapient-blue/40 transition-all duration-300">
-                      <Instagram className="w-6 h-6 text-ink-primary" />
+                    <div className="bg-gradient-to-br from-sapient-blue to-sapient-blue/60 p-4 rounded-full h-min shadow-lg shadow-black/20 group-hover:shadow-black/30 transition-all duration-300">
+                      <Instagram className="w-6 h-6 text-ink-on-brand" />
                     </div>
                     <div className="transform transition-all group-hover:translate-x-1 duration-300">
                       <h4 className="text-xl font-medium text-ink-primary mb-1">Instagram</h4>

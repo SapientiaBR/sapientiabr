@@ -33,7 +33,7 @@ const NotFound = () => {
         <Magnetic>
           <Link
             to="/"
-            className="inline-flex h-12 items-center gap-2 rounded-md bg-gradient-sapient px-6 font-medium text-ink-on-brand transition-opacity hover:opacity-90"
+            className="inline-flex h-12 items-center gap-2 rounded-md bg-gradient-sapient px-6 font-medium text-ink-on-brand transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Voltar para o início

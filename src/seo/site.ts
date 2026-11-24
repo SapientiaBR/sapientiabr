@@ -7,12 +7,12 @@ export const SITE_URL = 'https://sapientiabr.cloud';
 export const SITE_NAME = 'Sapient.IA';
 export const SITE_LOCALE = 'pt_BR';
 
-/** PNG 1024x1024 já publicado. Trocar por 1200x630 melhora o cartão grande. */
+/** PNG 1200x630: lockup prata e ouro sobre Azul Sideral (public/og-sapientia.png). */
 export const OG_IMAGE = {
-  url: `${SITE_URL}/lovable-uploads/c31755cd-4460-4a4c-9fee-bf80629fc090.png`,
-  width: 1024,
-  height: 1024,
-  alt: 'Logo da Sapient.IA, uma coruja em linhas finas',
+  url: `${SITE_URL}/og-sapientia.png`,
+  width: 1200,
+  height: 630,
+  alt: 'Logo da Sapient.IA: coruja geométrica em prata e ouro sobre fundo azul-marinho',
 };
 
 export const SOCIAL = {

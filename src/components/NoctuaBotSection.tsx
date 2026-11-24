@@ -57,7 +57,7 @@ const NoctuaBotSection = () => {
             <div className="flex justify-center">
               <Magnetic>
                 <Button
-                  className="bg-gradient-sapient hover:opacity-90 text-ink-on-brand font-medium py-6 px-6"
+                  className="bg-gradient-sapient text-ink-on-brand font-medium py-6 px-6"
                   onClick={() => window.open("https://wa.me/5511920795583", "_blank")}
                 >
                   <Bot className="w-5 h-5 mr-2" />

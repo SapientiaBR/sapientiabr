@@ -36,7 +36,7 @@ const ServicesSection = () => {
               glowColor={index % 2 === 0 ? 'green' : 'blue'}
               tone="success"
               customSize
-              className="feature-flat h-full !flex !flex-col !grid-rows-none p-0 transition-transform duration-300 md:p-6 md:hover:-translate-y-1 md:shadow-[0_18px_48px_-34px_rgba(52,211,153,0.55)]"
+              className="feature-flat h-full !flex !flex-col !grid-rows-none p-0 transition-transform duration-300 md:p-6 md:hover:-translate-y-1 md:shadow-[0_18px_48px_-34px_rgba(4,10,24,0.7)]"
             >
               <div
                 className={`mb-2 flex items-center gap-3 md:mb-4 md:justify-center md:rounded-xl md:bg-gradient-to-br md:px-4 md:py-3 ${service.color}`}

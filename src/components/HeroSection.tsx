@@ -78,7 +78,7 @@ const HeroSection = () => {
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Magnetic>
                   <Button
-                    className="bg-gradient-sapient px-8 py-6 text-lg font-medium text-ink-on-brand transition-opacity hover:opacity-90"
+                    className="bg-gradient-sapient px-8 py-6 text-lg font-medium text-ink-on-brand transition-colors"
                     onClick={() => window.open("https://bit.ly/40BtBp2", "_blank")}
                   >
                     Agendar um diagnóstico

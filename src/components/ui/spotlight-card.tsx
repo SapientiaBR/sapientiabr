@@ -11,12 +11,19 @@ interface GlowCardProps {
   customSize?: boolean;
 }
 
+/**
+ * Sideral Gold: os cinco nomes continuam (os componentes não mudam), os
+ * valores viraram a paleta. `blue` é prata-azulado, `purple` e `green` são
+ * ouro, `red` e `orange` são o vermelho discreto dos cards de problema. O
+ * `spread` curto mantém o brilho na mesma família ao mover o cursor, em vez de
+ * percorrer o arco-íris; `sat` e `light` seguram a saturação baixa.
+ */
 const glowColorMap = {
-  blue: { base: 220, spread: 200 },
-  purple: { base: 280, spread: 300 },
-  green: { base: 120, spread: 200 },
-  red: { base: 0, spread: 200 },
-  orange: { base: 30, spread: 200 }
+  blue: { base: 214, spread: 8, sat: 20, light: 78 },
+  purple: { base: 41, spread: 6, sat: 62, light: 58 },
+  green: { base: 41, spread: 6, sat: 62, light: 58 },
+  red: { base: 8, spread: 6, sat: 42, light: 62 },
+  orange: { base: 12, spread: 6, sat: 40, light: 62 }
 };
 
 /**
@@ -114,7 +121,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
     return unsubscribePointer;
   }, []);
 
-  const { base, spread } = glowColorMap[glowColor];
+  const { base, spread, sat, light } = glowColorMap[glowColor];
   const surface = toneMap[tone];
 
   const getSizeClasses = () => {
@@ -126,6 +133,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
     const baseStyles: Record<string, any> = {
       '--base': base,
       '--spread': spread,
+      '--saturation': sat,
+      '--lightness': light,
       '--radius': '14',
       '--border': '3',
       '--backdrop': surface.backdrop,
@@ -196,7 +205,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
         calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
         calc(var(--x, 0) * 1px)
         calc(var(--y, 0) * 1px),
-        hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
+        hsl(0 0% 100% / var(--border-light-opacity, 0.5)), transparent 100%
       );
     }
     
@@ -242,7 +251,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           relative 
           grid 
           grid-rows-[1fr_auto] 
-          shadow-[0_1rem_2rem_-1rem_black] 
+          shadow-[0_1rem_2rem_-1rem_rgba(4,10,24,0.8)] 
           p-4 
           gap-4 
           backdrop-blur-[5px]
