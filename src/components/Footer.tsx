@@ -1,10 +1,13 @@
 import React from 'react';
 import { Linkedin, Instagram, MessageCircle, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import sapientLogo from '@/assets/sapient-logo.png';
+import owlEscuro from '@/assets/sapient-owl.webp';
+import owlClaro from '@/assets/sapient-owl-claro.webp';
+import { useThemeValue } from '@/theme/useTheme';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const owl = useThemeValue() === 'light' ? owlClaro : owlEscuro;
 
   return (
     <footer className="bg-sapient-deep py-16 border-t border-ink-primary/10">
@@ -13,12 +16,14 @@ const Footer = () => {
           <div className="max-w-md">
             <div className="flex items-center mb-6">
               <img
-                src={sapientLogo}
+                src={owl}
                 alt=""
-                className="h-8 mr-2"
+                width={24}
+                height={32}
+                className="h-8 w-auto mr-2"
               />
               <div>
-                <h3 className="text-ink-primary font-bold text-xl">SAPIENT.IA</h3>
+                <h3 className="text-ink-primary font-bold text-xl">SAPIENT<span className="text-purple-300">.IA</span></h3>
                 <p className="text-ink-secondary text-xs">AUTOMATION SOLUTIONS</p>
               </div>
             </div>

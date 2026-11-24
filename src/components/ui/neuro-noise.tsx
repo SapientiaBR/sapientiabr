@@ -294,28 +294,26 @@ void main() {
 }
 `
 
-// SAPIENT: paleta da marca no lugar da gerada (roxo escuro, magenta, creme).
-// Cada tema começa no próprio fundo da página e caminha até o ciano passando
-// pelos dois roxos — o mesmo trajeto do gradiente da marca, para o shader ler
-// como continuação da página e não como um bloco à parte.
+// SAPIENT (Sideral Gold): o campo é só azul. Cada tema começa no próprio fundo
+// da página e caminha em degraus do mesmo azul, sem matiz nova — o brilho
+// colorido saiu da marca e o shader precisa ler como continuação da página.
 //
-// O claro não é o escuro invertido: é o mesmo caminho com os degraus altos da
-// escala. Inverter daria um campo escuro numa página clara, que é exatamente o
-// borrão que se quer evitar atrás de um texto.
+// O claro não é o escuro invertido: é um caminho de papel para prata, para não
+// virar um campo escuro atrás do texto.
 const PALETAS: Record<"dark" | "light", [number, number, number][]> = {
-  //   #080d1a bg-deep · #5b21b6 purple-700 · #8b5cf6 purple-400 · #22d3ee cyan-400
+  //   #102344 bg-deep · #0A1830 · #1B3252 · #29466A Imperial
   dark: [
-    [0.0313725490, 0.0509803922, 0.1019607843],
-    [0.3568627451, 0.1294117647, 0.7137254902],
-    [0.5450980392, 0.3607843137, 0.9647058824],
-    [0.1333333333, 0.8274509804, 0.9333333333],
+    [0.0627450980, 0.1372549020, 0.2666666667],
+    [0.0392156863, 0.0941176471, 0.1882352941],
+    [0.1058823529, 0.1960784314, 0.3215686275],
+    [0.1607843137, 0.2745098039, 0.4156862745],
   ],
-  //   #f7f9fd bg-deep · #c4adff purple-200 · #a78bfa purple-300 · #7df8ef cyan-200
+  //   #F5F6F8 bg-deep · #E8ECF1 · #DCE1E8 · #C4CBD4 Prata
   light: [
-    [0.9686274510, 0.9764705882, 0.9921568627],
-    [0.7686274510, 0.6784313725, 1.0000000000],
-    [0.6549019608, 0.5450980392, 0.9803921569],
-    [0.4901960784, 0.9725490196, 0.9372549020],
+    [0.9607843137, 0.9647058824, 0.9725490196],
+    [0.9098039216, 0.9254901961, 0.9450980392],
+    [0.8627450980, 0.8823529412, 0.9098039216],
+    [0.7686274510, 0.7960784314, 0.8313725490],
   ],
 }
 

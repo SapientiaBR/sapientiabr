@@ -13,37 +13,37 @@ const PAIN_POINTS: { icon: Icon3DName; title: string; description: string; color
     icon: 'clock',
     title: 'Leads sem resposta',
     description: 'Quando cada mensagem depende de alguém estar disponível, oportunidades esfriam antes da conversa começar.',
-    color: 'from-rose-500/20 to-orange-400/10',
+    color: 'from-brand-coral/15 to-brand-coral/5',
   },
   {
     icon: 'notebook',
     title: 'Follow-up manual',
     description: 'SDRs e atendimento gastam horas cobrando resposta, atualizando planilhas e repetindo o mesmo processo.',
-    color: 'from-orange-500/20 to-rose-400/10',
+    color: 'from-brand-coral/5 to-brand-coral/15',
   },
   {
     icon: 'puzzle',
     title: 'Sistemas desconectados',
     description: 'Formulários, WhatsApp, CRM, agenda e pagamentos não conversam — e sua equipe precisa fazer essa ponte.',
-    color: 'from-rose-500/20 to-orange-400/10',
+    color: 'from-brand-coral/15 to-brand-coral/5',
   },
   {
     icon: 'setting',
     title: 'Equipe sobrecarregada',
     description: 'O trabalho operacional toma o espaço de tarefas que pedem relação, decisão e conhecimento do cliente.',
-    color: 'from-orange-500/20 to-rose-400/10',
+    color: 'from-brand-coral/5 to-brand-coral/15',
   },
   {
     icon: 'chat',
     title: 'Atendimento sem contexto',
     description: 'O cliente repete informações porque o histórico ficou em outro canal ou não chegou ao CRM.',
-    color: 'from-rose-500/20 to-orange-400/10',
+    color: 'from-brand-coral/15 to-brand-coral/5',
   },
   {
     icon: 'link',
     title: 'Presença digital solta',
     description: 'Um site bonito não basta quando ele não encaminha o lead para o fluxo comercial certo.',
-    color: 'from-orange-500/20 to-rose-400/10',
+    color: 'from-brand-coral/5 to-brand-coral/15',
   },
 ];
 
@@ -76,7 +76,7 @@ const PainPointsSection = () => {
                 glowColor={index % 2 === 0 ? 'red' : 'orange'}
                 tone="danger"
                 customSize
-                className="feature-flat h-full !flex !flex-col !grid-rows-none p-0 transition-transform duration-300 md:p-6 md:hover:-translate-y-1 md:shadow-[0_18px_48px_-34px_rgba(251,113,133,0.65)]"
+                className="feature-flat h-full !flex !flex-col !grid-rows-none p-0 transition-transform duration-300 md:p-6 md:hover:-translate-y-1 md:shadow-[0_18px_48px_-34px_rgba(4,10,24,0.7)]"
               >
                 <div
                   className={`mb-2 flex items-center gap-3 md:mb-4 md:justify-center md:rounded-xl md:bg-gradient-to-br md:px-4 md:py-3 ${point.color}`}
@@ -97,7 +97,7 @@ const PainPointsSection = () => {
           ))}
         </RevealOnScroll>
 
-        <RevealOnScroll className="mt-20 bg-gradient-sapient rounded-lg p-8 text-ink-on-brand text-center max-w-3xl mx-auto">
+        <RevealOnScroll className="mt-20 rounded-lg border border-ink-primary/10 bg-sapient-elevated p-8 text-ink-primary text-center max-w-3xl mx-auto">
           <h3 className="text-2xl font-bold mb-4">Sua equipe não precisa ser a ponte entre sistemas.</h3>
           <p className="mb-6 text-lg">
             Vamos mapear seu fluxo atual e identificar onde agentes de IA, integrações e um site conectado
@@ -106,7 +106,7 @@ const PainPointsSection = () => {
           <div className="flex justify-center">
             <Magnetic>
               <Button
-                className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg transition-colors"
+                className="bg-gradient-sapient text-ink-on-brand font-bold px-8 py-4 text-lg transition-colors"
                 onClick={() => window.open('https://bit.ly/40BtBp2', '_blank')}
               >
                 Mapear minha operação

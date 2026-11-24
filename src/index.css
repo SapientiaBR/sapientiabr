@@ -277,17 +277,17 @@ em.accent,
     background-position: 0 0 !important;
     background-image: linear-gradient(
       142deg,
-      hsl(var(--base) 85% 62% / 0.13) 0%,
-      hsl(var(--base) 85% 62% / 0.04) 38%,
+      hsl(var(--base) calc(var(--saturation, 40) * 1%) 62% / 0.13) 0%,
+      hsl(var(--base) calc(var(--saturation, 40) * 1%) 62% / 0.04) 38%,
       transparent 72%
     ) !important;
     background-color: var(--surface-veil) !important;
-    border: 1px solid hsl(var(--base) 70% 62% / 0.16) !important;
+    border: 1px solid hsl(var(--base) calc(var(--saturation, 40) * 1%) 62% / 0.2) !important;
     border-radius: 16px !important;
     padding: 0.95rem 1rem !important;
     box-shadow:
       inset 0 1px 0 var(--surface-sheen),
-      0 12px 26px -20px hsl(var(--base) 85% 50% / 0.6) !important;
+      0 12px 26px -20px rgba(4, 10, 24, 0.6) !important;
     backdrop-filter: none !important;
     gap: 0 !important;
   }
@@ -357,11 +357,11 @@ em.accent,
   width: 152%;
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(139, 92, 246, 0.14) 0%,
-    rgba(139, 92, 246, 0.18) 40%,
-    rgba(139, 92, 246, 0.5) 57%,
-    rgba(56, 189, 248, 0.28) 69%,
-    rgba(34, 211, 238, 0.1) 76%,
+    rgba(41, 70, 106, 0.18) 0%,
+    rgba(41, 70, 106, 0.28) 40%,
+    rgba(41, 70, 106, 0.75) 57%,
+    rgba(41, 70, 106, 0.35) 69%,
+    rgba(196, 203, 212, 0.06) 76%,
     transparent 84%
   );
   filter: blur(20px);
@@ -377,8 +377,8 @@ em.accent,
     from 0deg,
     transparent 0deg,
     transparent 190deg,
-    rgba(139, 92, 246, 0.5) 292deg,
-    rgba(34, 211, 238, 0.85) 350deg,
+    rgba(196, 203, 212, 0.3) 292deg,
+    rgba(214, 168, 62, 0.85) 350deg,
     transparent 360deg
   );
   -webkit-mask: radial-gradient(
@@ -400,12 +400,12 @@ em.accent,
 
 .otus-ring--inner {
   width: 100%;
-  border-color: rgba(167, 139, 250, 0.3);
+  border-color: rgba(196, 203, 212, 0.26);
 }
 
 .otus-ring--outer {
   width: 128%;
-  border-color: rgba(34, 211, 238, 0.14);
+  border-color: rgba(196, 203, 212, 0.12);
   animation: otus-breathe 9s ease-in-out infinite reverse;
 }
 
@@ -413,16 +413,14 @@ em.accent,
    metade do ciclo, para a emissao parecer continua sem dobrar a frequencia. */
 .otus-pulse {
   width: 104%;
-  border: 1px solid rgba(196, 181, 253, 0.75);
+  border: 1px solid rgba(196, 203, 212, 0.6);
   opacity: 0;
-  box-shadow: 0 0 18px -2px rgba(139, 92, 246, 0.5);
   animation: otus-pulse 5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .otus-pulse--late {
   animation-delay: 2.5s;
-  border-color: rgba(103, 232, 249, 0.6);
-  box-shadow: 0 0 18px -2px rgba(34, 211, 238, 0.45);
+  border-color: rgba(214, 168, 62, 0.55);
 }
 
 /* A imagem so flutua. Nao anima `transform` porque o `drop-shadow` seria
@@ -490,15 +488,10 @@ em.accent,
 /**
  * Partículas da coruja no tema claro.
  *
- * As cores das partículas são lidas pixel a pixel da própria logo, então não
- * há paleta para trocar: são o roxo e o ciano da marca, que sobre #f7f9fd dão
- * 1,6:1 e praticamente somem. O canvas desenha em blending aditivo sobre preto
- * transparente e só depois compõe com a página, então um filtro no elemento
- * escurece o desenho inteiro sem tocar no WebGL nem custar um quadro a mais.
+ * As cores das partículas são lidas pixel a pixel da própria logo. No claro o
+ * OwlParticles carrega `sapient-logo-claro.png` (coruja em Azul Sideral), então
+ * não há filtro a aplicar: a nuvem já nasce com contraste sobre #F5F6F8.
  */
-[data-theme='light'] .owl-canvas {
-  filter: brightness(0.52) saturate(1.5);
-}
 
 /* Logo de cliente desenhada em branco: invertida vira quase preta e volta a
    aparecer sobre o fundo claro. Só quem tem o atributo é tocado. */
